@@ -1,0 +1,31 @@
+@use "src/sass/foundation/colors"
+@use "src/sass/foundation/mixins"
+
+.body
+  background-color: colors.$main-light
+  font-size: 2em
+  padding-top: 20px
+  padding-bottom: 20px
+
+.wrapper
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.logo
+  font-weight: 900
+  text-transform: uppercase
+  @include mixins.unselectable
+
+.interactive
+  display: flex
+  align-items: center
+  column-gap: 45px
+
+.navigation
+  display: flex
+  align-items: center
+  column-gap: 30px
+
+.link
+  display: block
