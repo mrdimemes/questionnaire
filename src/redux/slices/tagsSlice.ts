@@ -1,15 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Tag } from "../../models/Tag";
 
-interface TagsState {
-  tags: Array<Tag>
-}
-
-const initialState: TagsState = {
+const initialState = {
   tags: new Array<Tag>()
 }
 
-export const authSlice = createSlice({
+export const tagsSlice = createSlice({
   name: 'tags',
   initialState,
   reducers: {
@@ -19,5 +15,5 @@ export const authSlice = createSlice({
   },
 })
 
-export const { setTags } = authSlice.actions;
-export default authSlice.reducer;
+export const { setTags } = tagsSlice.actions;
+export default tagsSlice.reducer;
