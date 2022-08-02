@@ -1,6 +1,9 @@
+import { ThemeSwitchButton } from "src/components";
+import { useAppSelector } from "src/redux/hooks";
 import styles from "./Header.module.sass";
 
 const Header = () => {
+  const activePage = useAppSelector((state) => state.browse.activePage)
   return (
     <div className={styles.body}>
       <div className={`wrapper ${styles.wrapper}`}>
@@ -11,7 +14,7 @@ const Header = () => {
             <a className={styles.link} href="#">Тэги</a>
             <a className={styles.link} href="#">Опросы</a>
           </nav>
-          <button>mode switch</button>
+          <ThemeSwitchButton/>
           <div>user</div>
         </div>
       </div>
