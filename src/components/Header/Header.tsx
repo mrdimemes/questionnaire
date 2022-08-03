@@ -8,7 +8,7 @@ const Header = () => {
   const activePage = useAppSelector((state) => state.browse.activePage);
 
   return (
-    <div className={styles.body}>
+    <header className={styles.body}>
       <div className={`wrapper ${styles.wrapper}`}>
         <div className={styles.logo}>logo</div>
         <div className={styles.interactive}>
@@ -21,12 +21,12 @@ const Header = () => {
 
             <a href="#" className={classNames(
               styles.link,
-              { [styles.activeLink]: activePage === NavigationPage.Tags }
+              { [styles.activeLink]: activePage === NavigationPage.QuestionnaireList }
             )}>Опросы</a>
 
             <a href="#" className={classNames(
               styles.link,
-              { [styles.activeLink]: activePage === NavigationPage.QuestionnaireList }
+              { [styles.activeLink]: activePage === NavigationPage.Tags }
             )}>Тэги</a>
 
           </nav>
@@ -34,7 +34,7 @@ const Header = () => {
           <div>user</div>
         </div>
       </div>
-    </div>
+    </header>
   )
 }
 

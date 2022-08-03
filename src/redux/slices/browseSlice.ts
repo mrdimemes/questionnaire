@@ -8,7 +8,7 @@ export enum NavigationPage {
 }
 
 const initialState = {
-  activePage: NavigationPage.Main
+  activePage: NavigationPage.None
 }
 
 export const browseSlice = createSlice({

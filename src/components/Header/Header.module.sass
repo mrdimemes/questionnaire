@@ -1,13 +1,18 @@
 @use "src/sass/foundation/colors"
+@use "src/sass/foundation/breakpoints"
 @use "src/sass/foundation/mixins"
 
 .body
   background-color: colors.$main-light
   font-size: 2em
-  padding-top: 20px
-  padding-bottom: 20px
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  height: 60px
 
 .wrapper
+  height: 100%
   display: flex
   justify-content: space-between
   align-items: center
@@ -32,3 +37,8 @@
 
 .activeLink
   font-weight: 800
+
+@media (max-width: breakpoints.$small-screen)
+  .body
+    font-size: 1.8em
+    height: 50px
