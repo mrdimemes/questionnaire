@@ -11,13 +11,15 @@ const TagsPage = () => {
   }, [dispatch]);
 
   return (
-    <div className="page wrapper">
-      <h1>Все тэги</h1>
-      <ul className="gallery"> {
-        tags.map((tag) => {
-          return <li key={tag.id}>{tag.label} - {tag.freq}</li>
-        })
-      } </ul>
+    <div className="page">
+      <div className="wrapper">
+        <h1>Все тэги</h1>
+        <ul className="gallery"> {
+          tags.map((tag) => {
+            return <li key={tag.id}>{tag.label} - {tag.freq}</li>
+          })
+        } </ul>
+      </div>
     </div>
   )
 }

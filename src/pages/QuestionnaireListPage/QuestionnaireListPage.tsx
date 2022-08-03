@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useAppSelector, useAppDispatch } from "src/redux/hooks"
-import { NavigationPage, setActivePage } from "src/redux/slices/browseSlice";;
+import { useAppSelector, useAppDispatch } from "src/redux/hooks";
+import { NavigationPage, setActivePage } from "src/redux/slices/browseSlice";
 import { QuestionnaireCard } from "src/models/Questionnaire";
 
 
@@ -25,22 +25,24 @@ const QuestionnaireListPage = () => {
   }, [dispatch]);
 
   return (
-    <div className="page wrapper">
-      <h1>Все опросы</h1>
-      <ul className="gallery"> {
-        items?.map((item) => {
-          return <li key={item.id}>
-            <h2>{item.label}</h2>
-            <div> {
-              item.tags.map((tagId) => {
-                return <div key={`${item.id}_${tagId}`}>
-                  {tags.get(tagId)}
-                </div>
-              })
-            } </div>
-          </li>
-        })
-      } </ul>
+    <div className="page">
+      <div className="wrapper">
+        <h1>Все опросы</h1>
+        <ul className="gallery"> {
+          items?.map((item) => {
+            return <li key={item.id}>
+              <h2>{item.label}</h2>
+              <div> {
+                item.tags.map((tagId) => {
+                  return <div key={`${item.id}_${tagId}`}>
+                    {tags.get(tagId)}
+                  </div>
+                })
+              } </div>
+            </li>
+          })
+        } </ul>
+      </div>
     </div>
   )
 }

@@ -10,8 +10,10 @@ const MainPage = () => {
   }, [dispatch]);
 
   return (
-    <div className="page wrapper">
-      <h1>Главная</h1>
+    <div className="page">
+      <div className="wrapper">
+        <h1>Главная</h1>
+      </div>
     </div>
   )
 }
