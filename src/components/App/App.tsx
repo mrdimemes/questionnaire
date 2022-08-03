@@ -1,10 +1,11 @@
-import { useEffect } from "react";
-import styles from "./App.module.sass";
-import { Header } from "../../components";
-import { MainPage } from "../../pages";
-import { useAppDispatch } from "../../redux/hooks";
-import { setTags } from "../../redux/slices/tagsSlice";
 import axios from "axios";
+import { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import { Header } from "src/components";
+import { MainPage, QuestionnaireListPage, TagsPage } from "src/pages";
+import { useAppDispatch } from "src/redux/hooks";
+import { setTags } from "src/redux/slices/tagsSlice";
+import styles from "./App.module.sass";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -12,13 +13,17 @@ function App() {
   useEffect(() => {
     axios.get("http://localhost:3000/backendPlaceholder/tags.json").then(
       (res) => dispatch(setTags(res.data.tags))
-      
     )
   }, []);
 
   return (
     <div className={styles.body}>
-      <Header/>
+      <Header />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="questionnaires" element={<QuestionnaireListPage />} />
+        <Route path="tags" element={<TagsPage />} />
+      </Routes>
     </div>
   );
 }

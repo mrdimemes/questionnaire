@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { ThemeSwitchButton } from "src/components";
+import { Link } from "react-router-dom";
 import { useAppSelector } from "src/redux/hooks";
 import { NavigationPage } from "src/redux/slices/browseSlice";
 import styles from "./Header.module.sass";
@@ -14,20 +15,20 @@ const Header = () => {
         <div className={styles.interactive}>
           <nav className={styles.navigation}>
 
-            <a href="#" className={classNames(
+            <Link to="/" className={classNames(
               styles.link,
               { [styles.activeLink]: activePage === NavigationPage.Main }
-            )}>Главная</a>
+            )}>Главная</Link>
 
-            <a href="#" className={classNames(
+            <Link to="/questionnaires" className={classNames(
               styles.link,
               { [styles.activeLink]: activePage === NavigationPage.QuestionnaireList }
-            )}>Опросы</a>
+            )}>Опросы</Link>
 
-            <a href="#" className={classNames(
+            <Link to="/tags" className={classNames(
               styles.link,
               { [styles.activeLink]: activePage === NavigationPage.Tags }
-            )}>Тэги</a>
+            )}>Тэги</Link>
 
           </nav>
           <ThemeSwitchButton />
