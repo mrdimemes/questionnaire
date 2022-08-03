@@ -1,10 +1,13 @@
 @use "src/sass/foundation/mixins"
+@use "src/sass/foundation/breakpoints"
 
 .body
   background-color: transparent
   border: 0
   padding: 0
   @include mixins.square(25px)
+  @media (max-width: breakpoints.$tablet)
+    @include mixins.square(20px)
 
 .icon
   @include mixins.containble
