@@ -10,9 +10,11 @@ type BurgerProps = {
 const Burger = ({ onClick, isOpen }: BurgerProps) => {
   return (
     <Button
-      className={classNames(styles.body, { [styles.opened]: isOpen })}
+      className={styles.body}
       onClick={onClick}
-    />
+    >
+      <div className={classNames(styles.icon, { [styles.opened]: isOpen })} />
+    </Button>
   )
 }
 

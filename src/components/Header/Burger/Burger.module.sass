@@ -1,11 +1,42 @@
 @use "src/sass/foundation/breakpoints"
+@use "src/sass/foundation/mixins"
 
 .body
-  background-color: green
+  border: 0
+  border-radius: 0
+  padding: 0
+  background-color: transparent
+  @include mixins.square(60px)
+  @include mixins.unhighlightable
+  position: relative
+  transform: scale(0.4) translateX(60%) translateY(-10%)
+  transition: 0.2s
   display: none
   @media (max-width: breakpoints.$tablet)
     display: block
 
+.icon
+  position: absolute
+  top: 30px
+  background-color: black
+  height: 8px
+  width: 60px
+  &::before, &::after
+    transition-duration: 0.2s
+    position: absolute
+    height: 8px
+    width: 60px
+    background-color: black
+    content: ""
+    left: 0
+  &::before
+    top: -20px
+  &::after
+    top: 20px
 
+// for .icon only
 .opened
-  background-color: red
+  &::before
+    transform: rotateZ(45deg) scaleX(0.75) translate(20px, -6px)
+  &::after
+    transform: rotateZ(-45deg) scaleX(0.75) translate(20px, 6px)
