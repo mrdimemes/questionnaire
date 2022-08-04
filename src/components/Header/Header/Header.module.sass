@@ -23,6 +23,11 @@
   align-items: center
 
 .logo
-  font-weight: 900
-  text-transform: uppercase
+  text-transform: capitalize
+  font-family: 'Edu NSW ACT Foundation', cursive
+  font-size: 28px
   @include mixins.unselectable
+  @media (max-width: breakpoints.$small-screen)
+    font-size: 26px
+  @media (max-width: breakpoints.$tablet)
+    font-size: 22px

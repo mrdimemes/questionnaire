@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className={styles.body}>
       <div className={`wrapper ${styles.wrapper}`}>
-        <div className={styles.logo}>logo</div>
+        <div className={styles.logo}>Questions!</div>
         <Menu />
       </div>
     </header>
