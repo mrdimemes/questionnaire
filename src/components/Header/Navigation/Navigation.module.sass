@@ -1,0 +1,13 @@
+@use "src/sass/foundation/mixins"
+
+.body
+  display: flex
+  align-items: center
+  column-gap: 30px
+
+.link
+  display: block
+  @include mixins.unhighlightable
+
+.active
+  font-weight: 800

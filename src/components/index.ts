@@ -1,5 +1,5 @@
 export { App } from './App';
-export { Header } from './Header';
-export { ThemeSwitchButton } from './ThemeSwitchButton';
+
+export { Header } from './header';
 
 export { Button } from './UI/Button';
