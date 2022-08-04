@@ -3,7 +3,7 @@ import classNames from "classnames";
 import styles from "./Button.module.sass";
 
 type ButtonProps = {
-  children: any,
+  children?: any,
   onClick: Function,
   className?: string
 }

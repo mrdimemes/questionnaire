@@ -1,20 +1,18 @@
-import { useState, MouseEvent } from "react";
 import classNames from "classnames";
+import { Button } from "src/components/UI/Button";
 import styles from "./Burger.module.sass";
 
-const Burger = () => {
-  const [isActive, setIsActive] = useState(false);
-  const toggleIsActive = () => {
-    setIsActive(!isActive)
-  }
-  const onClickHandler = (_event: MouseEvent<HTMLElement>) => {
-    toggleIsActive()
-  }
+type BurgerProps = {
+  onClick: Function,
+  isOpen: boolean
+}
 
+const Burger = ({ onClick, isOpen }: BurgerProps) => {
   return (
-    <div onClick={onClickHandler} className={classNames(styles.body, { "active": isActive })}>
-      <span className={classNames(styles.centerStick, { "active": isActive })} />
-    </div>
+    <Button
+      className={classNames(styles.body, { [styles.opened]: isOpen })}
+      onClick={onClick}
+    />
   )
 }
 

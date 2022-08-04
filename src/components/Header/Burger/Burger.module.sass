@@ -1,38 +1,5 @@
-@use "src/sass/foundation/mixins"
-
 .body
-  @include mixins.square(30px)
-  @include mixins.unhighlightable
-  align-items: center
-  display: flex
-  position: relative
-  cursor: pointer
-  &::before, &::after
-    content: ""
-    display: block
-    width: 100%
-    height: 3px
-    border-radius: 2px
-    position: absolute
-    background-color: black
-  &::before
-    top: 0
-  &::after
-    bottom: 0
-  &.active .centerStick
-    height: 0
-  &.active::before, &.active::after
-    background-color: #fff
-  &.active::before
-    transform: rotateZ(45deg)
-    top: 45%
-  &.active::after
-    transform: rotateZ(-45deg)
-    bottom: 45%
+  background-color: green
 
-.centerStick
-  display: block
-  width: 100%
-  height: 3px
-  background-color: black
-  border-radius: 2px
+.opened
+  background-color: red
