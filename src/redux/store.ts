@@ -1,13 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import tagsSlice from "./slices/tagsSlice";
-import browseSlice from "./slices/browseSlice";
-import authSlice from "./slices/authSlice";
+import { authSlice, tagsSlice, browseSlice, themeSlice } from "./slices";
 
 const store = configureStore({
   reducer: {
     tags: tagsSlice,
     browse: browseSlice,
-    auth: authSlice
+    auth: authSlice,
+    theme: themeSlice
   }
 })
 

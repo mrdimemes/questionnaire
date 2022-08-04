@@ -1,21 +1,20 @@
-import { useState } from "react";
+import { useAppSelector, useAppDispatch } from "src/redux/hooks";
+import { Theme, setTheme } from "src/redux/slices/themeSlice";
 import { Button } from "src/components/UI/Button";
 import styles from "./ThemeSwitchButton.module.sass";
 import LightThemeIcon from "src/assets/images/icons/light-mode-icon.svg";
 import DarkThemeIcon from "src/assets/images/icons/dark-mode-icon.svg";
 
-enum Themes {
-  light = "LIGHT",
-  dark = "DARK"
-}
 
 const ThemeSwitchButton = () => {
-  const [theme, setTheme] = useState<Themes>(Themes.light);
+  const dispatch = useAppDispatch();
+  const currentTheme = useAppSelector((state) => state.theme.theme);
+
   const toggleTheme = () => {
-    if (theme === Themes.light) {
-      setTheme(Themes.dark)
+    if (currentTheme === Theme.Light) {
+      dispatch(setTheme(Theme.Dark))
     } else {
-      setTheme(Themes.light)
+      dispatch(setTheme(Theme.Light))
     }
   }
 
@@ -23,7 +22,7 @@ const ThemeSwitchButton = () => {
     <Button className={styles.body} onClick={toggleTheme}>
       <img
         className={styles.icon}
-        src={theme === Themes.light ? LightThemeIcon : DarkThemeIcon}
+        src={currentTheme === Theme.Light ? LightThemeIcon : DarkThemeIcon}
         alt="switch theme"
       />
     </Button>
