@@ -1,5 +1,11 @@
+@use "src/sass/foundation/breakpoints"
+
 .body
   background-color: green
+  display: none
+  @media (max-width: breakpoints.$tablet)
+    display: block
+
 
 .opened
   background-color: red

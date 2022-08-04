@@ -3,6 +3,30 @@
 .body
   display: flex
   align-items: center
+
+.interactive
+  display: flex
+  align-items: center
   column-gap: 45px
-  @media (max-width: breakpoints.$small-screen)
-    column-gap: 30px
+  @media (max-width: breakpoints.$tablet)
+    background-color: gray
+    position: fixed
+    inset: 40px 0 0 50px
+    padding: 10px 30px
+    flex-direction: column-reverse
+    justify-content: flex-end
+    align-items: flex-start
+    row-gap: 25px
+    transition: 0.2s
+    transform: translateX(100vw)
+
+.meta
+  display: flex
+  align-items: center
+  column-gap: 30px
+  @media (max-width: breakpoints.$tablet)
+    width: 100%
+    justify-content: space-between
+
+.opened
+  transform: translateX(0)
