@@ -3,7 +3,6 @@
 @use "src/sass/foundation/mixins"
 
 .body
-  background-color: colors.$main-light
   font-size: 2em
   position: fixed
   top: 0
@@ -16,6 +15,12 @@
   @media (max-width: breakpoints.$tablet)
     font-size: 1.6em
     height: 40px
+
+.theme_dark
+  background-color: colors.$dark-theme-2
+
+.theme_light
+  background-color: colors.$light-theme-1
 
 .wrapper
   display: flex

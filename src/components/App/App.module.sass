@@ -1,2 +1,18 @@
+@use "src/sass/foundation/colors"
+@use "src/sass/foundation/breakpoints"
+
 .body
-  color: black
+  min-height: calc(100vh - 60px)
+  transition: 0.3s
+  @media (max-width: breakpoints.$small-screen)
+    min-height: calc(100vh - 50px)
+  @media (max-width: breakpoints.$tablet)
+    min-height: calc(100vh - 40px)
+
+.theme_dark
+  background-color: colors.$dark-theme-1
+  color: colors.$dark-theme-4
+
+.theme_light
+  background-color: colors.$white
+  color: colors.$gray-1

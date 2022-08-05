@@ -1,3 +1,4 @@
+@use "src/sass/foundation/colors"
 @use "src/sass/foundation/breakpoints"
 @use "src/sass/foundation/mixins"
 
@@ -18,21 +19,31 @@
 .icon
   position: absolute
   top: 30px
-  background-color: black
   height: 8px
   width: 60px
+  transition: 0.2s
   &::before, &::after
-    transition-duration: 0.2s
+    transition: 0.2s
     position: absolute
     height: 8px
     width: 60px
-    background-color: black
     content: ""
     left: 0
   &::before
     top: -20px
   &::after
     top: 20px
+
+// for .icon only
+.theme_dark
+  background-color: colors.$dark-theme-4
+  &::before, &::after
+    background-color: colors.$dark-theme-4
+
+.theme_light
+  background-color: colors.$gray-1
+  &::before, &::after
+    background-color: colors.$gray-1
 
 // for .icon only
 .opened
