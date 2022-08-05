@@ -1,8 +1,5 @@
 import { screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { renderWithProvidersAndRouters } from "src/utils/test-utils";
-import { setupStore } from "src/redux/store";
-import { NavigationPage } from "src/redux/slices/browseSlice";
 import Navigation from "./Navigation";
 
 describe("Header/Navigation component", () => {

@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header/Menu component Menu snapshot 1`] = `
+<div>
+  <div
+    class="body"
+  >
+    <div
+      class="interactive theme_light"
+    >
+      <nav
+        class="body"
+      >
+        <a
+          class="link"
+          href="/"
+        >
+          Главная
+        </a>
+        <a
+          class="link"
+          href="/questionnaires"
+        >
+          Опросы
+        </a>
+        <a
+          class="link"
+          href="/tags"
+        >
+          Тэги
+        </a>
+      </nav>
+      <div
+        class="meta"
+      >
+        <button
+          class="body body"
+        >
+          <img
+            alt="switch theme"
+            class="icon"
+            src="light-mode-icon.svg"
+          />
+        </button>
+        <div>
+          user
+        </div>
+      </div>
+    </div>
+    <button
+      class="body body"
+    >
+      <div
+        class="icon theme_light"
+      />
+    </button>
+  </div>
+</div>
+`;
