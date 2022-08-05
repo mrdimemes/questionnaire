@@ -19,7 +19,7 @@ describe("Header/ThemeSwitchButton component", () => {
   });
 
   test("ThemeSwitchButton snapshot", () => {
-    const switchBtn = renderWithProviders(<ThemeSwitchButton />);
-    expect(switchBtn).toMatchSnapshot();
+    const { container } = renderWithProviders(<ThemeSwitchButton />);
+    expect(container).toMatchSnapshot();
   });
 });

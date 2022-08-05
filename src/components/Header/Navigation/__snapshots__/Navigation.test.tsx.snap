@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header/Navigation component Navigation snapshot 1`] = `
+<div>
+  <nav
+    class="body"
+  >
+    <a
+      class="link"
+      href="/"
+    >
+      Главная
+    </a>
+    <a
+      class="link"
+      href="/questionnaires"
+    >
+      Опросы
+    </a>
+    <a
+      class="link"
+      href="/tags"
+    >
+      Тэги
+    </a>
+  </nav>
+</div>
+`;
