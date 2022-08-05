@@ -12,10 +12,10 @@ describe('Button component', () => {
   });
 
   test('onClick works', () => {
-    const AnotherOnClick = jest.fn();
-    render(<Button children='Button' onClick={AnotherOnClick} />);
+    const anotherOnClick = jest.fn();
+    render(<Button children='Button' onClick={anotherOnClick} />);
     userEvent.click(screen.getByRole('button'))
-    expect(AnotherOnClick).toHaveBeenCalled();
+    expect(anotherOnClick).toHaveBeenCalled();
   });
 
   test('Button snapshot', () => {
