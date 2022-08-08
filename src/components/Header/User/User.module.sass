@@ -1,0 +1,25 @@
+@use "src/sass/foundation/colors"
+@use "src/sass/foundation/mixins"
+@use "src/sass/foundation/breakpoints"
+
+.body
+  position: relative
+  @include mixins.unhighlightable
+
+.name
+  padding: 0
+  background-color: transparent
+  border: 0
+
+.popup
+  position: absolute
+  right: 0
+  bottom: -65px
+  display: none
+  @media (max-width: breakpoints.$small-screen)
+    bottom: -55px
+  @media (max-width: breakpoints.$tablet)
+    bottom: -40px
+
+.opened
+  display: block

@@ -45,7 +45,7 @@ exports[`Header component Header snapshot 1`] = `
             class="meta"
           >
             <button
-              class="body body"
+              class="body theme_light body"
             >
               <img
                 alt="switch theme"
@@ -53,13 +53,19 @@ exports[`Header component Header snapshot 1`] = `
                 src="light-mode-icon.svg"
               />
             </button>
-            <div>
-              user
+            <div
+              class="body"
+            >
+              <button
+                class="body theme_light"
+              >
+                Войти
+              </button>
             </div>
           </div>
         </div>
         <button
-          class="body body"
+          class="body theme_light body"
         >
           <div
             class="icon theme_light"

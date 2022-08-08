@@ -3,7 +3,7 @@
 exports[`Header/ThemeSwitchButton component ThemeSwitchButton snapshot 1`] = `
 <div>
   <button
-    class="body body"
+    class="body theme_light body"
   >
     <img
       alt="switch theme"

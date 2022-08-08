@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { useAppSelector } from "src/redux/hooks";
 import { Theme } from "src/redux/slices/themeSlice";
 import { useState } from "react";
-import { Navigation, ThemeSwitchButton, Burger } from "../";
+import { Navigation, ThemeSwitchButton, Burger, User } from "../";
 import styles from "./Menu.module.sass";
 
 const Menu = () => {
@@ -25,7 +25,7 @@ const Menu = () => {
         <Navigation />
         <div className={styles.meta}>
           <ThemeSwitchButton />
-          <div>user</div>
+          <User />
         </div>
       </div>
       <Burger onClick={toggleIsOpen} isOpen={isOpen} />

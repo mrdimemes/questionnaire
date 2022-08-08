@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header/User component Header/User snapshot 1`] = `
+<div>
+  <div
+    class="body"
+  >
+    <button
+      class="body theme_light"
+    >
+      Войти
+    </button>
+  </div>
+</div>
+`;
