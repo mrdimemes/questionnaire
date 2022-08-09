@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuestionnaireCard component QuestionnaireCard snapshot 1`] = `
+<div>
+  <div>
+    <h2
+      class="label"
+    >
+      Question123
+    </h2>
+    <div
+      class="tags"
+    >
+      <div
+        class="body theme_light"
+      >
+        <div>
+          Tag123
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

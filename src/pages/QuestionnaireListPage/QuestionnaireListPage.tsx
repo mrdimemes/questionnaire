@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useAppSelector, useAppDispatch } from "src/redux/hooks";
 import { NavigationPage, setActivePage } from "src/redux/slices/browseSlice";
-import { QuestionnaireCard } from "src/models/Questionnaire";
-import { Tag } from "src/components";
+import { QuestionnaireCard as CardModel } from "src/models/Questionnaire";
+import { QuestionnaireCard } from "src/components";
 
 
 const QuestionnaireListPage = () => {
   const dispatch = useAppDispatch();
-  const [items, setItems] = useState<Array<QuestionnaireCard>>();
+  const [cards, setCards] = useState<Array<CardModel>>();
 
   const tags = useAppSelector((state) => {
     const tagsMap = new Map<number, string>();
@@ -21,7 +21,7 @@ const QuestionnaireListPage = () => {
   useEffect(() => {
     dispatch(setActivePage(NavigationPage.QuestionnaireList));
     axios.get("http://localhost:3000/backendPlaceholder/questionnaires.json").then(
-      (res) => setItems(res.data.questionnaires)
+      (res) => setCards(res.data.questionnaires)
     )
   }, [dispatch]);
 
@@ -29,23 +29,20 @@ const QuestionnaireListPage = () => {
     <div className="page">
       <div className="wrapper">
         <h1>Все опросы</h1>
-        <ul className="gallery"> {
-          items?.map((item) => {
-            return <li key={item.id}>
-              <h2>{item.label}</h2>
-              <div> {
-                item.tags.map((tagId) => {
-                  return <Tag
-                    key={`${item.id}_${tagId}`}
-                    label={"" + tags.get(tagId)}
-                  />
-                })
-              } </div>
-            </li>
+        <div className="gallery">{
+          cards?.map((card) => {
+            return <QuestionnaireCard
+              key={card.id}
+              id={card.id}
+              label={card.label}
+              tags={card.tags.map((tagId) => {
+                return { id: tagId, label: "" + tags.get(tagId) }
+              })}
+            />
           })
-        } </ul>
-      </div>
-    </div>
+        }</div >
+      </div >
+    </div >
   )
 }
 
