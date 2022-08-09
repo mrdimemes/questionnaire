@@ -3,6 +3,7 @@ import axios from "axios";
 import { useAppSelector, useAppDispatch } from "src/redux/hooks";
 import { NavigationPage, setActivePage } from "src/redux/slices/browseSlice";
 import { QuestionnaireCard } from "src/models/Questionnaire";
+import { Tag } from "src/components";
 
 
 const QuestionnaireListPage = () => {
@@ -34,9 +35,10 @@ const QuestionnaireListPage = () => {
               <h2>{item.label}</h2>
               <div> {
                 item.tags.map((tagId) => {
-                  return <div key={`${item.id}_${tagId}`}>
-                    {tags.get(tagId)}
-                  </div>
+                  return <Tag
+                    key={`${item.id}_${tagId}`}
+                    label={"" + tags.get(tagId)}
+                  />
                 })
               } </div>
             </li>

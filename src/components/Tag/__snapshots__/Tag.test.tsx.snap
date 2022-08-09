@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag component Tag snapshot 1`] = `
+<div>
+  <div
+    class="body theme_light"
+  >
+    <div>
+      TestLabel
+    </div>
+  </div>
+</div>
+`;
