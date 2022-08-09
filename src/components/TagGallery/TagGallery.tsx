@@ -1,0 +1,17 @@
+import { useAppSelector } from "src/redux/hooks";
+import { Tag } from "src/components";
+import styles from "./TagGallery.module.sass";
+
+const TagGallery = () => {
+  const tags = useAppSelector((state) => state.tags.tags);
+
+  return (
+    <div className={styles.body}> {
+      tags.map((tag) => {
+        return <Tag key={tag.id} label={tag.label} freq={tag.freq} />
+      })
+    } </div>
+  )
+}
+
+export default TagGallery

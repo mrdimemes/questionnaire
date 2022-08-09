@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagGallery component TagGallery empty snapshot 1`] = `
+<div>
+  <div
+    class="body"
+  >
+     
+     
+  </div>
+</div>
+`;
+
+exports[`TagGallery component TagGallery fillfull snapshot 1`] = `
+<div>
+  <div
+    class="body"
+  >
+     
+    <div
+      class="body theme_light"
+    >
+      <div>
+        tag0
+      </div>
+      <div
+        class="freq freq_theme_light"
+      >
+        99
+      </div>
+    </div>
+    <div
+      class="body theme_light"
+    >
+      <div>
+        tag1
+      </div>
+      <div
+        class="freq freq_theme_light"
+      >
+        1
+      </div>
+    </div>
+    <div
+      class="body theme_light"
+    >
+      <div>
+        tag2
+      </div>
+      <div
+        class="freq freq_theme_light"
+      >
+        205
+      </div>
+    </div>
+     
+  </div>
+</div>
+`;
