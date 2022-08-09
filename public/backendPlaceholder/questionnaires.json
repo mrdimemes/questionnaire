@@ -2,152 +2,152 @@
   "questionnaires": [
     {
       "id": 0,
-      "label": "questionnaire 1",
+      "label": "Первый опросник",
       "tags": [0, 2]
     },
     {
       "id": 1,
-      "label": "questionnaire 2",
+      "label": "Второй опросник",
       "tags": [1]
     },
     {
       "id": 2,
-      "label": "questionnaire 3",
+      "label": "Третий опросник",
       "tags": [0]
     },
     {
       "id": 3,
-      "label": "questionnaire 4",
+      "label": "Опросник номер четыре",
       "tags": [5]
     },
     {
       "id": 4,
-      "label": "questionnaire 5",
+      "label": "Номер пять",
       "tags": [3, 5]
     },
     {
       "id": 5,
-      "label": "questionnaire 6",
+      "label": "Важная анкета!",
       "tags": [0]
     },
     {
       "id": 6,
-      "label": "questionnaire 7",
+      "label": "Пройдите опрос",
       "tags": [1, 2, 3]
     },
     {
       "id": 7,
-      "label": "questionnaire 8",
+      "label": "Бла-бла-бла",
       "tags": [4]
     },
     {
       "id": 8,
-      "label": "questionnaire 9",
+      "label": "Название анкеты",
       "tags": [4]
     },
     {
       "id": 9,
-      "label": "questionnaire 10",
+      "label": "Очередной опросник",
       "tags": [3]
     },
     {
       "id": 10,
-      "label": "questionnaire 11",
+      "label": "Опросник мечты",
       "tags": [0]
     },
     {
       "id": 11,
-      "label": "questionnaire 12",
+      "label": "Отношение к важным событиям",
       "tags": [3, 4]
     },
     {
       "id": 12,
-      "label": "questionnaire 13",
+      "label": "Пятница тринадцатое (опрос №13)",
       "tags": [2]
     },
     {
       "id": 13,
-      "label": "questionnaire 14",
+      "label": "Даб-даб-даб",
       "tags": [1]
     },
     {
       "id": 14,
-      "label": "questionnaire 15",
+      "label": "Анкета №15",
       "tags": [5]
     },
     {
       "id": 15,
-      "label": "questionnaire 16",
+      "label": "Анкета №16",
       "tags": [2, 4, 5]
     },
     {
       "id": 16,
-      "label": "questionnaire 17",
+      "label": "Ещё один опросник",
       "tags": [0, 4]
     },
     {
       "id": 17,
-      "label": "questionnaire 18",
+      "label": "Пройдите опрос, пожалуйста",
       "tags": [0]
     },
     {
       "id": 18,
-      "label": "questionnaire 19",
+      "label": "Опрос о *рандомная тема*",
       "tags": [5]
     },
     {
       "id": 19,
-      "label": "questionnaire 20",
+      "label": "Аж двадцатая анкета",
       "tags": [1, 4]
     },
     {
       "id": 20,
-      "label": "questionnaire 21",
+      "label": "Ад на Земле",
       "tags": [1, 2]
     },
     {
       "id": 21,
-      "label": "questionnaire 22",
+      "label": "Ад под Землей",
       "tags": [5]
     },
     {
       "id": 22,
-      "label": "questionnaire 23",
+      "label": "Ад над Землей",
       "tags": [4]
     },
     {
       "id": 23,
-      "label": "questionnaire 24",
+      "label": "Просто опросник",
       "tags": [3]
     },
     {
       "id": 24,
-      "label": "questionnaire 25",
+      "label": "Просто анкета",
       "tags": [3]
     },
     {
       "id": 25,
-      "label": "questionnaire 26",
+      "label": "Почти последняя анккета",
       "tags": [3]
     },
     {
       "id": 26,
-      "label": "questionnaire 27",
+      "label": "Ещё немного",
       "tags": [3, 5]
     },
     {
       "id": 27,
-      "label": "questionnaire 28",
+      "label": "English questionnaire label",
       "tags": [4]
     },
     {
       "id": 28,
-      "label": "questionnaire 29",
+      "label": "Предпоследний опросник",
       "tags": [5]
     },
     {
       "id": 29,
-      "label": "questionnaire 30",
+      "label": "Последний опросник в .json-файле",
       "tags": [1]
     }
   ]
