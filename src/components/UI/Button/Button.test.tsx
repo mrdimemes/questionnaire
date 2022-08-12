@@ -11,6 +11,11 @@ describe('Button component', () => {
     expect(screen.getByText(/button/i)).toBeInTheDocument();
   });
 
+  test('Button renders without children', () => {
+    render(<Button onClick={onClick} />);
+    expect(screen.getByRole('button')).toBeInTheDocument();
+  });
+
   test('onClick works', () => {
     const anotherOnClick = jest.fn();
     render(<Button children='Button' onClick={anotherOnClick} />);
