@@ -1,6 +1,22 @@
+@use "src/sass/foundation/colors"
+
+.body
+  padding: 10px
+  border-radius: 6px
+  cursor: pointer
+  transition: 0.3s
+
 .label
   margin-bottom: 0.8em
 
 .tags
   display: flex
   gap: 15px
+
+.theme_dark
+  &:hover
+    background-color: colors.$dark-theme-bg-highlight
+
+.theme_light
+  &:hover
+    background-color: colors.$light-theme-bg-highlight
