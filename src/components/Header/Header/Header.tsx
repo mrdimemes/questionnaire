@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useAppSelector } from "src/redux/hooks";
-import { Theme } from "src/redux/slices/themeSlice";
+import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { Menu } from "../Menu";
 import styles from "./Header.module.sass";
 
@@ -10,10 +10,7 @@ const Header = () => {
   return (
     <header className={classNames(
       styles.body,
-      {
-        [styles.theme_dark]: currentTheme === Theme.Dark,
-        [styles.theme_light]: currentTheme === Theme.Light
-      }
+      getThemeStyle(styles, currentTheme)
     )}>
       <div className={`wrapper ${styles.wrapper}`}>
         <div className={styles.logo}>Questions!</div>

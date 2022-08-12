@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useAppSelector } from "src/redux/hooks";
-import { Theme } from "src/redux/slices/themeSlice";
+import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { useState } from "react";
 import { Navigation, ThemeSwitchButton, Burger, User } from "../";
 import styles from "./Menu.module.sass";
@@ -16,12 +16,9 @@ const Menu = () => {
     <div className={styles.body}>
       <div className={classNames(
         styles.interactive,
-        {
-          [styles.opened]: isOpen,
-          [styles.theme_dark]: currentTheme === Theme.Dark,
-          [styles.theme_light]: currentTheme === Theme.Light
-        })
-      }>
+        { [styles.opened]: isOpen },
+        getThemeStyle(styles, currentTheme)
+      )}>
         <Navigation />
         <div className={styles.meta}>
           <ThemeSwitchButton />

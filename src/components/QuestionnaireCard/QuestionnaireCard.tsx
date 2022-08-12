@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useAppSelector } from "src/redux/hooks";
-import { Theme } from "src/redux/slices/themeSlice";
+import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { Tag } from "src/components";
 import styles from "./QuestionnaireCard.module.sass";
 
@@ -18,10 +18,7 @@ const QuestionnaireCard = ({ id, label, tags }: QuestionnaireCardProps) => {
 
   return <div className={classNames(
     styles.body,
-    {
-      [styles.theme_dark]: currentTheme === Theme.Dark,
-      [styles.theme_light]: currentTheme === Theme.Light
-    }
+    getThemeStyle(styles, currentTheme)
   )}>
     <h2 className={styles.label}>{label}</h2>
     <div className={styles.tags}>{

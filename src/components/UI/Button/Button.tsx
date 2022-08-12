@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import { useAppSelector } from "src/redux/hooks";
-import { Theme } from "src/redux/slices/themeSlice";
+import { getThemeStyle } from "src/redux/slices/themeSlice";
 import styles from "./Button.module.sass";
 
 type ButtonProps = {
@@ -20,10 +20,7 @@ const Button = ({ children, onClick, className }: ButtonProps) => {
     <button
       className={classNames(
         styles.body,
-        {
-          [styles.theme_light]: currentTheme === Theme.Light,
-          [styles.theme_dark]: currentTheme === Theme.Dark
-        },
+        getThemeStyle(styles, currentTheme),
         className
       )}
       onClick={onClickHandler}

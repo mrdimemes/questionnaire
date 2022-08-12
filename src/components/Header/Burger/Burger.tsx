@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useAppSelector } from "src/redux/hooks";
-import { Theme } from "src/redux/slices/themeSlice";
+import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { Button } from "src/components/UI/Button";
 import styles from "./Burger.module.sass";
 
@@ -19,11 +19,8 @@ const Burger = ({ onClick, isOpen }: BurgerProps) => {
     >
       <div className={classNames(
         styles.icon,
-        {
-          [styles.opened]: isOpen,
-          [styles.theme_dark]: currentTheme === Theme.Dark,
-          [styles.theme_light]: currentTheme === Theme.Light
-        }
+        { [styles.opened]: isOpen },
+        getThemeStyle(styles, currentTheme)
       )} />
     </Button>
   )

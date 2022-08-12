@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import { Header } from "src/components";
 import { MainPage, QuestionnaireListPage, TagsPage } from "src/pages";
 import { useAppDispatch, useAppSelector } from "src/redux/hooks";
-import { Theme } from "src/redux/slices/themeSlice";
+import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { setTags } from "src/redux/slices/tagsSlice";
 import styles from "./App.module.sass";
 
@@ -22,10 +22,7 @@ function App() {
   return (
     <div className={classNames(
       styles.body,
-      {
-        [styles.theme_dark]: currentTheme === Theme.Dark,
-        [styles.theme_light]: currentTheme === Theme.Light
-      }
+      getThemeStyle(styles, currentTheme)
     )}>
       <Header />
       <Routes>
