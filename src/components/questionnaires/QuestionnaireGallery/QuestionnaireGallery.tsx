@@ -2,12 +2,17 @@ import { useState, useEffect } from "react";
 import { useAppSelector } from "src/redux/hooks";
 import axios from "axios";
 import { QuestionnaireCard as CardModel } from "src/models/Questionnaire";
-import { QuestionnaireCard } from "src/components";
+import { QuestionnaireCard, QuestionnaireGalleryViewSwitchButton } from "src/components";
 import styles from "./QuestionnaireGallery.module.sass";
 
+export enum GalleryViews {
+  Rows = "ROWS",
+  Plates = "PLATES"
+}
 
 const QuestionnaireGallery = () => {
   const [cards, setCards] = useState<Array<CardModel>>();
+  const [currentView, setCurrentView] = useState(GalleryViews.Rows);
   const tags = useAppSelector((state) => {
     const tagsMap = new Map<number, string>();
     for (const tag of state.tags.tags) {
@@ -24,8 +29,12 @@ const QuestionnaireGallery = () => {
 
 
   return (
-    <div className={styles.body}> {
-      cards?.map((card) => {
+    <div className={styles.body}>
+      <QuestionnaireGalleryViewSwitchButton
+        setCurrentView={setCurrentView}
+        currentView={currentView}
+      />
+      {cards?.map((card) => {
         return <QuestionnaireCard
           key={card.id}
           id={card.id}
@@ -35,7 +44,7 @@ const QuestionnaireGallery = () => {
           })}
         />
       })
-    } </div >
+      } </div >
   )
 }
 
