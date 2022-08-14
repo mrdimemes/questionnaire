@@ -3,6 +3,8 @@ import { useAppSelector } from "src/redux/hooks";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { Button } from "src/components/UI/Button";
 import { GalleryViews } from "../QuestionnaireGallery/QuestionnaireGallery";
+import Plates from "src/assets/images/icons/plates.svg";
+import Rows from "src/assets/images/icons/rows.svg";
 import styles from "./QuestionnaireGalleryViewSwitchButton.module.sass";
 
 type ViewSwitchProps = {
@@ -31,10 +33,14 @@ const QuestionnaireGalleryViewSwitchButton = (
       onClick={toggleView}
       className={classNames(
         styles.body,
-        getThemeStyle(styles, currentTheme),
-        currentView === GalleryViews.Plates ? styles.view_plates : styles.view_rows
+        getThemeStyle(styles, currentTheme)
       )}
-    > ViewSwitch </Button>
+    >
+      <img
+        src={currentView === GalleryViews.Plates ? Rows : Plates}
+        alt="view mode"
+      />
+    </Button>
   )
 }
 
