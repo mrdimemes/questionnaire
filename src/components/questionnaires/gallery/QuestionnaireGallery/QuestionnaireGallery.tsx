@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { useState, useEffect } from "react";
 import { useAppSelector } from "src/redux/hooks";
 import axios from "axios";
@@ -20,6 +21,16 @@ const QuestionnaireGallery = () => {
     }
     return tagsMap
   });
+  const getCardNode = (card: CardModel) => {
+    return <QuestionnaireCard
+      key={card.id}
+      id={card.id}
+      label={card.label}
+      tags={card.tags.map((tagId) => {
+        return { id: tagId, label: "" + tags.get(tagId) }
+      })}
+    />
+  };
 
   useEffect(() => {
     axios.get("http://localhost:3000/backendPlaceholder/questionnaires.json").then(
@@ -28,23 +39,29 @@ const QuestionnaireGallery = () => {
   }, []);
 
   return (
-    <div className={styles.body}>
+    <div className={classNames(
+      styles.body,
+      currentView === GalleryViews.Rows ? styles.view_rows : styles.view_plates
+    )}>
 
       <ViewSwitchButton
         setCurrentView={setCurrentView} currentView={currentView}
       />
 
-      {cards?.map((card) => {
-        return <QuestionnaireCard
-          key={card.id}
-          id={card.id}
-          label={card.label}
-          tags={card.tags.map((tagId) => {
-            return { id: tagId, label: "" + tags.get(tagId) }
-          })}
-        />
-      })
-      } </div >
+      {currentView === GalleryViews.Plates && <>
+        <div className={styles.column}> {
+          cards?.filter((_, index) => index % 2 === 0)
+            .map((card) => getCardNode(card))
+        } </div>
+        <div className={styles.column}> {
+          cards?.filter((_, index) => index % 2 !== 0)
+            .map((card) => getCardNode(card))
+        } </div>
+      </>}
+
+      {currentView === GalleryViews.Rows &&
+        cards?.map((card) => getCardNode(card))}
+    </div >
   )
 }
 
