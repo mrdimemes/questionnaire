@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuestionnaireGallery/ViewSwitchButton component ViewSwitchButton snapshot 1`] = `
+<div>
+  <button
+    class="body theme_light body theme_light"
+  >
+    <img
+      alt="view mode"
+      src="plates.svg"
+    />
+  </button>
+</div>
+`;

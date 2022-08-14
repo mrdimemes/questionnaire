@@ -5,18 +5,17 @@ import { Button } from "src/components/UI/Button";
 import { GalleryViews } from "../QuestionnaireGallery/QuestionnaireGallery";
 import Plates from "src/assets/images/icons/plates.svg";
 import Rows from "src/assets/images/icons/rows.svg";
-import styles from "./QuestionnaireGalleryViewSwitchButton.module.sass";
+import styles from "./ViewSwitchButton.module.sass";
 
 type ViewSwitchProps = {
   setCurrentView: (newView: GalleryViews) => void,
   currentView: GalleryViews
 };
 
-const QuestionnaireGalleryViewSwitchButton = (
+const ViewSwitchButton = (
   { setCurrentView, currentView }: ViewSwitchProps
 ) => {
   const currentTheme = useAppSelector((state) => state.theme.theme);
-
   const toggleView = () => {
     switch (currentView) {
       case GalleryViews.Plates:
@@ -44,4 +43,4 @@ const QuestionnaireGalleryViewSwitchButton = (
   )
 }
 
-export default QuestionnaireGalleryViewSwitchButton
+export default ViewSwitchButton

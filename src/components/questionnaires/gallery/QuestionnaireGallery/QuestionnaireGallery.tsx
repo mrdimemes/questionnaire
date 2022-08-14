@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useAppSelector } from "src/redux/hooks";
 import axios from "axios";
 import { QuestionnaireCard as CardModel } from "src/models/Questionnaire";
-import { QuestionnaireCard, QuestionnaireGalleryViewSwitchButton } from "src/components";
+import { QuestionnaireCard, ViewSwitchButton } from "../";
 import styles from "./QuestionnaireGallery.module.sass";
 
 export enum GalleryViews {
@@ -27,13 +27,13 @@ const QuestionnaireGallery = () => {
     )
   }, []);
 
-
   return (
     <div className={styles.body}>
-      <QuestionnaireGalleryViewSwitchButton
-        setCurrentView={setCurrentView}
-        currentView={currentView}
+
+      <ViewSwitchButton
+        setCurrentView={setCurrentView} currentView={currentView}
       />
+
       {cards?.map((card) => {
         return <QuestionnaireCard
           key={card.id}
