@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="body"
+        class="body theme_light"
       >
         Button
       </button>
@@ -14,7 +14,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="body"
+      class="body theme_light"
     >
       Button
     </button>
@@ -69,6 +69,13 @@ Object {
   "queryByText": [Function],
   "queryByTitle": [Function],
   "rerender": [Function],
+  "store": Object {
+    "@@observable": [Function],
+    "dispatch": [Function],
+    "getState": [Function],
+    "replaceReducer": [Function],
+    "subscribe": [Function],
+  },
   "unmount": [Function],
 }
 `;

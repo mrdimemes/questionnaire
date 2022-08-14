@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import { renderWithProviders } from 'src/utils/test-utils';
 import userEvent from '@testing-library/user-event';
 import Button from './Button';
 
@@ -6,25 +7,26 @@ const onClick = jest.fn();
 
 describe('Button component', () => {
   test('Button renders', () => {
-    render(<Button children='Button' onClick={onClick} />);
+    renderWithProviders(<Button children='Button' onClick={onClick} />);
     expect(screen.getByRole('button')).toBeInTheDocument();
     expect(screen.getByText(/button/i)).toBeInTheDocument();
   });
 
   test('Button renders without children', () => {
-    render(<Button onClick={onClick} />);
+    renderWithProviders(<Button onClick={onClick} />);
     expect(screen.getByRole('button')).toBeInTheDocument();
   });
 
   test('onClick works', () => {
     const anotherOnClick = jest.fn();
-    render(<Button children='Button' onClick={anotherOnClick} />);
+    renderWithProviders(<Button children='Button' onClick={anotherOnClick} />);
     userEvent.click(screen.getByRole('button'))
     expect(anotherOnClick).toHaveBeenCalled();
   });
 
   test('Button snapshot', () => {
-    const btn = render(<Button children='Button' onClick={onClick} />);
+    const btn = renderWithProviders(
+      <Button children='Button' onClick={onClick} />);
     expect(btn).toMatchSnapshot();
   });
 });

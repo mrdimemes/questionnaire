@@ -34,14 +34,8 @@ exports[`Header/Menu component Menu snapshot 1`] = `
         class="meta"
       >
         <button
-          class="body theme_light body"
-        >
-          <img
-            alt="switch theme"
-            class="icon"
-            src="light-mode-icon.svg"
-          />
-        </button>
+          class="body theme_light body theme_light"
+        />
         <div
           class="body"
         >
