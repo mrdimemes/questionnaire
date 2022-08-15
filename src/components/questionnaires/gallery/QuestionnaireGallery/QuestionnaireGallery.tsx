@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 import { useAppSelector } from "src/redux/hooks";
 import axios from "axios";
 import {
-  QuestionnaireCard as CardModel
+  QuestionnaireCard as QuestionnaireCardModel
 } from "src/models/questionnaire/QuestionnaireCard";
-import { QuestionnaireCard, ViewSwitchButton } from "../";
+import { QuestionnaireCardComponent, ViewSwitchButton } from "../";
 import styles from "./QuestionnaireGallery.module.sass";
 
 export enum GalleryViews {
@@ -14,7 +14,7 @@ export enum GalleryViews {
 }
 
 const QuestionnaireGallery = () => {
-  const [cards, setCards] = useState<Array<CardModel>>();
+  const [cards, setCards] = useState<Array<QuestionnaireCardModel>>();
   const [currentView, setCurrentView] = useState(GalleryViews.Rows);
   const tags = useAppSelector((state) => {
     const tagsMap = new Map<number, string>();
@@ -24,8 +24,8 @@ const QuestionnaireGallery = () => {
     return tagsMap
   });
 
-  const getCardNode = (card: CardModel) => {
-    return <QuestionnaireCard
+  const getCardNode = (card: QuestionnaireCardModel) => {
+    return <QuestionnaireCardComponent
       key={card.id}
       label={card.label}
       tags={card.tags.map((tagId) => {

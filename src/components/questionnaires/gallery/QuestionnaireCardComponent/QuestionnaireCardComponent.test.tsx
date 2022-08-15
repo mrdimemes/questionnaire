@@ -1,11 +1,11 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "src/utils/test-utils";
-import QuestionnaireCard from "./QuestionnaireCard";
+import QuestionnaireCardComponent from "./QuestionnaireCardComponent";
 
 describe("QuestionnaireCard component", () => {
 
   test("QuestionnaireCard renders", () => {
-    renderWithProviders(<QuestionnaireCard
+    renderWithProviders(<QuestionnaireCardComponent
       label={"Question123"}
       tags={[{ id: 1, label: "Tag123" }]}
     />);
@@ -14,7 +14,7 @@ describe("QuestionnaireCard component", () => {
   });
 
   test("QuestionnaireCard snapshot", () => {
-    const { container } = renderWithProviders(<QuestionnaireCard
+    const { container } = renderWithProviders(<QuestionnaireCardComponent
       label={"Question123"}
       tags={[{ id: 1, label: "Tag123" }]}
     />);

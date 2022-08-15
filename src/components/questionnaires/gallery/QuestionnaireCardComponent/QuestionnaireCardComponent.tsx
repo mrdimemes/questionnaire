@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { useAppSelector } from "src/redux/hooks";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { TagBar } from "src/components";
-import styles from "./QuestionnaireCard.module.sass";
+import styles from "./QuestionnaireCardComponent.module.sass";
 
 type QuestionnaireCardProps = {
   label: string,
@@ -12,7 +12,7 @@ type QuestionnaireCardProps = {
   }[]
 }
 
-const QuestionnaireCard = ({ label, tags }: QuestionnaireCardProps) => {
+const QuestionnaireCardComponent = ({ label, tags }: QuestionnaireCardProps) => {
   const currentTheme = useAppSelector((state) => state.theme.theme);
 
   return <div className={classNames(
@@ -24,4 +24,4 @@ const QuestionnaireCard = ({ label, tags }: QuestionnaireCardProps) => {
   </div>
 }
 
-export default QuestionnaireCard
+export default QuestionnaireCardComponent

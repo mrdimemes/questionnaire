@@ -1,4 +1,4 @@
-import { Tag } from "src/components";
+import { TagComponent } from "src/components";
 import styles from "./TagBar.module.sass";
 
 type TagBarProps = {
@@ -12,7 +12,7 @@ const TagBar = ({ tags }: TagBarProps) => {
   return (
     <div className={styles.body}> {
       tags.map((tag) => {
-        return <Tag key={tag.id} label={tag.label} />
+        return <TagComponent key={tag.id} label={tag.label} />
       })
     } </div>
   )

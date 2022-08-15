@@ -1,14 +1,14 @@
 import classNames from "classnames";
 import { useAppSelector } from "src/redux/hooks";
 import { Theme, getThemeStyle } from "src/redux/slices/themeSlice";
-import styles from "./Tag.module.sass";
+import styles from "./TagComponent.module.sass";
 
 type TagProps = {
   label: string,
   freq?: number
 }
 
-const Tag = ({ label, freq }: TagProps) => {
+const TagComponent = ({ label, freq }: TagProps) => {
   const currentTheme = useAppSelector((state) => state.theme.theme);
 
   return (
@@ -26,4 +26,4 @@ const Tag = ({ label, freq }: TagProps) => {
   )
 }
 
-export default Tag
+export default TagComponent

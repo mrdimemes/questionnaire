@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useAppSelector } from "src/redux/hooks";
 import { PageWrapper } from "../PageWrapper";
 import { Question } from "src/models/questionnaire/Question";
-import { Tag } from "src/components";
+import { TagComponent } from "src/components";
 
 const QuestionnairePage = () => {
   const [label, setLabel] = useState<string>();
@@ -35,7 +35,7 @@ const QuestionnairePage = () => {
       <h1>{label}</h1>
       <div className="tags"> {
         tags?.map((tagId) => {
-          return <Tag label={"" + tagsMap.get(tagId)} />
+          return <TagComponent label={"" + tagsMap.get(tagId)} />
         })
       } </div>
       <p>{about}</p>

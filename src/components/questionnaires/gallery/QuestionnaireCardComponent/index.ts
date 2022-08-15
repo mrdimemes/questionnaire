@@ -1,0 +1,1 @@
+export { default as QuestionnaireCardComponent } from "./QuestionnaireCardComponent";
