@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAppSelector } from "src/redux/hooks";
+import { PageWrapper } from "../PageWrapper";
 import { Question } from "src/models/questionnaire/Question";
 import { Tag } from "src/components";
 
@@ -30,26 +31,24 @@ const QuestionnairePage = () => {
   }, []);
 
   return (
-    <div className="page">
-      <div className="wrapper">
-        <h1>{label}</h1>
-        <div className="tags"> {
-          tags?.map((tagId) => {
-            return <Tag label={"" + tagsMap.get(tagId)} />
-          })
-        } </div>
-        <p>{about}</p>
-        <div className="questoins"> {
-          questions?.map((question) => {
-            return <div>
-              <p>ID = {question.id}</p>
-              <p>TYPE = {question.questionType}</p>
-              <p>TEXT = "{question.text}"</p>
-            </div>
-          })
-        } </div>
-      </div>
-    </div>
+    <PageWrapper>
+      <h1>{label}</h1>
+      <div className="tags"> {
+        tags?.map((tagId) => {
+          return <Tag label={"" + tagsMap.get(tagId)} />
+        })
+      } </div>
+      <p>{about}</p>
+      <div className="questoins"> {
+        questions?.map((question) => {
+          return <div>
+            <p>ID = {question.id}</p>
+            <p>TYPE = {question.questionType}</p>
+            <p>TEXT = "{question.text}"</p>
+          </div>
+        })
+      } </div>
+    </PageWrapper>
   )
 }
 

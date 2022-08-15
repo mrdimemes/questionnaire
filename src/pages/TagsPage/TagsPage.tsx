@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useAppDispatch } from "src/redux/hooks";
+import { PageWrapper } from "../PageWrapper";
 import { NavigationPage, setActivePage } from "src/redux/slices/browseSlice";
 import { TagGallery } from "src/components";
 
@@ -11,12 +12,10 @@ const TagsPage = () => {
   }, [dispatch]);
 
   return (
-    <div className="page">
-      <div className="wrapper">
-        <h1>Все тэги</h1>
-        <TagGallery />
-      </div>
-    </div>
+    <PageWrapper>
+      <h1>Все тэги</h1>
+      <TagGallery />
+    </PageWrapper>
   )
 }
 

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useAppDispatch } from "src/redux/hooks";
+import { PageWrapper } from "../PageWrapper";
 import { NavigationPage, setActivePage } from "src/redux/slices/browseSlice";
 
 const MainPage = () => {
@@ -10,11 +11,9 @@ const MainPage = () => {
   }, [dispatch]);
 
   return (
-    <div className="page">
-      <div className="wrapper">
-        <h1>Главная</h1>
-      </div>
-    </div>
+    <PageWrapper>
+      <h1>Главная</h1>
+    </PageWrapper>
   )
 }
 

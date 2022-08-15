@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useAppDispatch } from "src/redux/hooks";
+import { PageWrapper } from "../PageWrapper";
 import { NavigationPage, setActivePage } from "src/redux/slices/browseSlice";
 import { QuestionnaireGallery } from "src/components";
 
@@ -12,12 +13,10 @@ const QuestionnaireListPage = () => {
   }, [dispatch]);
 
   return (
-    <div className="page">
-      <div className="wrapper">
-        <h1>Все опросы</h1>
-        <QuestionnaireGallery />
-      </div >
-    </div >
+    <PageWrapper>
+      <h1>Все опросы</h1>
+      <QuestionnaireGallery />
+    </PageWrapper>
   )
 }
 
