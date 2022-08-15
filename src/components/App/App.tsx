@@ -3,7 +3,12 @@ import classNames from "classnames";
 import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Header } from "src/components";
-import { MainPage, QuestionnaireListPage, TagsPage } from "src/pages";
+import {
+  MainPage,
+  QuestionnaireListPage,
+  TagsPage,
+  QuestionnairePage
+} from "src/pages";
 import { useAppDispatch, useAppSelector } from "src/redux/hooks";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { setTags } from "src/redux/slices/tagsSlice";
@@ -29,6 +34,7 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="questionnaires" element={<QuestionnaireListPage />} />
         <Route path="tags" element={<TagsPage />} />
+        <Route path="questionnaire" element={<QuestionnairePage />}/>
       </Routes>
     </div>
   );

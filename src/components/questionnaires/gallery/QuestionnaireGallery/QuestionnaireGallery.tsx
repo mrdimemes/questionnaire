@@ -2,7 +2,9 @@ import classNames from "classnames";
 import { useState, useEffect } from "react";
 import { useAppSelector } from "src/redux/hooks";
 import axios from "axios";
-import { QuestionnaireCard as CardModel } from "src/models/Questionnaire";
+import {
+  QuestionnaireCard as CardModel
+} from "src/models/questionnaire/QuestionnaireCard";
 import { QuestionnaireCard, ViewSwitchButton } from "../";
 import styles from "./QuestionnaireGallery.module.sass";
 
