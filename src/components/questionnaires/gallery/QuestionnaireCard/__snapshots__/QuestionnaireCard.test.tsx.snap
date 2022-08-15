@@ -11,8 +11,9 @@ exports[`QuestionnaireCard component QuestionnaireCard snapshot 1`] = `
       Question123
     </h2>
     <div
-      class="tags"
+      class="body"
     >
+       
       <div
         class="body theme_light"
       >
@@ -20,6 +21,7 @@ exports[`QuestionnaireCard component QuestionnaireCard snapshot 1`] = `
           Tag123
         </div>
       </div>
+       
     </div>
   </div>
 </div>

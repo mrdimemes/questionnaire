@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagBar component TagBar snapshot 1`] = `
+<div>
+  <div
+    class="body"
+  >
+     
+    <div
+      class="body theme_light"
+    >
+      <div>
+        Tag1
+      </div>
+    </div>
+    <div
+      class="body theme_light"
+    >
+      <div>
+        Tag2
+      </div>
+    </div>
+    <div
+      class="body theme_light"
+    >
+      <div>
+        Tag3
+      </div>
+    </div>
+     
+  </div>
+</div>
+`;

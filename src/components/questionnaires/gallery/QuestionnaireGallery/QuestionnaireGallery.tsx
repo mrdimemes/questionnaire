@@ -23,10 +23,10 @@ const QuestionnaireGallery = () => {
     }
     return tagsMap
   });
+
   const getCardNode = (card: CardModel) => {
     return <QuestionnaireCard
       key={card.id}
-      id={card.id}
       label={card.label}
       tags={card.tags.map((tagId) => {
         return { id: tagId, label: "" + tags.get(tagId) }

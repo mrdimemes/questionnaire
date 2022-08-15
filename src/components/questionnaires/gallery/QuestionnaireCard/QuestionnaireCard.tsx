@@ -1,11 +1,10 @@
 import classNames from "classnames";
 import { useAppSelector } from "src/redux/hooks";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
-import { Tag } from "src/components";
+import { TagBar } from "src/components";
 import styles from "./QuestionnaireCard.module.sass";
 
 type QuestionnaireCardProps = {
-  id: number,
   label: string,
   tags: {
     id: number,
@@ -13,7 +12,7 @@ type QuestionnaireCardProps = {
   }[]
 }
 
-const QuestionnaireCard = ({ id, label, tags }: QuestionnaireCardProps) => {
+const QuestionnaireCard = ({ label, tags }: QuestionnaireCardProps) => {
   const currentTheme = useAppSelector((state) => state.theme.theme);
 
   return <div className={classNames(
@@ -21,11 +20,7 @@ const QuestionnaireCard = ({ id, label, tags }: QuestionnaireCardProps) => {
     getThemeStyle(styles, currentTheme)
   )}>
     <h2 className={styles.label}>{label}</h2>
-    <div className={styles.tags}>{
-      tags.map((tag) => {
-        return <Tag key={`${id}_${tag.id}`} label={tag.label} />
-      })
-    }</div>
+    <TagBar tags={tags} />
   </div>
 }
 

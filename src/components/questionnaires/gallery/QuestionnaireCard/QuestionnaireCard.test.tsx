@@ -6,7 +6,6 @@ describe("QuestionnaireCard component", () => {
 
   test("QuestionnaireCard renders", () => {
     renderWithProviders(<QuestionnaireCard
-      id={1}
       label={"Question123"}
       tags={[{ id: 1, label: "Tag123" }]}
     />);
@@ -16,7 +15,6 @@ describe("QuestionnaireCard component", () => {
 
   test("QuestionnaireCard snapshot", () => {
     const { container } = renderWithProviders(<QuestionnaireCard
-      id={1}
       label={"Question123"}
       tags={[{ id: 1, label: "Tag123" }]}
     />);
