@@ -1,0 +1,16 @@
+@use "../inputMixins"
+@use "src/sass/foundation/colors"
+@use "src/sass/foundation/mixins"
+
+.body
+  @include inputMixins.marked-input
+  border-radius: 50%
+  &::before
+    @include mixins.square(12px)
+    border-radius: 50%
+
+.theme_light
+  @include inputMixins.light-theme
+
+.theme_dark
+  @include inputMixins.dark-theme

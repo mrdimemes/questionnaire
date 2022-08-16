@@ -10,3 +10,5 @@ export { QuestionnaireGallery } from './questionnaires/gallery';
 export { QuestionnaireComponent } from './questionnaires/questionnaire';
 
 export { Button } from './UI/Button';
+export { Checkbox } from './UI/inputs/Checkbox';
+export { Radio } from './UI/inputs/Radio';

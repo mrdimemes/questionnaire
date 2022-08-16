@@ -1,7 +1,7 @@
 @use "src/sass/foundation/mixins"
 @use "src/sass/foundation/colors"
 
-.body
+@mixin marked-input
   @include mixins.square(25px)
   @include mixins.flex-centered
   -webkit-appearance: none
@@ -12,28 +12,27 @@
   background-color: transparent
   border-width: 2px
   border-style: solid
-  border-radius: 4px
+  transition: border-color 0.3s
   &::before
     content: ""
-    @include mixins.square(15px)
     transform: scale(0)
-    transition: 120ms transform ease-in-out
-    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%)
+    transition: box-shadow 0.3s, background-color 0.3s, transform 0.12s
   &:checked::before
+    transition: box-shadow 0.3s, background-color 0.3s, transform 0.12s
     transform: scale(1)
 
-.theme_light
-  border-color: colors.$gray-1
-  &::before
-    box-shadow: inset 1em 1em colors.$light-theme-1
-    background-color: colors.$light-theme-1
-  &:hover
-    background-color: colors.$light-theme-bg-highlight
-
-.theme_dark
+@mixin dark-theme
   border-color: colors.$dark-theme-4
   &::before
     box-shadow: inset 1em 1em colors.$dark-theme-4
     background-color: colors.$dark-theme-4
   &:hover
     background-color: colors.$dark-theme-bg-highlight
+
+@mixin light-theme
+  border-color: colors.$gray-1
+  &::before
+    box-shadow: inset 1em 1em colors.$light-theme-1
+    background-color: colors.$light-theme-1
+  &:hover
+    background-color: colors.$light-theme-bg-highlight

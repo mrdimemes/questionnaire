@@ -1,0 +1,15 @@
+@use "../inputMixins"
+@use "src/sass/foundation/mixins"
+
+.body
+  @include inputMixins.marked-input
+  border-radius: 4px
+  &::before
+    @include mixins.square(15px)
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%)
+
+.theme_light
+  @include inputMixins.light-theme
+
+.theme_dark
+  @include inputMixins.dark-theme
