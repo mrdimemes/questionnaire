@@ -1,3 +1,4 @@
+import { Field } from "src/models/questionnaire/Field";
 import { Question } from "src/models/questionnaire/Question";
 import { QuestionType } from "src/models/questionnaire/QuestionType";
 import { CheckboxField, RadioField, TextRowField } from "../fields";
@@ -6,14 +7,14 @@ const QuestionComponent = (
   { id, questionType, text, fields, isRequired }: Question
 ) => {
 
-  const getFieldNode = (key: number, text: string) => {
+  const getFieldNode = (field: Field) => {
     switch (questionType) {
       case QuestionType.Checkbox:
-        return <CheckboxField key={key} text={text} />;
+        return <CheckboxField key={field.id} {...field} />;
       case QuestionType.Radio:
-        return <RadioField key={key} text={text} />;
+        return <RadioField key={field.id} {...field} />;
       case QuestionType.Text:
-        return <TextRowField key={key} text={text} />;
+        return <TextRowField key={field.id} {...field} />;
     }
   };
 
@@ -24,7 +25,7 @@ const QuestionComponent = (
       <p>TEXT = "{text}"</p>
       <p>REQUIRED? {isRequired ? "true" : "false"}</p>
       <div>
-        {fields.map((field, index) => getFieldNode(index, field.text))}
+        {fields.map((field) => getFieldNode(field))}
       </div>
     </div>
   )
