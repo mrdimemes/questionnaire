@@ -3,6 +3,7 @@
 @use "src/sass/foundation/mixins"
 
 .body
+  @include inputMixins.input
   @include inputMixins.marked-input
   border-radius: 50%
   &::before
@@ -10,7 +11,9 @@
     border-radius: 50%
 
 .theme_light
-  @include inputMixins.light-theme
+  @include inputMixins.input-light
+  @include inputMixins.marked-input-light
 
 .theme_dark
-  @include inputMixins.dark-theme
+  @include inputMixins.input-dark
+  @include inputMixins.marked-input-dark

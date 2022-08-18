@@ -1,0 +1,13 @@
+@use "../inputMixins"
+
+.body
+  @include inputMixins.input
+  min-height: 25px
+  width: 100%
+  padding: 0 5px
+
+.theme_light
+  @include inputMixins.input-light
+
+.theme_dark
+  @include inputMixins.input-dark

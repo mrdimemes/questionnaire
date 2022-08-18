@@ -1,6 +1,17 @@
 @use "src/sass/foundation/mixins"
 @use "src/sass/foundation/colors"
 
+@mixin input
+  border-width: 2px
+  border-style: solid
+  border-radius: 4px
+  background-color: transparent
+  transition: border-color 0.3s
+  outline: none
+  color: inherit
+  font-size: inherit
+  box-sizing: border-box
+
 @mixin marked-input
   @include mixins.square(25px)
   @include mixins.flex-centered
@@ -9,10 +20,6 @@
   margin: 0
   padding: 0
   cursor: pointer
-  background-color: transparent
-  border-width: 2px
-  border-style: solid
-  transition: border-color 0.3s
   &::before
     content: ""
     transform: scale(0)
@@ -21,16 +28,20 @@
     transition: box-shadow 0.3s, background-color 0.3s, transform 0.12s
     transform: scale(1)
 
-@mixin dark-theme
+@mixin input-dark
   border-color: colors.$dark-theme-4
+
+@mixin marked-input-dark
   &::before
     box-shadow: inset 1em 1em colors.$dark-theme-4
     background-color: colors.$dark-theme-4
   &:hover
     background-color: colors.$dark-theme-bg-highlight
 
-@mixin light-theme
+@mixin input-light
   border-color: colors.$gray-1
+
+@mixin marked-input-light
   &::before
     box-shadow: inset 1em 1em colors.$light-theme-1
     background-color: colors.$light-theme-1
