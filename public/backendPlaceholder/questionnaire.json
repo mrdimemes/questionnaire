@@ -11,16 +11,13 @@
         "text": "Чекбоксовый вопрос, не обязательный",
         "fields": [
           {
-            "text": "Первый вариант",
-            "isExtended": false
+            "text": "Первый вариант"
           },
           {
-            "text": "Второй вариант",
-            "isExtended": false
+            "text": "Второй вариант"
           },
           {
-            "text": "Трейтий вариант",
-            "isExtended": false
+            "text": "Трейтий вариант"
           }
         ],
         "isRequired": false
@@ -31,16 +28,13 @@
         "text": "Чекбоксовый вопрос, обязательный",
         "fields": [
           {
-            "text": "Первый вариант",
-            "isExtended": false
+            "text": "Первый вариант"
           },
           {
-            "text": "Второй вариант",
-            "isExtended": false
+            "text": "Второй вариант"
           },
           {
-            "text": "Трейтий вариант",
-            "isExtended": false
+            "text": "Трейтий вариант"
           }
         ],
         "isRequired": true
@@ -51,16 +45,13 @@
         "text": "Радио вопрос, не обязательный",
         "fields": [
           {
-            "text": "Первый вариант",
-            "isExtended": false
+            "text": "Первый вариант"
           },
           {
-            "text": "Второй вариант",
-            "isExtended": false
+            "text": "Второй вариант"
           },
           {
-            "text": "Трейтий вариант",
-            "isExtended": false
+            "text": "Трейтий вариант"
           }
         ],
         "isRequired": false
@@ -68,19 +59,16 @@
       {
         "id": 3,
         "questionType": "RADIO",
-        "text": "Радио вопрос, обязательный, с расширенным вариантом",
+        "text": "Радио вопрос, обязательный",
         "fields": [
           {
-            "text": "Первый вариант",
-            "isExtended": false
+            "text": "Первый вариант"
           },
           {
-            "text": "Второй вариант",
-            "isExtended": false
+            "text": "Второй вариант"
           },
           {
-            "text": "Другое",
-            "isExtended": true
+            "text": "Другое"
           }
         ],
         "isRequired": true
@@ -91,7 +79,7 @@
         "text": "Открытый вопрос, обязательный",
         "fields": [
           {
-            "isExtended": false
+            "text": "Бла-бла"
           }
         ],
         "isRequired": true
