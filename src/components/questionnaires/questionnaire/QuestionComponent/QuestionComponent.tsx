@@ -1,6 +1,6 @@
 import { Question } from "src/models/questionnaire/Question";
 import { QuestionType } from "src/models/questionnaire/QuestionType";
-import { CheckboxField, RadioField } from "../fields";
+import { CheckboxField, RadioField, TextRowField } from "../fields";
 
 const QuestionComponent = (
   { id, questionType, text, fields, isRequired }: Question
@@ -12,6 +12,8 @@ const QuestionComponent = (
         return <CheckboxField key={key} text={text} />;
       case QuestionType.Radio:
         return <RadioField key={key} text={text} />;
+      case QuestionType.Text:
+        return <TextRowField key={key} text={text} />;
     }
   };
 
