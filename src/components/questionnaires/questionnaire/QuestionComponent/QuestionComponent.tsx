@@ -8,13 +8,18 @@ const QuestionComponent = (
 ) => {
 
   const getFieldNode = (field: Field) => {
+    const props = {
+      ...field,
+      key: field.id,
+      questionId: id
+    }
     switch (questionType) {
       case QuestionType.Checkbox:
-        return <CheckboxField key={field.id} {...field} />;
+        return <CheckboxField {...props} />;
       case QuestionType.Radio:
-        return <RadioField key={field.id} {...field} />;
+        return <RadioField {...props} />;
       case QuestionType.Text:
-        return <TextRowField key={field.id} {...field} />;
+        return <TextRowField {...props} />;
     }
   };
 

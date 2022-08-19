@@ -2,10 +2,14 @@ import { Radio } from "src/components/UI/inputs/Radio";
 import { Field } from "src/models/questionnaire/Field";
 import styles from "./RadioField.module.sass";
 
-const RadioField = ({ text }: Field) => {
+interface FieldProps extends Field {
+  questionId: string | number
+}
+
+const RadioField = ({ text, questionId }: FieldProps) => {
   return (
     <div className={styles.body}>
-      <Radio />
+      <Radio name={String(questionId)} />
       <div>{text}</div>
     </div>
   )
