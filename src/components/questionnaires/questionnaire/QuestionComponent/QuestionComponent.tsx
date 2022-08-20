@@ -2,6 +2,7 @@ import { Field } from "src/models/questionnaire/Field";
 import { Question } from "src/models/questionnaire/Question";
 import { QuestionType } from "src/models/questionnaire/QuestionType";
 import { CheckboxField, RadioField, TextRowField } from "../fields";
+import styles from "./QuestionComponent.module.sass";
 
 const QuestionComponent = (
   { id, questionType, text, fields }: Question
@@ -25,8 +26,8 @@ const QuestionComponent = (
 
   return (
     <div>
-      <p>{text}</p>
-      <div>
+      <p className={styles.text}>{text}</p>
+      <div className={styles.fields}>
         {fields.map((field) => getFieldNode(field))}
       </div>
     </div>

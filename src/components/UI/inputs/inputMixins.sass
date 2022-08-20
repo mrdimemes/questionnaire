@@ -1,5 +1,6 @@
 @use "src/sass/foundation/mixins"
 @use "src/sass/foundation/colors"
+@use "src/sass/foundation/breakpoints"
 
 @mixin input
   border-width: 2px
@@ -13,7 +14,7 @@
   box-sizing: border-box
 
 @mixin marked-input
-  @include mixins.square(25px)
+  @include mixins.square(24px)
   @include mixins.flex-centered
   -webkit-appearance: none
   appearance: none
@@ -27,6 +28,8 @@
   &:checked::before
     transition: box-shadow 0.3s, background-color 0.3s, transform 0.12s
     transform: scale(1)
+  @media (max-width: breakpoints.$tablet)
+    @include mixins.square(20px)
 
 @mixin input-dark
   border-color: colors.$dark-theme-4

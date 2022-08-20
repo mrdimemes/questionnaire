@@ -1,6 +1,7 @@
 @use "../inputMixins"
 @use "src/sass/foundation/colors"
 @use "src/sass/foundation/mixins"
+@use "src/sass/foundation/breakpoints"
 
 .body
   @include inputMixins.input
@@ -9,6 +10,8 @@
   &::before
     @include mixins.square(12px)
     border-radius: 50%
+    @media (max-width: breakpoints.$tablet)
+      @include mixins.square(8px)
 
 .theme_light
   @include inputMixins.input-light
