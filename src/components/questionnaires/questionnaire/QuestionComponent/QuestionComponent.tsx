@@ -4,7 +4,7 @@ import { QuestionType } from "src/models/questionnaire/QuestionType";
 import { CheckboxField, RadioField, TextRowField } from "../fields";
 
 const QuestionComponent = (
-  { id, questionType, text, fields, isRequired }: Question
+  { id, questionType, text, fields }: Question
 ) => {
 
   const getFieldNode = (field: Field) => {
@@ -25,10 +25,7 @@ const QuestionComponent = (
 
   return (
     <div>
-      <p>ID = {id}</p>
-      <p>TYPE = {questionType}</p>
-      <p>TEXT = "{text}"</p>
-      <p>REQUIRED? {isRequired ? "true" : "false"}</p>
+      <p>{text}</p>
       <div>
         {fields.map((field) => getFieldNode(field))}
       </div>
