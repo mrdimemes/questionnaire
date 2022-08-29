@@ -2,8 +2,9 @@
 
 exports[`QuestionnaireCard component QuestionnaireCard snapshot 1`] = `
 <div>
-  <div
+  <a
     class="body theme_light"
+    href="/questionnaire/1"
   >
     <h2
       class="label"
@@ -23,6 +24,6 @@ exports[`QuestionnaireCard component QuestionnaireCard snapshot 1`] = `
       </div>
        
     </div>
-  </div>
+  </a>
 </div>
 `;
