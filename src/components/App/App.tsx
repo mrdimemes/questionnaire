@@ -19,7 +19,7 @@ function App() {
   const currentTheme = useAppSelector((state) => state.theme.theme);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/backendPlaceholder/tags.json").then(
+    axios.get(process.env.REACT_APP_BACKEND_URL + "questionnaires/tags").then(
       (res) => dispatch(setTags(res.data.tags))
     )
   }, [dispatch]);

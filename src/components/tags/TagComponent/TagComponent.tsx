@@ -17,7 +17,7 @@ const TagComponent = ({ label, freq }: TagProps) => {
       getThemeStyle(styles, currentTheme)
     )}>
       <div>{label}</div>
-      {freq && <div className={classNames(
+      {Number.isInteger(freq) && <div className={classNames(
         styles.freq,
         currentTheme === Theme.Light ?
           styles.freq_theme_light : styles.freq_theme_dark
