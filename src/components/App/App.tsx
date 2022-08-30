@@ -34,7 +34,8 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="questionnaires" element={<QuestionnaireListPage />} />
         <Route path="tags" element={<TagsPage />} />
-        <Route path="questionnaire" element={<QuestionnairePage />}/>
+        <Route path="questionnaire/:questionnaireId"
+          element={<QuestionnairePage />} />
       </Routes>
     </div>
   );

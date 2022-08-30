@@ -27,6 +27,7 @@ const QuestionnaireGallery = () => {
   const getCardNode = (card: QuestionnaireCardModel) => {
     return <QuestionnaireCardComponent
       key={card.id}
+      id={card.id}
       label={card.label}
       tags={card.tags.map((tagId) => {
         return { id: tagId, label: "" + tags.get(tagId) }
@@ -35,9 +36,10 @@ const QuestionnaireGallery = () => {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:3000/backendPlaceholder/questionnaires.json").then(
-      (res) => setCards(res.data.questionnaires)
-    )
+    axios.get(process.env.REACT_APP_BACKEND_URL +
+      "questionnaires/questionnaireCards").then(
+        (res) => setCards(res.data.questionnaires)
+      )
   }, []);
 
   return (
