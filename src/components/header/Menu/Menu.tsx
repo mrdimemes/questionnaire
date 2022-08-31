@@ -1,12 +1,13 @@
 import classNames from "classnames";
 import { useAppSelector } from "src/redux/hooks";
+import { themeSelector } from "src/redux/selectors";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { useState } from "react";
 import { Navigation, ThemeSwitchButton, Burger, User } from "../";
 import styles from "./Menu.module.sass";
 
 const Menu = () => {
-  const currentTheme = useAppSelector((state) => state.theme.theme);
+  const currentTheme = useAppSelector(themeSelector);
   const [isOpen, setIsOpen] = useState(false);
   const toggleIsOpen = () => {
     setIsOpen(!isOpen)

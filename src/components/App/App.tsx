@@ -10,13 +10,14 @@ import {
   QuestionnairePage
 } from "src/pages";
 import { useAppDispatch, useAppSelector } from "src/redux/hooks";
+import { themeSelector } from "src/redux/selectors";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { setTags } from "src/redux/slices/tagsSlice";
 import styles from "./App.module.sass";
 
 function App() {
   const dispatch = useAppDispatch();
-  const currentTheme = useAppSelector((state) => state.theme.theme);
+  const currentTheme = useAppSelector(themeSelector);
 
   useEffect(() => {
     axios.get(process.env.REACT_APP_BACKEND_URL + "questionnaires/tags").then(

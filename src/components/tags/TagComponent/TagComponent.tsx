@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { useAppSelector } from "src/redux/hooks";
+import { themeSelector } from "src/redux/selectors";
 import { Theme, getThemeStyle } from "src/redux/slices/themeSlice";
 import styles from "./TagComponent.module.sass";
 
@@ -9,7 +10,7 @@ type TagProps = {
 }
 
 const TagComponent = ({ label, freq }: TagProps) => {
-  const currentTheme = useAppSelector((state) => state.theme.theme);
+  const currentTheme = useAppSelector(themeSelector);
 
   return (
     <div className={classNames(

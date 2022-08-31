@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { useAppSelector } from "src/redux/hooks";
+import { themeSelector } from "src/redux/selectors";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { Button } from "src/components/UI/Button";
 import { GalleryViews } from "../QuestionnaireGallery/QuestionnaireGallery";
@@ -15,7 +16,7 @@ type ViewSwitchProps = {
 const ViewSwitchButton = (
   { setCurrentView, currentView }: ViewSwitchProps
 ) => {
-  const currentTheme = useAppSelector((state) => state.theme.theme);
+  const currentTheme = useAppSelector(themeSelector);
   const toggleView = () => {
     switch (currentView) {
       case GalleryViews.Plates:

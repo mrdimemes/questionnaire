@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { useAppSelector } from "src/redux/hooks";
+import { themeSelector } from "src/redux/selectors";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import styles from "./TextInput.module.sass"
 
@@ -8,7 +9,7 @@ type TextInputProp = {
 }
 
 const TextInput = ({ name }: TextInputProp) => {
-  const currentTheme = useAppSelector((state) => state.theme.theme);
+  const currentTheme = useAppSelector(themeSelector);
 
   return (
     <input

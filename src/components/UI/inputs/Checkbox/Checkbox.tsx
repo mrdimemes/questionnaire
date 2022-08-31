@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { useAppSelector } from "src/redux/hooks";
+import { themeSelector } from "src/redux/selectors";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import styles from "./Checkbox.module.sass"
 
@@ -8,7 +9,7 @@ type CheckboxProp = {
 }
 
 const Checkbox = ({ name }: CheckboxProp) => {
-  const currentTheme = useAppSelector((state) => state.theme.theme);
+  const currentTheme = useAppSelector(themeSelector);
 
   return (
     <input
