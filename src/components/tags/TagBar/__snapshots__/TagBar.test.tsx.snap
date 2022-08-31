@@ -10,21 +10,21 @@ exports[`TagBar component TagBar snapshot 1`] = `
       class="body theme_light"
     >
       <div>
-        Tag1
+        TestTag1
       </div>
     </div>
     <div
       class="body theme_light"
     >
       <div>
-        Tag2
+        TestTag2
       </div>
     </div>
     <div
       class="body theme_light"
     >
       <div>
-        Tag3
+        TestTag3
       </div>
     </div>
      

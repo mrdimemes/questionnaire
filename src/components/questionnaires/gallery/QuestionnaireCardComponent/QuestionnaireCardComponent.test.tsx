@@ -1,27 +1,30 @@
 import { screen } from "@testing-library/react";
+import { setupStore } from "src/redux/store";
 import { renderWithProvidersAndRouters } from "src/utils/test-utils";
 import QuestionnaireCardComponent from "./QuestionnaireCardComponent";
 
 describe("QuestionnaireCard component", () => {
 
   test("QuestionnaireCard renders", () => {
+    const store = setupStore({
+      tags: { tags: [{ id: 1, label: "TestTag", freq: 7 }] }
+    });
     renderWithProvidersAndRouters(
-      <QuestionnaireCardComponent
-        id={1}
-        label={"Question123"}
-        tags={[{ id: 1, label: "Tag123" }]}
-      />);
-    expect(screen.getByText(/question123/i)).toBeInTheDocument();
-    expect(screen.getByText(/tag123/i)).toBeInTheDocument();
+      <QuestionnaireCardComponent id={1} label="QuestionLabel" tags={[1]} />,
+      { store }
+    );
+    expect(screen.getByText(/questionlabel/i)).toBeInTheDocument();
+    expect(screen.getByText(/testtag/i)).toBeInTheDocument();
   });
 
   test("QuestionnaireCard snapshot", () => {
+    const store = setupStore({
+      tags: { tags: [{ id: 1, label: "TestTag", freq: 7 }] }
+    });
     const { container } = renderWithProvidersAndRouters(
-      <QuestionnaireCardComponent
-        id={1}
-        label={"Question123"}
-        tags={[{ id: 1, label: "Tag123" }]}
-      />);
+      <QuestionnaireCardComponent id={1} label="QuestionLabel" tags={[1]} />,
+      { store }
+    );
     expect(container).toMatchSnapshot();
   });
 });

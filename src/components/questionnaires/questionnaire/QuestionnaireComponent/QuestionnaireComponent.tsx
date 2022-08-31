@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Question } from "src/models/questionnaire/Question";
-import { useAppSelector } from "src/redux/hooks";
 import { TagBar, Button } from "src/components";
 import { QuestionComponent } from "../QuestionComponent";
 import styles from "./QuestionnaireComponent.module.sass";
@@ -22,13 +21,6 @@ const QuestionnaireComponent = ({ id }: QuestionnaireProps) => {
   const [tags, setTags] = useState([] as number[]);
   const [about, setAbout] = useState<string>();
   const [questions, setQuestions] = useState([] as Question[]);
-  const tagsMap = useAppSelector((state) => {
-    const map = new Map<number, string>();
-    for (const tag of state.tags.tags) {
-      map.set(tag.id, tag.label)
-    }
-    return map
-  });
 
   useEffect(() => {
     axios.get(process.env.REACT_APP_BACKEND_URL +
@@ -50,12 +42,7 @@ const QuestionnaireComponent = ({ id }: QuestionnaireProps) => {
     <div>
       {status === FetchStatus.Complete && <>
         <h1>{label}</h1>
-        <TagBar
-          className={styles.tags}
-          tags={tags.map((tagId) => {
-            return { id: tagId, label: "" + tagsMap.get(tagId) }
-          })}
-        />
+        <TagBar className={styles.tags} tags={tags} />
         <p className={styles.about}>{about}</p>
         <div className={styles.questions}> {
           questions.map((question) => {

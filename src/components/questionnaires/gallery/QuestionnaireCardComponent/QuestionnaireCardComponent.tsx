@@ -8,10 +8,7 @@ import styles from "./QuestionnaireCardComponent.module.sass";
 type QuestionnaireCardProps = {
   id: number,
   label: string,
-  tags: {
-    id: number,
-    label: string
-  }[]
+  tags: number[]
 }
 
 const QuestionnaireCardComponent = ({

@@ -9,7 +9,7 @@ exports[`QuestionnaireCard component QuestionnaireCard snapshot 1`] = `
     <h2
       class="label"
     >
-      Question123
+      QuestionLabel
     </h2>
     <div
       class="body"
@@ -19,7 +19,7 @@ exports[`QuestionnaireCard component QuestionnaireCard snapshot 1`] = `
         class="body theme_light"
       >
         <div>
-          Tag123
+          TestTag
         </div>
       </div>
        

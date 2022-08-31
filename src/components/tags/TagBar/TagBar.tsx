@@ -1,20 +1,21 @@
 import classNames from "classnames";
 import { TagComponent } from "src/components";
+import { useAppSelector } from "src/redux/hooks";
+import { tagsMapSelector } from "src/redux/selectors";
 import styles from "./TagBar.module.sass";
 
 type TagBarProps = {
-  tags: {
-    id: number,
-    label: string
-  }[],
+  tags: number[],
   className?: string
 };
 
 const TagBar = ({ className, tags }: TagBarProps) => {
+  const tagsMap = useAppSelector(tagsMapSelector);
+
   return (
     <div className={classNames(styles.body, className)}> {
-      tags.map((tag) => {
-        return <TagComponent key={tag.id} label={tag.label} />
+      tags.map((tagId) => {
+        return <TagComponent key={tagId} label={"" + tagsMap.get(tagId)} />
       })
     } </div>
   )
