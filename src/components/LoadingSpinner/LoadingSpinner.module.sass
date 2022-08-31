@@ -1,0 +1,36 @@
+@use "src/sass/foundation/mixins"
+@use "src/sass/foundation/colors"
+
+@keyframes spinner
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+.body
+  position: absolute
+  left: 10px
+  right: 10px
+  top: 10px
+  bottom: 10px
+  box-sizing: border-box
+  border-width: 3px
+  border-style: solid
+  border-radius: 50%
+  animation: spinner 2s linear infinite
+  transition: border-color 0.3s
+
+.wrapper
+  width: 100%
+  height: 100%
+  @include mixins.flex-centered
+
+.container
+  @include mixins.square(50px)
+  position: relative
+
+.theme_light
+  border-color: transparent colors.$gray-1
+
+.theme_dark
+  border-color: transparent colors.$dark-theme-4
