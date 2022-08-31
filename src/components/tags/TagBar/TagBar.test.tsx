@@ -1,6 +1,7 @@
 import { screen } from "@testing-library/react";
 import { setupStore } from "src/redux/store";
 import { renderWithProvidersAndRouters } from "src/utils/test-utils";
+import { FetchStatus } from "src/models/FetchStatus";
 import TagBar from "./TagBar";
 
 const store = setupStore({
@@ -9,7 +10,8 @@ const store = setupStore({
       { id: 1, label: "TestTag1", freq: 7 },
       { id: 2, label: "TestTag2", freq: 7 },
       { id: 3, label: "TestTag3", freq: 7 },
-    ]
+    ],
+    tagsLoadingStatus: FetchStatus.Complete
   }
 });
 

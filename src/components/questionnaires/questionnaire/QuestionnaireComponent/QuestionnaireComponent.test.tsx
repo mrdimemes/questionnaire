@@ -1,9 +1,10 @@
-import { rest } from "msw"
-import { setupServer } from "msw/node"
+import { rest } from "msw";
+import { setupServer } from "msw/node";
 import { screen, waitFor } from "@testing-library/react";
 import { renderWithProviders } from "src/utils/test-utils";
 import { setupStore } from "src/redux/store";
 import QuestionnaireComponent from "./QuestionnaireComponent";
+import { FetchStatus } from "src/models/FetchStatus";
 import { QuestionType } from "src/models/questionnaire/QuestionType";
 
 const questionPlaceholder = {
@@ -45,7 +46,8 @@ const store = setupStore({
   tags: {
     tags: [
       { id: 1, label: "TestTag1", freq: 7 }
-    ]
+    ],
+    tagsLoadingStatus: FetchStatus.Complete
   }
 });
 

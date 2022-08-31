@@ -1,4 +1,5 @@
 import { screen } from "@testing-library/react";
+import { FetchStatus } from "src/models/FetchStatus";
 import { setupStore } from "src/redux/store";
 import { renderWithProvidersAndRouters } from "src/utils/test-utils";
 import QuestionnaireCardComponent from "./QuestionnaireCardComponent";
@@ -7,7 +8,10 @@ describe("QuestionnaireCard component", () => {
 
   test("QuestionnaireCard renders", () => {
     const store = setupStore({
-      tags: { tags: [{ id: 1, label: "TestTag", freq: 7 }] }
+      tags: {
+        tags: [{ id: 1, label: "TestTag", freq: 7 }],
+        tagsLoadingStatus: FetchStatus.Complete
+      }
     });
     renderWithProvidersAndRouters(
       <QuestionnaireCardComponent id={1} label="QuestionLabel" tags={[1]} />,
@@ -19,7 +23,10 @@ describe("QuestionnaireCard component", () => {
 
   test("QuestionnaireCard snapshot", () => {
     const store = setupStore({
-      tags: { tags: [{ id: 1, label: "TestTag", freq: 7 }] }
+      tags: {
+        tags: [{ id: 1, label: "TestTag", freq: 7 }],
+        tagsLoadingStatus: FetchStatus.Complete
+      }
     });
     const { container } = renderWithProvidersAndRouters(
       <QuestionnaireCardComponent id={1} label="QuestionLabel" tags={[1]} />,

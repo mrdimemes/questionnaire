@@ -1,8 +1,10 @@
 import classNames from "classnames";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { FetchStatus } from "src/models/FetchStatus";
 import { QuestionnaireCard } from "src/models/questionnaire/QuestionnaireCard";
 import { QuestionnaireCardComponent, ViewSwitchButton } from "../";
+import { LoadingSpinner } from "src/components/LoadingSpinner";
 import styles from "./QuestionnaireGallery.module.sass";
 
 export enum GalleryViews {
@@ -11,6 +13,7 @@ export enum GalleryViews {
 }
 
 const QuestionnaireGallery = () => {
+  const [status, setStatus] = useState(FetchStatus.Loading);
   const [cards, setCards] = useState<Array<QuestionnaireCard>>();
   const [currentView, setCurrentView] = useState(GalleryViews.Rows);
 
@@ -26,7 +29,10 @@ const QuestionnaireGallery = () => {
   useEffect(() => {
     axios.get(process.env.REACT_APP_BACKEND_URL +
       "questionnaires/questionnaireCards").then(
-        (res) => setCards(res.data.questionnaires)
+        (res) => {
+          setCards(res.data.questionnaires);
+          setStatus(FetchStatus.Complete);
+        }
       )
   }, []);
 
@@ -36,23 +42,30 @@ const QuestionnaireGallery = () => {
       currentView === GalleryViews.Rows ? styles.view_rows : styles.view_plates
     )}>
 
-      <ViewSwitchButton
-        setCurrentView={setCurrentView} currentView={currentView}
-      />
+      {status === FetchStatus.Loading && <LoadingSpinner />}
 
-      {currentView === GalleryViews.Plates && <>
-        <div className={styles.column}> {
-          cards?.filter((_, index) => index % 2 === 0)
-            .map((card) => getCardNode(card))
-        } </div>
-        <div className={styles.column}> {
-          cards?.filter((_, index) => index % 2 !== 0)
-            .map((card) => getCardNode(card))
-        } </div>
-      </>}
+      {status === FetchStatus.Complete &&
+        <>
+          <ViewSwitchButton
+            setCurrentView={setCurrentView} currentView={currentView}
+          />
 
-      {currentView === GalleryViews.Rows &&
-        cards?.map((card) => getCardNode(card))}
+          {currentView === GalleryViews.Plates && <>
+            <div className={styles.column}> {
+              cards?.filter((_, index) => index % 2 === 0)
+                .map((card) => getCardNode(card))
+            } </div>
+            <div className={styles.column}> {
+              cards?.filter((_, index) => index % 2 !== 0)
+                .map((card) => getCardNode(card))
+            } </div>
+          </>}
+
+          {currentView === GalleryViews.Rows &&
+            cards?.map((card) => getCardNode(card))}
+        </>
+      }
+
     </div >
   )
 }

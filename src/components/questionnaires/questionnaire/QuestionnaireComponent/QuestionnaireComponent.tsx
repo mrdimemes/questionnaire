@@ -1,19 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { FetchStatus } from "src/models/FetchStatus";
 import { Question } from "src/models/questionnaire/Question";
-import { TagBar, Button } from "src/components";
+import { TagBar, Button, LoadingSpinner } from "src/components";
 import { QuestionComponent } from "../QuestionComponent";
 import styles from "./QuestionnaireComponent.module.sass";
 
 type QuestionnaireProps = {
   id: number
 };
-
-enum FetchStatus {
-  Loading = "LOADING",
-  Complete = "COMPLETE",
-  Error = "ERROR"
-}
 
 const QuestionnaireComponent = ({ id }: QuestionnaireProps) => {
   const [status, setStatus] = useState(FetchStatus.Loading);
@@ -40,6 +35,7 @@ const QuestionnaireComponent = ({ id }: QuestionnaireProps) => {
 
   return (
     <div>
+      {status === FetchStatus.Loading && <LoadingSpinner />}
       {status === FetchStatus.Complete && <>
         <h1>{label}</h1>
         <TagBar className={styles.tags} tags={tags} />
