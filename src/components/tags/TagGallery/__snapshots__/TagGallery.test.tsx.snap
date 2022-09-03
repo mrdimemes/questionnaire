@@ -4,10 +4,7 @@ exports[`TagGallery component TagGallery empty snapshot 1`] = `
 <div>
   <div
     class="body"
-  >
-     
-     
-  </div>
+  />
 </div>
 `;
 
@@ -16,7 +13,6 @@ exports[`TagGallery component TagGallery fillfull snapshot 1`] = `
   <div
     class="body"
   >
-     
     <div
       class="body theme_light"
     >
@@ -53,7 +49,6 @@ exports[`TagGallery component TagGallery fillfull snapshot 1`] = `
         205
       </div>
     </div>
-     
   </div>
 </div>
 `;
