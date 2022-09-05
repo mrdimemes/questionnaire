@@ -12,7 +12,7 @@ Object {
           test
         </div>
         <input
-          class="body theme_light"
+          class="Input theme_light TextInput"
           name="1"
           type="text"
         />
@@ -27,7 +27,7 @@ Object {
         test
       </div>
       <input
-        class="body theme_light"
+        class="Input theme_light TextInput"
         name="1"
         type="text"
       />

@@ -2,22 +2,25 @@ import classNames from "classnames";
 import { useAppSelector } from "src/redux/hooks";
 import { themeSelector } from "src/redux/selectors";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
-import styles from "./Checkbox.module.sass"
+import { Input } from "../Input";
+import styles from "./RadioInput.module.sass"
 
-type CheckboxProp = {
-  name: string
+type RadioInputProp = {
+  name: string,
+  callback: (value: string) => void
 }
 
-const Checkbox = ({ name }: CheckboxProp) => {
+const RadioInput = ({ name, callback }: RadioInputProp) => {
   const currentTheme = useAppSelector(themeSelector);
 
   return (
-    <input
+    <Input
       className={classNames(styles.body, getThemeStyle(styles, currentTheme))}
-      type="checkbox"
+      inputType="radio"
       name={name}
+      callback={callback}
     />
   )
 }
 
-export default Checkbox
+export default RadioInput

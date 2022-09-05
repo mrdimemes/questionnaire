@@ -1,0 +1,39 @@
+@use "src/sass/foundation/mixins"
+@use "src/sass/foundation/colors"
+@use "src/sass/foundation/breakpoints"
+
+.CheckboxInput
+  @include mixins.square(24px)
+  @include mixins.flex-centered
+  -webkit-appearance: none
+  appearance: none
+  margin: 0
+  padding: 0
+  cursor: pointer
+  &::before
+    content: ""
+    @include mixins.square(14px)
+    transform: scale(0)
+    transition: box-shadow 0.3s, background-color 0.3s, transform 0.12s
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%)
+    @media (max-width: breakpoints.$tablet)
+      @include mixins.square(12px)
+  &:checked::before
+    transition: box-shadow 0.3s, background-color 0.3s, transform 0.12s
+    transform: scale(1)
+  @media (max-width: breakpoints.$tablet)
+    @include mixins.square(20px)
+
+.theme_light
+  &::before
+    box-shadow: inset 1em 1em colors.$light-theme-1
+    background-color: colors.$light-theme-1
+  &:hover
+    background-color: colors.$light-theme-bg-highlight
+
+.theme_dark
+  &::before
+    box-shadow: inset 1em 1em colors.$dark-theme-4
+    background-color: colors.$dark-theme-4
+  &:hover
+    background-color: colors.$dark-theme-bg-highlight

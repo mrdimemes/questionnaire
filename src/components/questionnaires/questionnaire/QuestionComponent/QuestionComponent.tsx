@@ -16,11 +16,11 @@ const QuestionComponent = (
     }
     switch (questionType) {
       case QuestionType.Checkbox:
-        return <CheckboxField {...props} />;
+        return <CheckboxField {...props} callback={(value) => { }} />;
       case QuestionType.Radio:
-        return <RadioField {...props} />;
+        return <RadioField {...props} callback={(value) => { }} />;
       case QuestionType.Text:
-        return <TextRowField {...props} />;
+        return <TextRowField {...props} callback={(value) => { }} />;
     }
   };
 

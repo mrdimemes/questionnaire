@@ -1,22 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Radio component Radio snapshot 1`] = `
+exports[`CheckboxInput component CheckboxInput snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <input
-        class="body theme_light"
+        class="Input theme_light CheckboxInput theme_light"
         name="test"
-        type="radio"
+        type="checkbox"
       />
     </div>
   </body>,
   "container": <div>
     <input
-      class="body theme_light"
+      class="Input theme_light CheckboxInput theme_light"
       name="test"
-      type="radio"
+      type="checkbox"
     />
   </div>,
   "debug": [Function],

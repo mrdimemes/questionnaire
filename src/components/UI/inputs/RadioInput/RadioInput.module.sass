@@ -1,21 +1,11 @@
-@use "src/sass/foundation/mixins"
 @use "src/sass/foundation/colors"
+@use "src/sass/foundation/mixins"
 @use "src/sass/foundation/breakpoints"
 
-@mixin input
-  border-width: 2px
-  border-style: solid
-  border-radius: 4px
-  background-color: transparent
-  transition: border-color 0.3s
-  outline: none
-  color: inherit
-  font-size: inherit
-  box-sizing: border-box
-
-@mixin marked-input
+.body
   @include mixins.square(24px)
   @include mixins.flex-centered
+  border-radius: 50%
   -webkit-appearance: none
   appearance: none
   margin: 0
@@ -25,28 +15,26 @@
     content: ""
     transform: scale(0)
     transition: box-shadow 0.3s, background-color 0.3s, transform 0.12s
+    @include mixins.square(12px)
+    border-radius: 50%
+    @media (max-width: breakpoints.$tablet)
+      @include mixins.square(8px)
   &:checked::before
     transition: box-shadow 0.3s, background-color 0.3s, transform 0.12s
     transform: scale(1)
   @media (max-width: breakpoints.$tablet)
     @include mixins.square(20px)
 
-@mixin input-dark
-  border-color: colors.$dark-theme-4
-
-@mixin marked-input-dark
-  &::before
-    box-shadow: inset 1em 1em colors.$dark-theme-4
-    background-color: colors.$dark-theme-4
-  &:hover
-    background-color: colors.$dark-theme-bg-highlight
-
-@mixin input-light
-  border-color: colors.$gray-1
-
-@mixin marked-input-light
+.theme_light
   &::before
     box-shadow: inset 1em 1em colors.$light-theme-1
     background-color: colors.$light-theme-1
   &:hover
     background-color: colors.$light-theme-bg-highlight
+
+.theme_dark
+  &::before
+    box-shadow: inset 1em 1em colors.$dark-theme-4
+    background-color: colors.$dark-theme-4
+  &:hover
+    background-color: colors.$dark-theme-bg-highlight

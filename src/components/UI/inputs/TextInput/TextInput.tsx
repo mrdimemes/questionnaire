@@ -1,21 +1,19 @@
-import classNames from "classnames";
-import { useAppSelector } from "src/redux/hooks";
-import { themeSelector } from "src/redux/selectors";
-import { getThemeStyle } from "src/redux/slices/themeSlice";
-import styles from "./TextInput.module.sass"
+import { Input } from "../Input";
+import styles from "./TextInput.module.sass";
 
 type TextInputProp = {
-  name: string
+  name: string,
+  callback: (value: string) => void
 }
 
-const TextInput = ({ name }: TextInputProp) => {
-  const currentTheme = useAppSelector(themeSelector);
+const TextInput = ({ name, callback }: TextInputProp) => {
 
   return (
-    <input
-      className={classNames(styles.body, getThemeStyle(styles, currentTheme))}
-      type="text"
+    <Input 
+      className={styles.TextInput}
+      inputType="text"
       name={name}
+      callback={callback}
     />
   )
 }

@@ -9,7 +9,7 @@ Object {
         class="body"
       >
         <input
-          class="body theme_light"
+          class="Input theme_light body theme_light"
           name="1"
           type="radio"
         />
@@ -24,7 +24,7 @@ Object {
       class="body"
     >
       <input
-        class="body theme_light"
+        class="Input theme_light body theme_light"
         name="1"
         type="radio"
       />
