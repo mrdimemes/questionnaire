@@ -69,16 +69,16 @@ const MainPage = () => {
         <h2>Исходный код</h2>
         <p className={styles.aboutText}>Исходный код доступен в открытых GitHub репозиториях и может свободно использоваться как для коммерческих, так и для некомерческих нужд.</p>
         <div className={styles.bar}>
-          <a href={frontendSourceLink}>Front-end</a>
-          <a href={backendSourceLink}>Back-end</a>
+          <a className={styles.link} href={frontendSourceLink}>Front-end</a>
+          <a className={styles.link} href={backendSourceLink}>Back-end</a>
         </div>
       </section>
 
       <section className={styles.section}>
         <h2>Контакты</h2>
         <div className={styles.bar}>
-          <a href={"mailto:" + email}>Почта</a>
-          <a href={github}>GitHub</a>
+          <a className={styles.link} href={"mailto:" + email}>Почта</a>
+          <a className={styles.link} href={github}>GitHub</a>
         </div>
       </section>
 
