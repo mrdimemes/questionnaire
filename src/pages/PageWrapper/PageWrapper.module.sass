@@ -3,16 +3,25 @@
 .body
   margin-top: 60px
   max-height: calc(100vh - 60px)
+  min-height: calc(100vh - 60px)
+  box-sizing: border-box
+  padding-top: 1.5em
+  padding-bottom: 3em
   overflow: auto
   font-size: 1.8em
   h1
     font-size: 1.4em
-    margin: 0.8em 0
+    margin-bottom: 0.8em
+  h2
+    font-size: 1.2em
+    margin-bottom: 0.6em
   @media (max-width: breakpoints.$small-screen)
     margin-top: 50px
     max-height: calc(100vh - 50px)
+    min-height: calc(100vh - 50px)
     font-size: 1.6em
   @media (max-width: breakpoints.$tablet)
     margin-top: 40px
     max-height: calc(100vh - 40px)
+    min-height: calc(100vh - 40px)
     font-size: 1.4em

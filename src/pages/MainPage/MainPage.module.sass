@@ -1,0 +1,32 @@
+.section
+  margin-bottom: 1.2em
+
+.aboutText
+  text-align: justify
+  margin-bottom: 0.7em
+
+.columns
+  display: grid
+  grid-template-columns: 1fr 1fr
+
+.listItem
+  text-align: justify
+  position: relative
+  &::before
+    content: "•"
+    margin-right: 10px
+    margin-left: 10px
+    font-size: 1em
+  &::after
+    content: ";"
+  &:last-child::after
+    content: "."
+
+.bar
+  display: flex
+  column-gap: 1.5em
+
+a
+  font-weight: 600
+  &:hover
+    text-decoration: underline
