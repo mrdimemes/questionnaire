@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from "src/redux/hooks";
 import { Button } from "src/components/UI/Button";
 import styles from "./User.module.sass";
@@ -7,13 +8,15 @@ import styles from "./User.module.sass";
 const User = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const user = useAppSelector((state) => state.auth.user);
-  const togglePopup = () => {
-    setIsPopupOpen(!isPopupOpen)
-  }
+  const navigate = useNavigate();
+  const togglePopup = () => setIsPopupOpen(!isPopupOpen);
+
   // placeholder
   const onClick = () => {
     console.log("user btn onclick");
   }
+
+  const redirectToAuth = () => navigate("/auth");
 
   return (
     <div className={styles.body}>
@@ -37,7 +40,7 @@ const User = () => {
       {!user && (
         <Button
           children="Войти"
-          onClick={onClick}
+          onClick={redirectToAuth}
         />
       )}
     </div>

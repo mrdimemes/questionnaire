@@ -7,7 +7,8 @@ import {
   MainPage,
   QuestionnaireListPage,
   TagsPage,
-  QuestionnairePage
+  QuestionnairePage,
+  AuthPage
 } from "src/pages";
 import { useAppDispatch, useAppSelector } from "src/redux/hooks";
 import { themeSelector } from "src/redux/selectors";
@@ -37,6 +38,7 @@ function App() {
         <Route path="tags" element={<TagsPage />} />
         <Route path="questionnaire/:questionnaireId"
           element={<QuestionnairePage />} />
+        <Route path="auth" element={<AuthPage />} />
       </Routes>
     </div>
   );
