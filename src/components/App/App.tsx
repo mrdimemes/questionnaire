@@ -1,7 +1,7 @@
-import axios from "axios";
 import classNames from "classnames";
 import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import api from "src/api";
 import { Header } from "src/components";
 import {
   MainPage,
@@ -21,7 +21,7 @@ function App() {
   const currentTheme = useAppSelector(themeSelector);
 
   useEffect(() => {
-    axios.get(process.env.REACT_APP_BACKEND_URL + "questionnaires/tags").then(
+    api.get("questionnaires/tags").then(
       (res) => dispatch(setTags(res.data.tags))
     )
   }, [dispatch]);

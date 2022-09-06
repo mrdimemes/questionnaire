@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import api from "src/api";
 import { FetchStatus } from "src/models/FetchStatus";
 import { QuestionnaireCard } from "src/models/questionnaire/QuestionnaireCard";
 import { QuestionnaireCardComponent, ViewSwitchButton } from "../";
@@ -27,13 +27,12 @@ const QuestionnaireGallery = () => {
   };
 
   useEffect(() => {
-    axios.get(process.env.REACT_APP_BACKEND_URL +
-      "questionnaires/questionnaireCards").then(
-        (res) => {
-          setCards(res.data.questionnaires);
-          setStatus(FetchStatus.Complete);
-        }
-      )
+    api.get("questionnaires/questionnaireCards").then(
+      (res) => {
+        setCards(res.data.questionnaires);
+        setStatus(FetchStatus.Complete);
+      }
+    )
   }, []);
 
   return (

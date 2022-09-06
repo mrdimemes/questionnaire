@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import api from "src/api";
 import { FetchStatus } from "src/models/FetchStatus";
 import { Question } from "src/models/questionnaire/Question";
 import { TagBar, Button, LoadingSpinner } from "src/components";
@@ -18,16 +18,15 @@ const QuestionnaireComponent = ({ id }: QuestionnaireProps) => {
   const [questions, setQuestions] = useState([] as Question[]);
 
   useEffect(() => {
-    axios.get(process.env.REACT_APP_BACKEND_URL +
-      "questionnaires/questionnaire/" + id).then(
-        (res) => {
-          setLabel(res.data.questionnaire.label);
-          setTags(res.data.questionnaire.tags);
-          setAbout(res.data.questionnaire.about);
-          setQuestions(res.data.questionnaire.questions);
-          setStatus(FetchStatus.Complete);
-        }
-      )
+    api.get("questionnaires/questionnaire/" + id).then(
+      (res) => {
+        setLabel(res.data.questionnaire.label);
+        setTags(res.data.questionnaire.tags);
+        setAbout(res.data.questionnaire.about);
+        setQuestions(res.data.questionnaire.questions);
+        setStatus(FetchStatus.Complete);
+      }
+    )
   }, []);
 
   // temporary placeholder
