@@ -9,6 +9,7 @@ Object {
         class="Input theme_light body theme_light"
         name="test"
         type="radio"
+        value=""
       />
     </div>
   </body>,
@@ -17,6 +18,7 @@ Object {
       class="Input theme_light body theme_light"
       name="test"
       type="radio"
+      value=""
     />
   </div>,
   "debug": [Function],

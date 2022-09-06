@@ -13,8 +13,10 @@ export { LoginForm } from './auth/LoginForm';
 export { RegistrationForm } from './auth/RegistrationForm';
 
 export { Button } from './UI/Button';
-export { CheckboxInput } from './UI/inputs/CheckboxInput';
-export { RadioInput } from './UI/inputs/RadioInput';
-export { TextInput } from './UI/inputs/TextInput';
+export { Input } from './UI/inputs';
+export { CheckboxInput } from './UI/inputs';
+export { RadioInput } from './UI/inputs';
+export { TextInput } from './UI/inputs';
+export { EmailInput } from './UI/inputs';
 
 export { LoadingSpinner } from './LoadingSpinner';

@@ -3,14 +3,10 @@ import { useAppSelector } from "src/redux/hooks";
 import { themeSelector } from "src/redux/selectors";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { Input } from "../Input";
-import styles from "./CheckboxInput.module.sass"
+import styles from "./CheckboxInput.module.sass";
+import type { SpecificInputProps } from "../types";
 
-type CheckboxInputProp = {
-  name: string,
-  callback: (value: string) => void
-}
-
-const CheckboxInput = ({ name, callback }: CheckboxInputProp) => {
+const CheckboxInput = ({ name, value, callback }: SpecificInputProps) => {
   const currentTheme = useAppSelector(themeSelector);
 
   return (
@@ -21,6 +17,7 @@ const CheckboxInput = ({ name, callback }: CheckboxInputProp) => {
       )}
       inputType="checkbox"
       name={name}
+      value={value}
       callback={callback}
     />
   )

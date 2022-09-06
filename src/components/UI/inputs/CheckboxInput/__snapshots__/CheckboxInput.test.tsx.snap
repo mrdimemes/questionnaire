@@ -9,6 +9,7 @@ Object {
         class="Input theme_light CheckboxInput theme_light"
         name="test"
         type="checkbox"
+        value=""
       />
     </div>
   </body>,
@@ -17,6 +18,7 @@ Object {
       class="Input theme_light CheckboxInput theme_light"
       name="test"
       type="checkbox"
+      value=""
     />
   </div>,
   "debug": [Function],

@@ -4,17 +4,10 @@ import { themeSelector } from "src/redux/selectors";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import classNames from "classnames";
 import styles from "./Input.module.sass";
-
-type InputProps = {
-  className?: string,
-  inputType: string,
-  name: string,
-  placeholder?: string,
-  callback: (value: string) => void
-};
+import type { InputProps } from "../types";
 
 const Input = (
-  { className, inputType, name, placeholder, callback }: InputProps
+  { className, inputType, name, placeholder, callback, value }: InputProps
 ) => {
   const currentTheme = useAppSelector(themeSelector);
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -32,6 +25,7 @@ const Input = (
       name={name}
       placeholder={placeholder}
       onChange={handleChange}
+      value={value}
     />
   )
 }

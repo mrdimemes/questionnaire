@@ -1,18 +1,14 @@
 import { Input } from "../Input";
 import styles from "./TextInput.module.sass";
+import type { SpecificInputProps } from "../types";
 
-type TextInputProp = {
-  name: string,
-  callback: (value: string) => void
-}
-
-const TextInput = ({ name, callback }: TextInputProp) => {
-
+const TextInput = ({ name, value, callback }: SpecificInputProps) => {
   return (
     <Input 
       className={styles.TextInput}
       inputType="text"
       name={name}
+      value={value}
       callback={callback}
     />
   )

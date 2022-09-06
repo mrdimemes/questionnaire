@@ -12,6 +12,7 @@ Object {
           class="Input theme_light CheckboxInput theme_light"
           name="1"
           type="checkbox"
+          value=""
         />
         <div>
           test
@@ -27,6 +28,7 @@ Object {
         class="Input theme_light CheckboxInput theme_light"
         name="1"
         type="checkbox"
+        value=""
       />
       <div>
         test

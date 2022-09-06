@@ -12,6 +12,7 @@ Object {
           class="Input theme_light body theme_light"
           name="1"
           type="radio"
+          value=""
         />
         <div>
           test
@@ -27,6 +28,7 @@ Object {
         class="Input theme_light body theme_light"
         name="1"
         type="radio"
+        value=""
       />
       <div>
         test
