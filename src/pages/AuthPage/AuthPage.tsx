@@ -1,27 +1,41 @@
 import { useState } from "react";
 import { PageWrapper } from "../PageWrapper";
-
-enum AuthOption {
-  registration = "REGISTRATION",
-  login = "LOGIN"
-}
+import { AuthForm, Button } from "src/components";
+import { AuthOption } from "src/models/auth/AuthOption";
+import styles from "./AuthPage.module.sass";
 
 const AuthPage = () => {
-  const [option, setOption] = useState(AuthOption.registration);
+  const [authOption, setAuthOption] = useState(AuthOption.login);
   const toggleOption = () => {
-    if (option === AuthOption.registration) {
-      setOption(AuthOption.login)
+    if (authOption === AuthOption.registration) {
+      setAuthOption(AuthOption.login)
     } else {
-      setOption(AuthOption.registration)
+      setAuthOption(AuthOption.registration)
     }
-
   }
+
   return (
     <PageWrapper>
-      <h1>{option === AuthOption.registration ? "Регистрация" : "Вход"}</h1>
-      <button onClick={toggleOption}>
-        toggle
-      </button>
+      <h1>
+        {authOption === AuthOption.registration ?
+          "Регистрация" :
+          "Вход"}
+      </h1>
+      <AuthForm className={styles.form} authOption={authOption} />
+      <div className={styles.switchBar}>
+        <div>
+          {authOption === AuthOption.registration ?
+            "Уже зарегистрированы?" :
+            "Нет аккаунта?"}
+        </div>
+        <Button onClick={toggleOption}>
+          {authOption === AuthOption.registration ?
+            "Войдите!" :
+            "Зарегистрируйтесь!"}
+        </Button>
+      </div>
+
+
     </PageWrapper>
   )
 }

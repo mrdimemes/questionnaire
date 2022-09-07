@@ -1,15 +1,28 @@
-import { Input } from "../Input";
+import classNames from "classnames";
+import { Input } from "../";
 import styles from "./PasswordInput.module.sass";
 import type { SpecificInputProps } from "../types";
 
-const PasswordInput = ({ name, value, callback }: SpecificInputProps) => {
+const PasswordInput = ({
+  className,
+  name,
+  value,
+  callback,
+  placeholder,
+  maxLength }: SpecificInputProps
+) => {
   return (
     <Input
-      className={styles.PasswordInput}
+      className={classNames(styles.PasswordInput, className)}
       inputType="password"
       name={name}
       value={value}
       callback={callback}
+      placeholder={placeholder}
+      maxLength={
+        maxLength ??
+        Number(process.env.REACT_APP_MAX_PASSWORD_LENGTH ?? "30")}
+      isRequired={true}
     />
   )
 }

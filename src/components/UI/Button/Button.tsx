@@ -13,7 +13,8 @@ type ButtonProps = {
 
 const Button = ({ children, onClick, className }: ButtonProps) => {
   const currentTheme = useAppSelector(themeSelector);
-  const onClickHandler = (_event: React.MouseEvent<HTMLElement>) => {
+  const onClickHandler = (event: React.MouseEvent<HTMLElement>) => {
+    event.preventDefault();
     onClick();
   }
 

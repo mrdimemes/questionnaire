@@ -1,0 +1,33 @@
+@use "src/sass/foundation/colors"
+
+.content
+  margin-bottom: 30px
+
+.field
+  margin-bottom: 10px
+
+.fieldHeader
+  font-size: 0.9em
+  display: flex
+  justify-content: space-between
+
+.required::after
+  content: "*"
+  margin-left: 5px
+  transition: color 0.3s
+
+.error
+  transition: color 0.3s
+
+.theme_light .error
+  color: colors.$light-theme-error
+
+.theme_light .required::after
+  color: colors.$light-theme-error
+
+
+.theme_dark .error
+  color: colors.$dark-theme-error
+
+.theme_dark .required::after
+  color: colors.$dark-theme-error

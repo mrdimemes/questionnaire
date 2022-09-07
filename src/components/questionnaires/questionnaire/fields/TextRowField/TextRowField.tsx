@@ -1,4 +1,4 @@
-import { TextInput } from "src/components/UI/inputs/TextInput";
+import { TextInput } from "src/components";
 import { Field } from "src/models/questionnaire/Field";
 import styles from "./TextRowField.module.sass";
 

@@ -1,4 +1,4 @@
-import { RadioInput } from "src/components/UI/inputs/RadioInput";
+import { RadioInput } from "src/components";
 import { Field } from "src/models/questionnaire/Field";
 import styles from "./RadioField.module.sass";
 

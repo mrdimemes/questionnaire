@@ -4,5 +4,7 @@ export type InputProps = {
   name: string,
   value: string,
   callback: (value: string) => void,
-  placeholder?: string
+  placeholder?: string,
+  maxLength?: number,
+  isRequired?: boolean
 };

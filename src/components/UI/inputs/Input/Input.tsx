@@ -1,16 +1,24 @@
 import { ChangeEvent } from "react";
+import classNames from "classnames";
 import { useAppSelector } from "src/redux/hooks";
 import { themeSelector } from "src/redux/selectors";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
-import classNames from "classnames";
 import styles from "./Input.module.sass";
 import type { InputProps } from "../types";
 
-const Input = (
-  { className, inputType, name, placeholder, callback, value }: InputProps
+const Input = ({
+  className,
+  inputType,
+  name,
+  placeholder,
+  callback,
+  value,
+  maxLength,
+  isRequired }: InputProps
 ) => {
   const currentTheme = useAppSelector(themeSelector);
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
     callback(event.target.value);
   }
 
@@ -26,6 +34,8 @@ const Input = (
       placeholder={placeholder}
       onChange={handleChange}
       value={value}
+      maxLength={maxLength}
+      required={isRequired}
     />
   )
 }

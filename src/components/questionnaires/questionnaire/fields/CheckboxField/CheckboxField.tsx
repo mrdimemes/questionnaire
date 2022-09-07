@@ -1,4 +1,4 @@
-import { CheckboxInput } from "src/components/UI/inputs/CheckboxInput";
+import { CheckboxInput } from "src/components";
 import { Field } from "src/models/questionnaire/Field";
 import styles from "./CheckboxField.module.sass";
 
