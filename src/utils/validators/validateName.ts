@@ -7,12 +7,12 @@ const validateName = (name: string) => {
     Number(process.env.REACT_APP_MIN_NAME_LENGTH ?? "1"),
     Number(process.env.REACT_APP_MAX_NAME_LENGTH ?? "30")
   );
-  if (!lengthResult[0]) return lengthResult;
+  if (lengthResult) return lengthResult;
 
   const regexResult = validateByCharset(name, Charset.basic);
-  if (!regexResult[0]) return regexResult;
+  if (regexResult) return regexResult;
 
-  return [true, undefined];
+  return undefined;
 }
 
 export default validateName

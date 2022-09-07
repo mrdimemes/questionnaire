@@ -7,12 +7,12 @@ const validatePassword = (password: string) => {
     Number(process.env.REACT_APP_MIN_PASSWORD_LENGTH ?? "6"),
     Number(process.env.REACT_APP_MAX_PASSWORD_LENGTH ?? "30")
   );
-  if (!lengthResult[0]) return lengthResult;
+  if (lengthResult) return lengthResult;
 
   const regexResult = validateByCharset(password, Charset.extended);
-  if (!regexResult[0]) return regexResult;
+  if (regexResult) return regexResult;
 
-  return [true, undefined];
+  return undefined;
 }
 
 export default validatePassword
