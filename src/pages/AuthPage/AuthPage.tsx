@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { PageWrapper } from "../PageWrapper";
 import { AuthForm, Button } from "src/components";
-import { AuthOption } from "src/models/auth/AuthOption";
+import { AuthOption } from "src/models";
 import styles from "./AuthPage.module.sass";
 
 const AuthPage = () => {

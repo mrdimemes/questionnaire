@@ -1,5 +1,5 @@
 import axios from "axios";
-import { RefreshResponse } from "src/models/auth/RefreshResponse";
+import { RefreshResponse } from "src/models";
 
 const api = axios.create({
   withCredentials: true,
