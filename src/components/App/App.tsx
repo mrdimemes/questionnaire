@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import api from "src/api";
 import { Header } from "src/components";
 import {
   MainPage,
@@ -10,6 +9,7 @@ import {
   QuestionnairePage,
   AuthPage
 } from "src/pages";
+import { QuestionnaireService } from "src/services";
 import { useAppDispatch, useAppSelector } from "src/redux/hooks";
 import { themeSelector } from "src/redux/selectors";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
@@ -21,9 +21,7 @@ function App() {
   const currentTheme = useAppSelector(themeSelector);
 
   useEffect(() => {
-    api.get("questionnaires/tags").then(
-      (res) => dispatch(setTags(res.data))
-    )
+    QuestionnaireService.getTags().then((tags) => dispatch(setTags(tags)));
   }, [dispatch]);
 
   return (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import api from "src/api";
 import { FetchStatus, Question } from "src/models";
+import { QuestionnaireService } from "src/services";
 import { TagBar, Button, LoadingSpinner } from "src/components";
 import { QuestionComponent } from "../QuestionComponent";
 import styles from "./QuestionnaireComponent.module.sass";
@@ -17,12 +17,12 @@ const QuestionnaireComponent = ({ id }: QuestionnaireProps) => {
   const [questions, setQuestions] = useState([] as Question[]);
 
   useEffect(() => {
-    api.get("questionnaires/questionnaire/" + id).then(
-      (res) => {
-        setLabel(res.data.questionnaire.label);
-        setTags(res.data.questionnaire.tags);
-        setAbout(res.data.questionnaire.about);
-        setQuestions(res.data.questionnaire.questions);
+    QuestionnaireService.getQuestionnaire(id).then(
+      (questionnaire) => {
+        setLabel(questionnaire.label);
+        setTags(questionnaire.tags);
+        setAbout(questionnaire.about);
+        setQuestions(questionnaire.questions);
         setStatus(FetchStatus.Complete);
       }
     )

@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { useState, useEffect } from "react";
-import api from "src/api";
 import { FetchStatus, QuestionnaireCard } from "src/models";
+import { QuestionnaireService } from "src/services";
 import { QuestionnaireCardComponent, ViewSwitchButton } from "../";
 import { LoadingSpinner } from "src/components/LoadingSpinner";
 import styles from "./QuestionnaireGallery.module.sass";
@@ -26,9 +26,9 @@ const QuestionnaireGallery = () => {
   };
 
   useEffect(() => {
-    api.get("questionnaires/questionnaireCards").then(
-      (res) => {
-        setCards(res.data.questionnaires);
+    QuestionnaireService.getQuestionnaireCards().then(
+      (cards) => {
+        setCards(cards);
         setStatus(FetchStatus.Complete);
       }
     )
