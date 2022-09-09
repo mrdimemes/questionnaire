@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Tag } from "src/models/Tag";
-import { FetchStatus } from "src/models/FetchStatus";
+import { Tag, FetchStatus } from "src/models";
 
 const initialState = {
   tags: new Array<Tag>(),

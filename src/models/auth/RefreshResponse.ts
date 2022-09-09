@@ -1,4 +1,6 @@
-export interface RefreshResponse {
+interface RefreshResponse {
   accessToken: string;
   refreshToken: string;
 }
+
+export default RefreshResponse

@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { setupStore } from "src/redux/store";
 import { renderWithProvidersAndRouters } from "src/utils/test-utils";
-import { FetchStatus } from "src/models/FetchStatus";
+import { FetchStatus } from "src/models";
 import TagBar from "./TagBar";
 
 const store = setupStore({

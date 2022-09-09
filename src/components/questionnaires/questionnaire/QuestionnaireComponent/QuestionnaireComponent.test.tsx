@@ -4,8 +4,7 @@ import { screen, waitFor } from "@testing-library/react";
 import { renderWithProviders } from "src/utils/test-utils";
 import { setupStore } from "src/redux/store";
 import QuestionnaireComponent from "./QuestionnaireComponent";
-import { FetchStatus } from "src/models/FetchStatus";
-import { QuestionType } from "src/models/questionnaire/QuestionType";
+import { FetchStatus, QuestionType } from "src/models";
 
 const questionPlaceholder = {
   id: 1,

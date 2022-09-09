@@ -1,7 +1,9 @@
-import { User } from "../User";
+import User from "../User";
 
-export interface AuthResponse {
+interface LoginResponse {
   user: User;
   accessToken: string;
   refreshToken: string;
 }
+
+export default LoginResponse

@@ -22,7 +22,7 @@ function App() {
 
   useEffect(() => {
     api.get("questionnaires/tags").then(
-      (res) => dispatch(setTags(res.data.tags))
+      (res) => dispatch(setTags(res.data))
     )
   }, [dispatch]);
 

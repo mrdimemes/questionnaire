@@ -1,5 +1,5 @@
 import { CheckboxInput } from "src/components";
-import { Field } from "src/models/questionnaire/Field";
+import { Field } from "src/models";
 import styles from "./CheckboxField.module.sass";
 
 interface FieldProps extends Field {

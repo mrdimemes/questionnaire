@@ -1,5 +1,5 @@
 import { TextInput } from "src/components";
-import { Field } from "src/models/questionnaire/Field";
+import { Field } from "src/models";
 import styles from "./TextRowField.module.sass";
 
 interface FieldProps extends Field {

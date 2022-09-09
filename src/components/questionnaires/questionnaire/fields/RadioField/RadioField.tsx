@@ -1,5 +1,5 @@
 import { RadioInput } from "src/components";
-import { Field } from "src/models/questionnaire/Field";
+import { Field } from "src/models";
 import styles from "./RadioField.module.sass";
 
 interface FieldProps extends Field {

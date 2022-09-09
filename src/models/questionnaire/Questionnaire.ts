@@ -1,9 +1,11 @@
-import { Question } from "./Question";
+import { Question } from "./";
 
-export interface Questionnaire {
+interface Questionnaire {
   id: number,
   label: string,
   tags: number[],
   about: string,
   questions: Question[]
 }
+
+export default Questionnaire

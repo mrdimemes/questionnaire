@@ -1,6 +1,4 @@
-import { Field } from "src/models/questionnaire/Field";
-import { Question } from "src/models/questionnaire/Question";
-import { QuestionType } from "src/models/questionnaire/QuestionType";
+import { Field, Question, QuestionType } from "src/models";
 import { CheckboxField, RadioField, TextRowField } from "../fields";
 import styles from "./QuestionComponent.module.sass";
 

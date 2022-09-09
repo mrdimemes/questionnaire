@@ -1,8 +1,7 @@
 import classNames from "classnames";
 import { useState, useEffect } from "react";
 import api from "src/api";
-import { FetchStatus } from "src/models/FetchStatus";
-import { QuestionnaireCard } from "src/models/questionnaire/QuestionnaireCard";
+import { FetchStatus, QuestionnaireCard } from "src/models";
 import { QuestionnaireCardComponent, ViewSwitchButton } from "../";
 import { LoadingSpinner } from "src/components/LoadingSpinner";
 import styles from "./QuestionnaireGallery.module.sass";

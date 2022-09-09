@@ -1,6 +1,6 @@
 import { useAppSelector } from "src/redux/hooks";
 import { TagComponent, LoadingSpinner } from "src/components";
-import { FetchStatus } from "src/models/FetchStatus";
+import { FetchStatus } from "src/models";
 import styles from "./TagGallery.module.sass";
 
 const TagGallery = () => {

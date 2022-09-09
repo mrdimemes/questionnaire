@@ -1,10 +1,11 @@
-import { QuestionType } from "./QuestionType";
-import { Field } from "./Field";
+import { QuestionType, Field } from "./";
 
-export interface Question {
+interface Question {
   id: number,
   questionType: QuestionType,
   text: string,
   fields: Field[],
   isRequired: boolean
 }
+
+export default Question

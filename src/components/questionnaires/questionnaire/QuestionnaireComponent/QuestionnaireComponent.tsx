@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "src/api";
-import { FetchStatus } from "src/models/FetchStatus";
-import { Question } from "src/models/questionnaire/Question";
+import { FetchStatus, Question } from "src/models";
 import { TagBar, Button, LoadingSpinner } from "src/components";
 import { QuestionComponent } from "../QuestionComponent";
 import styles from "./QuestionnaireComponent.module.sass";

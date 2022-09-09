@@ -4,7 +4,7 @@ import { screen, waitFor } from "@testing-library/react";
 import { renderWithProvidersAndRouters } from "src/utils/test-utils";
 import { setupStore } from "src/redux/store";
 import QuestionnaireGallery from "./QuestionnaireGallery";
-import { FetchStatus } from "src/models/FetchStatus";
+import { FetchStatus } from "src/models";
 
 const cardsPlaceholder = [
   {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import classNames from "classnames";
-import { AuthOption } from "src/models/auth/AuthOption";
+import { AuthOption } from "src/models";
 import { useAppSelector } from "src/redux/hooks";
 import { themeSelector } from "src/redux/selectors";
 import { getThemeStyle } from "src/redux/slices/themeSlice";

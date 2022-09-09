@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "src/utils/test-utils";
 import QuestionComponent from "./QuestionComponent";
-import { QuestionType } from "src/models/questionnaire/QuestionType";
+import { QuestionType } from "src/models";
 
 const fieldsPlaceholder = [
   { id: 1, text: "field1" },
