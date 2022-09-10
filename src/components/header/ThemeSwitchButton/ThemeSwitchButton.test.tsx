@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { renderWithProviders } from "src/utils/test-utils";
-import { setupStore } from "src/redux/store";
+import { setupStore } from "src/redux";
 import { Theme } from "src/redux/slices/themeSlice";
 import ThemeSwitchButton from "./ThemeSwitchButton";
 

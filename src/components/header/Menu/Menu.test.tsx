@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import { renderWithProvidersAndRouters } from "src/utils/test-utils";
-import { setupStore } from "src/redux/store";
+import { setupStore } from "src/redux";
 import Menu from "./Menu";
 
 describe("Header/Menu component", () => {

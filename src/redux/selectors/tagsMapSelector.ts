@@ -1,4 +1,4 @@
-import type { RootState } from "../store";
+import type { RootState } from "../";
 
 const tagsMapSelector = (state: RootState) => {
   const map = new Map<number, string>();

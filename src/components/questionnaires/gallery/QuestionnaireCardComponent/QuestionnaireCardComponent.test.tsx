@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import { FetchStatus } from "src/models";
-import { setupStore } from "src/redux/store";
+import { setupStore } from "src/redux";
 import { renderWithProvidersAndRouters } from "src/utils/test-utils";
 import QuestionnaireCardComponent from "./QuestionnaireCardComponent";
 

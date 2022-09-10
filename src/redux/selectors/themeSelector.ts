@@ -1,4 +1,4 @@
-import type { RootState } from "../store";
+import type { RootState } from "../";
 
 const themeSelector = (state: RootState) => {
   return state.theme.theme

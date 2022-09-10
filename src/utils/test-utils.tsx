@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import { render, RenderOptions } from '@testing-library/react'
 import { PreloadedState } from '@reduxjs/toolkit'
 import { Provider } from "react-redux"
-import { setupStore, AppStore, RootState } from "src/redux/store";
+import { setupStore, AppStore, RootState } from "src/redux";
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
   preloadedState?: PreloadedState<RootState>

@@ -2,7 +2,7 @@ import { rest } from "msw";
 import { setupServer } from "msw/node";
 import { screen, waitFor } from "@testing-library/react";
 import { renderWithProvidersAndRouters } from "src/utils/test-utils";
-import { setupStore } from "src/redux/store";
+import { setupStore } from "src/redux";
 import QuestionnaireGallery from "./QuestionnaireGallery";
 import { FetchStatus } from "src/models";
 
