@@ -1,7 +1,9 @@
 enum ErrorStatusCode {
-  NotFound = 404,
+  BadRequest = 400,
   Forbidden = 403,
-  ServerError = 500
+  NotFound = 404,
+  ServerError = 500,
+  ServiceUnavailable = 503
 }
 
 export default ErrorStatusCode

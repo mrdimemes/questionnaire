@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import classNames from "classnames";
 import { AuthOption } from "src/models";
 import { useAppSelector } from "src/redux/hooks";
 import { themeSelector } from "src/redux/selectors";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
+import { AuthService } from "src/services";
 import { EmailInput, NameInput, PasswordInput, Button } from "src/components";
 import {
   validateEmail,
@@ -19,6 +21,7 @@ type AuthFormProps = {
 
 const AuthForm = ({ className, authOption }: AuthFormProps) => {
   const currentTheme = useAppSelector(themeSelector);
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -47,16 +50,28 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
     if (passwordValidation) setPasswordError(passwordValidation);
     const passwordsIsSame = password === passwordConfiramtion;
     if (!passwordsIsSame) setConfiramtionError("Пароли не совпадают");
-    if ((authOption === AuthOption.registration &&
+    if (
+      authOption === AuthOption.registration &&
       !emailValidation &&
       !nameValidation &&
       !passwordValidation &&
-      passwordsIsSame) ||
-      (authOption === AuthOption.login &&
-        !emailValidation &&
-        !passwordValidation)
+      passwordsIsSame
     ) {
-      console.log("submitted!");
+      AuthService.registration(email, name, password)
+        .then(error => {
+          if (error) return console.log(error);
+          navigate("/");
+        })
+    } else if (
+      authOption === AuthOption.login &&
+      !emailValidation &&
+      !passwordValidation
+    ) {
+      AuthService.login(email, password)
+        .then(error => {
+          if (error) return console.log(error);
+          navigate("/");
+        })
     }
   }
 
