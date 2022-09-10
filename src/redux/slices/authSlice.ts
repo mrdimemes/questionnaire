@@ -4,8 +4,11 @@ import { User } from "src/models";
 interface AuthState {
   user: User | null
 }
+
+const userInStorage = localStorage.getItem("user");
+
 const initialState: AuthState = {
-  user: null
+  user: userInStorage ? JSON.parse(userInStorage) : null
 }
 
 export const authSlice = createSlice({
