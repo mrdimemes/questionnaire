@@ -2,6 +2,8 @@ export { App } from './App';
 
 export { Header } from './header';
 
+export { PaginationBar } from './pagination';
+
 export { TagComponent } from './tags/TagComponent';
 export { TagGallery } from './tags/TagGallery';
 export { TagBar } from './tags/TagBar';

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { FetchStatus, QuestionnaireCard } from "src/models";
 import { QuestionnaireService } from "src/services";
 import { QuestionnaireCardComponent, ViewSwitchButton } from "../";
-import { LoadingSpinner } from "src/components/LoadingSpinner";
+import { LoadingSpinner, PaginationBar } from "src/components";
 import styles from "./QuestionnaireGallery.module.sass";
 
 export enum GalleryViews {
@@ -15,6 +15,9 @@ const QuestionnaireGallery = () => {
   const [status, setStatus] = useState(FetchStatus.Loading);
   const [cards, setCards] = useState<Array<QuestionnaireCard>>();
   const [currentView, setCurrentView] = useState(GalleryViews.Rows);
+  const [activePage, setActivePage] = useState(1);
+  const [totalPages, setTotalPages] = useState<number>();
+  const cardsPerPage = 10;
 
   const getCardNode = (card: QuestionnaireCard) => {
     return <QuestionnaireCardComponent
@@ -26,26 +29,31 @@ const QuestionnaireGallery = () => {
   };
 
   useEffect(() => {
-    QuestionnaireService.getQuestionnaireCards().then(
-      (cards) => {
-        setCards(cards);
+    QuestionnaireService.getQuestionnaireCards(activePage, cardsPerPage).then(
+      (res) => {
+        setCards(res.cards);
+        setTotalPages(res.totalPages);
         setStatus(FetchStatus.Complete);
       }
     )
-  }, []);
+  }, [activePage]);
 
   return (
     <div className={classNames(
       styles.body,
       currentView === GalleryViews.Rows ? styles.view_rows : styles.view_plates
     )}>
-
       {status === FetchStatus.Loading && <LoadingSpinner />}
 
       {status === FetchStatus.Complete &&
         <>
           <ViewSwitchButton
             setCurrentView={setCurrentView} currentView={currentView}
+          />
+          <PaginationBar
+            activePage={activePage}
+            totalPages={totalPages ?? 1}
+            callback={setActivePage}
           />
 
           {currentView === GalleryViews.Plates && <>

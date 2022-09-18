@@ -13,3 +13,4 @@ export type { Field } from "./questionnaire";
 export type { Question } from "./questionnaire";
 export type { Questionnaire } from "./questionnaire";
 export type { QuestionnaireCard } from "./questionnaire";
+export type { QuestionnaireCardsBunch } from "./questionnaire";

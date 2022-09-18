@@ -1,6 +1,5 @@
 import api from "src/api";
-import { Tag, Questionnaire, QuestionnaireCard } from "src/models";
-
+import { Tag, Questionnaire, QuestionnaireCardsBunch } from "src/models";
 
 
 class QuestionnaireService {
@@ -9,9 +8,11 @@ class QuestionnaireService {
     return response.data;
   }
 
-  static async getQuestionnaireCards() {
-    const response =
-      await api.get<QuestionnaireCard[]>("questionnaires/questionnaireCards");
+  static async getQuestionnaireCards(startPage: number, cardsPerPage: number) {
+    const response = await api.get<QuestionnaireCardsBunch>(
+      "questionnaires/questionnaireCards",
+      { params: { startPage, cardsPerPage } }
+    );
     return response.data;
   }
 
