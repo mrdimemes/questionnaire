@@ -28,15 +28,16 @@ const QuestionnaireGallery = () => {
     />
   };
 
-  useEffect(() => {
-    QuestionnaireService.getQuestionnaireCards(activePage, cardsPerPage).then(
-      (res) => {
-        setCards(res.cards);
-        setTotalPages(res.totalPages);
-        setStatus(FetchStatus.Complete);
-      }
-    )
-  }, [activePage]);
+  const switchActivePageHandler = async () => {
+    setStatus(FetchStatus.Loading);
+    const cardBunch = await QuestionnaireService
+      .getQuestionnaireCards(activePage, cardsPerPage);
+    setCards(cardBunch.cards);
+    setTotalPages(cardBunch.totalPages);
+    setStatus(FetchStatus.Complete);
+  }
+
+  useEffect(() => { switchActivePageHandler() }, [activePage]);
 
   return (
     <div className={classNames(
@@ -51,6 +52,7 @@ const QuestionnaireGallery = () => {
             setCurrentView={setCurrentView} currentView={currentView}
           />
           <PaginationBar
+            className={styles.pagination}
             activePage={activePage}
             totalPages={totalPages ?? 1}
             callback={setActivePage}
