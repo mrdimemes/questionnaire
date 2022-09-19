@@ -2,12 +2,12 @@
 @use "src/sass/foundation/breakpoints"
 
 .body
-  min-height: calc(100vh - 60px)
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
   transition: color 0.3s, background-color 0.3s
-  @media (max-width: breakpoints.$small-screen)
-    min-height: calc(100vh - 50px)
-  @media (max-width: breakpoints.$tablet)
-    min-height: calc(100vh - 40px)
 
 .theme_dark
   background-color: colors.$dark-theme-1
