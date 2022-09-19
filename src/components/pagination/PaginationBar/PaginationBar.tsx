@@ -60,22 +60,24 @@ const PaginationBar = ({
     return content;
   }
 
-  return (
-    <div className={classNames(styles.Bar, className)}>
-      <PreviousButton
-        activePage={activePage}
-        callback={callback}
-      />
+  return <>
+    {totalPages !== 1 &&
+      <div className={classNames(styles.Bar, className)}>
+        <PreviousButton
+          activePage={activePage}
+          callback={callback}
+        />
 
-      {getPageButtons()}
+        {getPageButtons()}
 
-      <NextButton
-        activePage={activePage}
-        totalPages={totalPages}
-        callback={callback}
-      />
-    </div>
-  )
+        <NextButton
+          activePage={activePage}
+          totalPages={totalPages}
+          callback={callback}
+        />
+      </div>
+    }
+  </>
 }
 
 export default PaginationBar

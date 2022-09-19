@@ -1,12 +1,14 @@
+import { RefObject } from "react";
 import styles from "./PageWrapper.module.sass";
 
 type PageWrapperProps = {
-  children: any
+  children: any,
+  pageRef?: RefObject<HTMLDivElement>
 };
 
-const PageWrapper = ({ children }: PageWrapperProps) => {
+const PageWrapper = ({ children, pageRef }: PageWrapperProps) => {
   return (
-    <div className={styles.body}>
+    <div ref={pageRef} className={styles.body}>
       <div className="wrapper">
         {children}
       </div>
