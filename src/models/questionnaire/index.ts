@@ -6,3 +6,9 @@ export type { default as QuestionnaireCard } from "./QuestionnaireCard";
 export type {
   default as QuestionnaireCardsBunch
 } from "./QuestionnaireCardsBunch";
+
+export {
+  FieldAnswerDTO,
+  QuestionAnswerDTO,
+  QuestionnaireAnswerDTO
+} from "./DTOs";
