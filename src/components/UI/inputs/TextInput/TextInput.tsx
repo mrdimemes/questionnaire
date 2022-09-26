@@ -1,29 +1,23 @@
+import { forwardRef } from "react";
 import classNames from "classnames";
 import { Input } from "../";
 import styles from "./TextInput.module.sass";
 import type { SpecificInputProps } from "../types";
 
-const TextInput = ({
-  className,
-  name,
-  value,
-  callback,
-  placeholder,
-  maxLength,
-  isRequired }: SpecificInputProps
-) => {
-  return (
-    <Input
-      className={classNames(styles.TextInput, className)}
+const TextInput = forwardRef<HTMLInputElement, SpecificInputProps>(
+  (props, ref) => {
+    return <Input
+      className={classNames(styles.TextInput, props.className)}
       inputType="text"
-      name={name}
-      value={value}
-      callback={callback}
-      placeholder={placeholder}
-      maxLength={maxLength}
-      isRequired={isRequired}
+      name={props.name}
+      value={props.value}
+      placeholder={props.placeholder}
+      maxLength={props.maxLength}
+      isRequired={props.isRequired}
+      ref={ref}
     />
-  )
-}
+  }
+);
 
-export default TextInput
+TextInput.displayName = "TextInput";
+export default TextInput;

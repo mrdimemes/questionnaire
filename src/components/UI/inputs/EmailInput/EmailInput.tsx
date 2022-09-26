@@ -1,31 +1,24 @@
+import { forwardRef } from "react";
 import classNames from "classnames";
 import { Input } from "../";
 import styles from "./EmailInput.module.sass";
 import type { SpecificInputProps } from "../types";
 
-const EmailInput = ({
-  className,
-  name,
-  value,
-  callback,
-  placeholder,
-  maxLength,
-  isRequired }: SpecificInputProps
-) => {
-  return (
-    <Input
-      className={classNames(styles.EmailInput, className)}
+const EmailInput = forwardRef<HTMLInputElement, SpecificInputProps>(
+  (props, ref) => {
+    return <Input
+      className={classNames(styles.EmailInput, props.className)}
       inputType="email"
-      name={name}
-      value={value}
-      callback={callback}
-      placeholder={placeholder}
+      name={props.name}
+      placeholder={props.placeholder}
       maxLength={
-        maxLength ??
+        props.maxLength ??
         Number(process.env.REACT_APP_MAX_EMAIL_LENGTH ?? "30")}
-      isRequired={isRequired ?? true}
+      isRequired={props.isRequired ?? true}
+      ref={ref}
     />
-  )
-}
+  }
+);
 
-export default EmailInput
+EmailInput.displayName = "EmailInput";
+export default EmailInput;

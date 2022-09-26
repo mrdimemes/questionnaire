@@ -7,13 +7,13 @@ const callback = jest.fn();
 describe("RadioInput component", () => {
   test("RadioInput renders", () => {
     renderWithProviders(
-      <RadioInput name="test" callback={callback} value={""} />);
+      <RadioInput name="test" value={""} />);
     expect(screen.getByRole("radio")).toBeInTheDocument();
   });
 
   test("RadioInput snapshot", () => {
     const radio = renderWithProviders(
-      <RadioInput name="test" callback={callback} value={""} />);
+      <RadioInput name="test" value={""} />);
     expect(radio).toMatchSnapshot();
   });
 });

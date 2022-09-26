@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from 'react-router-dom';
 import classNames from "classnames";
 import { AuthOption } from "src/models";
@@ -23,10 +23,10 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
   const currentTheme = useAppSelector(themeSelector);
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfiramtion, setPasswordConfiramtion] = useState("");
+  const emailRef = useRef<HTMLInputElement>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const passwordConfiramtionRef = useRef<HTMLInputElement>(null);
 
   const [emailError, setEmailError] = useState("");
   const [nameError, setNameError] = useState("");
@@ -40,8 +40,14 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
     setConfiramtionError("");
   }
 
-  const handleSubmit = () => {
+  const validateForm = (
+    email: string,
+    name: string,
+    password: string,
+    passwordConfiramtion: string
+  ) => {
     resetErrors();
+
     const emailValidation = validateEmail(email);
     if (emailValidation) setEmailError(emailValidation);
     const nameValidation = validateName(name);
@@ -50,23 +56,32 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
     if (passwordValidation) setPasswordError(passwordValidation);
     const passwordsIsSame = password === passwordConfiramtion;
     if (!passwordsIsSame) setConfiramtionError("Пароли не совпадают");
-    if (
-      authOption === AuthOption.registration &&
+
+    const isFineForLogin = !emailValidation && !passwordValidation;
+    const isFineForRegistration =
       !emailValidation &&
       !nameValidation &&
       !passwordValidation &&
-      passwordsIsSame
-    ) {
+      passwordsIsSame;
+    return [isFineForLogin, isFineForRegistration];
+  }
+
+  const handleSubmit = () => {
+    const email = emailRef.current?.value ?? "";
+    const name = nameRef.current?.value ?? "";
+    const password = passwordRef.current?.value ?? "";
+    const passwordConfiramtion = passwordConfiramtionRef.current?.value ?? "";
+
+    const [isFineForLogin, isFineForRegistration] = validateForm(
+      email, name, password, passwordConfiramtion
+    );
+    if (authOption === AuthOption.registration && isFineForRegistration) {
       AuthService.registration(email, name, password)
         .then(error => {
           if (error) return console.log(error);
           navigate("/");
         })
-    } else if (
-      authOption === AuthOption.login &&
-      !emailValidation &&
-      !passwordValidation
-    ) {
+    } else if (authOption === AuthOption.login && isFineForLogin) {
       AuthService.login(email, password)
         .then(error => {
           if (error) return console.log(error);
@@ -93,7 +108,7 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
               <div className={styles.error}>{emailError}</div>
             </div>
           </div>
-          <EmailInput name="email" value={email} callback={setEmail} />
+          <EmailInput name="email" ref={emailRef} />
         </div>
 
         {authOption === AuthOption.registration &&
@@ -107,7 +122,7 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
               </label>
               <div className={styles.error}>{nameError}</div>
             </div>
-            <NameInput name="name" value={name} callback={setName} />
+            <NameInput name="name" ref={nameRef} />
           </div>
         }
 
@@ -121,11 +136,7 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
             </label>
             <div className={styles.error}>{passwordError}</div>
           </div>
-          <PasswordInput
-            name="password"
-            value={password}
-            callback={setPassword}
-          />
+          <PasswordInput name="password" ref={passwordRef} />
         </div>
 
         {authOption === AuthOption.registration &&
@@ -142,8 +153,7 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
 
             <PasswordInput
               name="passwordConfiramtion"
-              value={passwordConfiramtion}
-              callback={setPasswordConfiramtion}
+              ref={passwordConfiramtionRef}
             />
           </div>
         }

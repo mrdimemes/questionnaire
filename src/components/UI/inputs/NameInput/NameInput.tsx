@@ -1,28 +1,22 @@
+import { forwardRef } from "react";
 import { TextInput } from "../";
 import type { SpecificInputProps } from "../types";
 
-const NameInput = ({
-  className,
-  name,
-  value,
-  callback,
-  placeholder,
-  maxLength,
-  isRequired }: SpecificInputProps
-) => {
-  return (
-    <TextInput
-      className={className}
-      name={name}
-      value={value}
-      callback={callback}
-      placeholder={placeholder}
+const NameInput = forwardRef<HTMLInputElement, SpecificInputProps>(
+  (props, ref) => {
+    return <TextInput
+      className={props.className}
+      name={props.name}
+      value={props.value}
+      placeholder={props.placeholder}
       maxLength={
-        maxLength ??
+        props.maxLength ??
         Number(process.env.REACT_APP_MAX_NAME_LENGTH ?? "30")}
-      isRequired={isRequired ?? true}
+      isRequired={props.isRequired ?? true}
+      ref={ref}
     />
-  )
-}
+  }
+);
 
-export default NameInput
+NameInput.displayName = "NameInput";
+export default NameInput;
