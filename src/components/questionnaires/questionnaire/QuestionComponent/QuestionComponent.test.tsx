@@ -13,10 +13,12 @@ describe("Question component", () => {
     renderWithProviders(
       <QuestionComponent
         id={1}
+        submitTrigger={false}
         questionType={QuestionType.Checkbox}
         text="test"
         fields={fieldsPlaceholder}
         isRequired={false}
+        callback={jest.fn()}
       />);
     expect(screen.getByText(/test/i)).toBeInTheDocument();
     expect(screen.getByText(/field1/i)).toBeInTheDocument();
@@ -29,9 +31,11 @@ describe("Question component", () => {
       <QuestionComponent
         id={1}
         questionType={QuestionType.Radio}
+        submitTrigger={false}
         text="test"
         fields={fieldsPlaceholder}
         isRequired={false}
+        callback={jest.fn()}
       />);
     expect(screen.getByText(/test/i)).toBeInTheDocument();
     expect(screen.getByText(/field1/i)).toBeInTheDocument();
@@ -43,10 +47,12 @@ describe("Question component", () => {
     renderWithProviders(
       <QuestionComponent
         id={1}
+        submitTrigger={false}
         questionType={QuestionType.Text}
         text="test"
         fields={fieldsPlaceholder}
         isRequired={false}
+        callback={jest.fn()}
       />);
     expect(screen.getByText(/test/i)).toBeInTheDocument();
     expect(screen.getByText(/field1/i)).toBeInTheDocument();
@@ -59,9 +65,11 @@ describe("Question component", () => {
       <QuestionComponent
         id={1}
         questionType={QuestionType.Checkbox}
+        submitTrigger={false}
         text="test"
         fields={fieldsPlaceholder}
         isRequired={false}
+        callback={jest.fn()}
       />);
     expect(question).toMatchSnapshot();
   });
