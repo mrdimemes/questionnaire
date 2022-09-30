@@ -1,4 +1,4 @@
-import { ErrorStatusCode } from "src/models";
+import { ErrorStatusCode } from "src/api/errors";
 import { ErrorComponent } from "../ErrorComponent";
 
 const AccessDeniedErrorComponent = () => {

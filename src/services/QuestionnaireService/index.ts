@@ -1,5 +1,11 @@
 import api from "src/api";
-import { Tag, Questionnaire, QuestionnaireCardsBunch } from "src/models";
+import { getFetchError } from "src/api/utils";
+import {
+  Tag,
+  Questionnaire,
+  QuestionnaireCardsBunch,
+  QuestionnaireAnswerDTO
+} from "src/models";
 
 
 class QuestionnaireService {
@@ -20,6 +26,16 @@ class QuestionnaireService {
     const response =
       await api.get<Questionnaire>("questionnaires/questionnaire/" + id);
     return response.data;
+  }
+
+  static async sendQuestionnaireAnswer(answerDTO: QuestionnaireAnswerDTO) {
+    try {
+      await api.post<any>("questionnaires/postAnswer", { answerDTO });
+    } catch (error) {
+      const fetchError = getFetchError(error);
+      if (fetchError) return fetchError;
+      throw error;
+    }
   }
 }
 

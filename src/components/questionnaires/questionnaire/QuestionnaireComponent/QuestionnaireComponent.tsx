@@ -48,7 +48,9 @@ const QuestionnaireComponent = ({ id }: QuestionnaireProps) => {
     resetUpdatedQuestionsCounter();
     toggleTrigger();
     waitForQuestionsValues();
-    console.log(answersMap);
+    const answerDTO = getDTOFromState();
+    QuestionnaireService.sendQuestionnaireAnswer(answerDTO)
+      .then((status) => console.log(status));
   }
 
   const getDTOFromState = () => {

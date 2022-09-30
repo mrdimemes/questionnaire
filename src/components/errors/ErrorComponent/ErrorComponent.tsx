@@ -1,4 +1,4 @@
-import { ErrorStatusCode } from "src/models";
+import { ErrorStatusCode } from "src/api/errors";
 
 type ErrorComponentProps = {
   statusCode: ErrorStatusCode;
