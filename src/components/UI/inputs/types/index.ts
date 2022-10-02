@@ -1,3 +1,5 @@
+import { RefObject } from "react";
+
 export interface SpecificInputProps {
   className?: string,
   name: string,
@@ -5,6 +7,8 @@ export interface SpecificInputProps {
   placeholder?: string,
   maxLength?: number,
   isRequired?: boolean,
+  onChange?: () => void,
+  forwardedRef?: RefObject<HTMLInputElement>
 }
 
 export interface InputProps extends SpecificInputProps {

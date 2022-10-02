@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useCallback } from "react";
 import {
   FetchStatus,
   Questionnaire,
@@ -20,34 +20,15 @@ const QuestionnaireComponent = ({ id }: QuestionnaireProps) => {
   const [questionnaire, setQuestionnaire] = useState({} as Questionnaire)
   const [status, setStatus] = useState(FetchStatus.Loading);
   const [answersMap, setAnswersMap] = useState<AnswersMap>(new Map());
-  const [submitTrigger, setSubmitTrigger] = useState(false);
-  const updatedQuestionsCounter = useRef(0);
 
-  const toggleTrigger = () => setSubmitTrigger(!submitTrigger);
-  const increaseUpdatedQuestionsCounter = () => {
-    updatedQuestionsCounter.current++;
-  }
-  const resetUpdatedQuestionsCounter = () => {
-    updatedQuestionsCounter.current = 0;
-  }
-  const updateAnswer = (
+  const updateAnswer = useCallback((
     questionId: number,
     questionAnswersMap: Map<number, string>
   ) => {
-    setAnswersMap(answersMap.set(questionId, questionAnswersMap));
-    increaseUpdatedQuestionsCounter();
-  }
-
-  const waitForQuestionsValues = () => {
-    if (updatedQuestionsCounter.current !== questionnaire.questions.length) {
-      setTimeout(waitForQuestionsValues, 100);
-    }
-  }
+    setAnswersMap(new Map(answersMap.set(questionId, questionAnswersMap)));
+  }, []);
 
   const handleSubmit = () => {
-    resetUpdatedQuestionsCounter();
-    toggleTrigger();
-    waitForQuestionsValues();
     const answerDTO = getDTOFromState();
     QuestionnaireService.sendQuestionnaireAnswer(answerDTO)
       .then((status) => console.log(status));
@@ -96,7 +77,6 @@ const QuestionnaireComponent = ({ id }: QuestionnaireProps) => {
             return <QuestionComponent
               key={question.id}
               callback={updateAnswer}
-              submitTrigger={submitTrigger}
               {...question} />
           })
         } </div>

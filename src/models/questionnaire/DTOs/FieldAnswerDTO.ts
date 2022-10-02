@@ -1,8 +1,8 @@
 class FieldAnswerDTO {
   fieldId: number;
-  value: string | boolean;
+  value: string;
 
-  constructor(fieldId: number, value: string | boolean) {
+  constructor(fieldId: number, value: string) {
     this.fieldId = fieldId;
     this.value = value;
   }

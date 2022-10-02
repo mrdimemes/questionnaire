@@ -108,7 +108,7 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
               <div className={styles.error}>{emailError}</div>
             </div>
           </div>
-          <EmailInput name="email" ref={emailRef} />
+          <EmailInput name="email" forwardedRef={emailRef} />
         </div>
 
         {authOption === AuthOption.registration &&
@@ -122,7 +122,7 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
               </label>
               <div className={styles.error}>{nameError}</div>
             </div>
-            <NameInput name="name" ref={nameRef} />
+            <NameInput name="name" forwardedRef={nameRef} />
           </div>
         }
 
@@ -136,7 +136,7 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
             </label>
             <div className={styles.error}>{passwordError}</div>
           </div>
-          <PasswordInput name="password" ref={passwordRef} />
+          <PasswordInput name="password" forwardedRef={passwordRef} />
         </div>
 
         {authOption === AuthOption.registration &&
@@ -153,7 +153,7 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
 
             <PasswordInput
               name="passwordConfiramtion"
-              ref={passwordConfiramtionRef}
+              forwardedRef={passwordConfiramtionRef}
             />
           </div>
         }

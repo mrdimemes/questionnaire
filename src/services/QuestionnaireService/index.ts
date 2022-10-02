@@ -30,7 +30,7 @@ class QuestionnaireService {
 
   static async sendQuestionnaireAnswer(answerDTO: QuestionnaireAnswerDTO) {
     try {
-      await api.post<any>("questionnaires/postAnswer", { answerDTO });
+      await api.post<any>("questionnaires/saveAnswer", { answer: answerDTO });
     } catch (error) {
       const fetchError = getFetchError(error);
       if (fetchError) return fetchError;

@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Field, QuestionType } from "src/models";
 import { CheckboxInput, RadioInput, TextInput } from "src/components";
 import styles from "./FieldComponent.module.sass";
@@ -8,23 +8,22 @@ type FieldComponentProps = {
   questionType: QuestionType;
   field: Field;
   callback: (fieldId: number, value: string) => void;
-  submitTrigger: boolean;
 }
 
 const FieldComponent = (props: FieldComponentProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
-
-  const giveInputValue = () => {
+  const onInputChange = () => {
     const value = props.questionType === QuestionType.Text ?
       inputRef.current?.value ?? "" :
-      inputRef.current?.checked ?? false
-    props.callback(props.field.id, String(value));
+      String(inputRef.current?.checked) ?? "false"
+    props.callback(props.field.id, value);
   }
 
   const getInputNode = () => {
     const inputProps = {
-      name: `${props.questionId}`,
-      ref: inputRef
+      name: String(props.questionId),
+      forwardedRef: inputRef,
+      onChange: onInputChange
     }
     switch (props.questionType) {
       case QuestionType.Checkbox:
@@ -32,11 +31,11 @@ const FieldComponent = (props: FieldComponentProps) => {
       case QuestionType.Radio:
         return <RadioInput {...inputProps} />;
       case QuestionType.Text:
-        return <TextInput {...inputProps} />;
+        return <TextInput {...inputProps} maxLength={200} />;
     }
   }
 
-  useEffect(giveInputValue, [props.submitTrigger]);
+  useEffect(onInputChange, []);
 
   return (
     <div className={

@@ -13,7 +13,6 @@ describe("Question component", () => {
     renderWithProviders(
       <QuestionComponent
         id={1}
-        submitTrigger={false}
         questionType={QuestionType.Checkbox}
         text="test"
         fields={fieldsPlaceholder}
@@ -31,7 +30,6 @@ describe("Question component", () => {
       <QuestionComponent
         id={1}
         questionType={QuestionType.Radio}
-        submitTrigger={false}
         text="test"
         fields={fieldsPlaceholder}
         isRequired={false}
@@ -47,7 +45,6 @@ describe("Question component", () => {
     renderWithProviders(
       <QuestionComponent
         id={1}
-        submitTrigger={false}
         questionType={QuestionType.Text}
         text="test"
         fields={fieldsPlaceholder}
@@ -65,7 +62,6 @@ describe("Question component", () => {
       <QuestionComponent
         id={1}
         questionType={QuestionType.Checkbox}
-        submitTrigger={false}
         text="test"
         fields={fieldsPlaceholder}
         isRequired={false}
