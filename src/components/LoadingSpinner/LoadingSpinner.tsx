@@ -1,11 +1,10 @@
 import classNames from "classnames";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
-import { useAppSelector } from "src/redux/hooks";
-import { themeSelector } from "src/redux/selectors";
+import { useThemeSelector } from "src/redux/hooks";
 import styles from "./LoadingSpinner.module.sass";
 
 const LoadingSpinner = () => {
-  const currentTheme = useAppSelector(themeSelector);
+  const currentTheme = useThemeSelector();
 
   return (
     <div className={styles.wrapper}>

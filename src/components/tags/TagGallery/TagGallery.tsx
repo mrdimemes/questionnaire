@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useAppSelector } from "src/redux/hooks";
+import { useTagsDataSelector } from "src/redux/hooks";
 import { TagComponent, LoadingSpinner, PaginationBar } from "src/components";
 import { FetchStatus } from "src/models";
 import styles from "./TagGallery.module.sass";
@@ -10,8 +10,7 @@ type TagGalleryProps = {
 }
 
 const TagGallery = ({ resetScroll }: TagGalleryProps) => {
-  const tags = useAppSelector((state) => state.tags.tags);
-  const status = useAppSelector((state) => state.tags.tagsLoadingStatus);
+  const [tags, status] = useTagsDataSelector();
   const tagsPerPage = 20;
   const totalPages = Math.ceil(tags.length / tagsPerPage);
   const [activePage, setActivePage] = useState(1);

@@ -1,6 +1,5 @@
 import classNames from "classnames";
-import { useAppSelector } from "src/redux/hooks";
-import { themeSelector } from "src/redux/selectors";
+import { useThemeSelector } from "src/redux/hooks";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { Button } from "src/components/UI/Button";
 import styles from "./Burger.module.sass";
@@ -11,7 +10,7 @@ type BurgerProps = {
 }
 
 const Burger = ({ onClick, isOpen }: BurgerProps) => {
-  const currentTheme = useAppSelector(themeSelector);
+  const currentTheme = useThemeSelector();
 
   return (
     <Button

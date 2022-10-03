@@ -1,12 +1,11 @@
 import classNames from "classnames";
-import { useAppSelector } from "src/redux/hooks";
-import { themeSelector } from "src/redux/selectors";
+import { useThemeSelector } from "src/redux/hooks";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import styles from "./Input.module.sass";
 import type { InputProps } from "../types";
 
 const Input = (props: InputProps) => {
-  const currentTheme = useAppSelector(themeSelector);
+  const currentTheme = useThemeSelector();
 
   return <input
     className={classNames(

@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import { Link } from "react-router-dom";
-import { useAppSelector } from "src/redux/hooks";
-import { themeSelector } from "src/redux/selectors";
+import { useThemeSelector } from "src/redux/hooks";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { TagBar } from "src/components";
 import styles from "./QuestionnaireCardComponent.module.sass";
@@ -17,7 +16,7 @@ const QuestionnaireCardComponent = ({
   label,
   tags }: QuestionnaireCardProps
 ) => {
-  const currentTheme = useAppSelector(themeSelector);
+  const currentTheme = useThemeSelector();
 
   return (
     <Link

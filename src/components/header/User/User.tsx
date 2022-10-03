@@ -1,14 +1,14 @@
 import classNames from "classnames";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { useAppSelector } from "src/redux/hooks";
+import { useUserSelector } from "src/redux/hooks";
 import { AuthService } from "src/services";
 import { Button } from "src/components/UI/Button";
 import styles from "./User.module.sass";
 
 const User = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const user = useAppSelector((state) => state.auth.user);
+  const user = useUserSelector();
   const navigate = useNavigate();
   const togglePopup = () => setIsPopupOpen(!isPopupOpen);
   const redirectToAuth = () => navigate("/auth");

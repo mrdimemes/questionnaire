@@ -1,12 +1,11 @@
 import classNames from "classnames";
-import { useAppSelector } from "src/redux/hooks";
-import { themeSelector } from "src/redux/selectors";
+import { useThemeSelector } from "src/redux/hooks";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { Menu } from "../Menu";
 import styles from "./Header.module.sass";
 
 const Header = () => {
-  const currentTheme = useAppSelector(themeSelector);
+  const currentTheme = useThemeSelector();
 
   return (
     <header className={classNames(

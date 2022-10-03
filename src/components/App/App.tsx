@@ -10,15 +10,14 @@ import {
   AuthPage
 } from "src/pages";
 import { QuestionnaireService } from "src/services";
-import { useAppDispatch, useAppSelector } from "src/redux/hooks";
-import { themeSelector } from "src/redux/selectors";
+import { useAppDispatch, useThemeSelector } from "src/redux/hooks";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { setTags } from "src/redux/slices/tagsSlice";
 import styles from "./App.module.sass";
 
 function App() {
   const dispatch = useAppDispatch();
-  const currentTheme = useAppSelector(themeSelector);
+  const currentTheme = useThemeSelector();
 
   useEffect(() => {
     QuestionnaireService.getTags().then((tags) => dispatch(setTags(tags)));

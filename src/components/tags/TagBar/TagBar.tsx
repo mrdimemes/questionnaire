@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import { TagComponent } from "src/components";
-import { useAppSelector } from "src/redux/hooks";
-import { tagsMapSelector } from "src/redux/selectors";
+import { useTagsMapSelector } from "src/redux/hooks";
 import styles from "./TagBar.module.sass";
 
 type TagBarProps = {
@@ -10,7 +9,7 @@ type TagBarProps = {
 };
 
 const TagBar = ({ className, tags }: TagBarProps) => {
-  const tagsMap = useAppSelector(tagsMapSelector);
+  const tagsMap = useTagsMapSelector();
 
   return (
     <div className={classNames(styles.body, className)}> {

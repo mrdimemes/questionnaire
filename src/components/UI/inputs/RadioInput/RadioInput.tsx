@@ -1,6 +1,5 @@
 import classNames from "classnames";
-import { useAppSelector } from "src/redux/hooks";
-import { themeSelector } from "src/redux/selectors";
+import { useThemeSelector } from "src/redux/hooks";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { Input } from "../";
 import styles from "./RadioInput.module.sass";
@@ -8,7 +7,7 @@ import type { SpecificInputProps } from "../types";
 
 
 const RadioInput = (props: SpecificInputProps) => {
-  const currentTheme = useAppSelector(themeSelector);
+  const currentTheme = useThemeSelector();
 
   return <Input
     className={classNames(

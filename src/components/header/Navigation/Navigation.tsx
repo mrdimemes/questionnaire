@@ -1,12 +1,12 @@
 import classNames from "classnames";
-import { useAppSelector } from "src/redux/hooks";
+import { useActivePageSelector } from "src/redux/hooks";
 import { NavigationPage } from "src/redux/slices/browseSlice";
 import { Link } from "react-router-dom";
 import styles from "./Navigation.module.sass";
 
 
 const Navigation = () => {
-  const activePage = useAppSelector((state) => state.browse.activePage);
+  const activePage = useActivePageSelector();
 
   return (
     <nav className={styles.body}>

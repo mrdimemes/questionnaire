@@ -1,7 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import { useAppSelector } from "src/redux/hooks";
-import { themeSelector } from "src/redux/selectors";
+import { useThemeSelector } from "src/redux/hooks";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import styles from "./Button.module.sass";
 
@@ -12,7 +11,7 @@ type ButtonProps = {
 }
 
 const Button = ({ children, onClick, className }: ButtonProps) => {
-  const currentTheme = useAppSelector(themeSelector);
+  const currentTheme = useThemeSelector();
   const onClickHandler = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
     onClick();

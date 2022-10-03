@@ -2,8 +2,7 @@ import { useState, useRef } from "react";
 import { useNavigate } from 'react-router-dom';
 import classNames from "classnames";
 import { AuthOption } from "src/models";
-import { useAppSelector } from "src/redux/hooks";
-import { themeSelector } from "src/redux/selectors";
+import { useThemeSelector } from "src/redux/hooks";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { AuthService } from "src/services";
 import { EmailInput, NameInput, PasswordInput, Button } from "src/components";
@@ -20,7 +19,7 @@ type AuthFormProps = {
 }
 
 const AuthForm = ({ className, authOption }: AuthFormProps) => {
-  const currentTheme = useAppSelector(themeSelector);
+  const currentTheme = useThemeSelector();
   const navigate = useNavigate();
 
   const emailRef = useRef<HTMLInputElement>(null);
