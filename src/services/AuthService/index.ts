@@ -8,7 +8,6 @@ class AuthService {
   private static setAuth(authData: LoginResponse) {
     localStorage.setItem("accessToken", authData.accessToken);
     localStorage.setItem("refreshToken", authData.refreshToken);
-    localStorage.setItem("user", JSON.stringify(authData.user));
     store.dispatch(setUser(authData.user));
   }
 

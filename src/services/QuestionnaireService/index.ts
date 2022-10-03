@@ -1,5 +1,6 @@
 import api from "src/api";
 import { getFetchError } from "src/api/utils";
+import store from "src/redux";
 import {
   Tag,
   Questionnaire,
@@ -30,7 +31,11 @@ class QuestionnaireService {
 
   static async sendQuestionnaireAnswer(answerDTO: QuestionnaireAnswerDTO) {
     try {
-      await api.post<any>("questionnaires/saveAnswer", { answer: answerDTO });
+      const userId = store.getState().auth.user?.id;
+      await api.post<any>(
+        "questionnaires/saveAnswer",
+        { userId: userId, answer: answerDTO }
+      );
     } catch (error) {
       const fetchError = getFetchError(error);
       if (fetchError) return fetchError;

@@ -13,7 +13,7 @@ describe("Header/User component", () => {
   test("Header/User renders with user in the store", () => {
     const store = setupStore({
       auth: {
-        user: { name: "TestName", email: "test@email.com", isAdmin: false }
+        user: { name: "TestName", id: 0, isAdmin: false }
       }
     })
     renderWithProvidersAndRouters(<User />, { store });
