@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useTagsDataSelector } from "src/redux/hooks";
-import { LoadingSpinner, PaginationBar } from "src/components";
+import { LoadingSpinner, PaginationBar, Button } from "src/components";
 import { TagComponent, AddTagWidget } from "../";
-import { FetchStatus } from "src/models";
+import { FetchStatus, Tag } from "src/models";
 import styles from "./TagGallery.module.sass";
+import { QuestionnaireService } from "src/services";
 
 
 type TagGalleryProps = {
@@ -17,6 +18,15 @@ const TagGallery = ({ resetScroll }: TagGalleryProps) => {
   const [activePage, setActivePage] = useState(1);
   const startIndex = (activePage - 1) * tagsPerPage;
 
+  const removeTag = (tag: Tag) => {
+    const alarmText = `Вы дейсвительно хотите удалить тэг "${tag.label}" ` +
+      `(опросов: ${tag.freq})?`;
+    const confirmation = window.confirm(alarmText);
+    if (confirmation) {
+      QuestionnaireService.removeTag(tag.id);
+    }
+  };
+
   useEffect(() => {
     if (resetScroll) resetScroll();
   }, [activePage, resetScroll]);
@@ -28,11 +38,25 @@ const TagGallery = ({ resetScroll }: TagGalleryProps) => {
       {status === FetchStatus.Complete && <>
         <AddTagWidget className={styles.addTagWidget} />
         {tags.slice(startIndex, startIndex + tagsPerPage).map((tag) => {
-          return <TagComponent
-            key={tag.id}
-            label={tag.label}
-            freq={tag.freq}
-          />
+          return (
+            <div
+              className={styles.tagContainer}
+              key={`tag-container-${tag.id}`}
+            >
+              <TagComponent
+                key={`tag-${tag.id}`}
+                label={tag.label}
+                freq={tag.freq}
+              />
+              <Button
+                className={styles.removeTagButton}
+                key={`tag-rb-${tag.id}`}
+                onClick={() => removeTag(tag)}
+                children="x"
+              />
+            </div>
+          )
+
         })}
       </>}
 

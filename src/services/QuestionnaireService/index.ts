@@ -46,10 +46,17 @@ class QuestionnaireService {
 
   static async addTag(label: string) {
     try {
-      await api.post<any>(
-        "questionnaires/addTag",
-        { label: label }
-      );
+      await api.post<any>("questionnaires/addTag", { label });
+    } catch (error) {
+      const fetchError = getFetchError(error);
+      if (fetchError) return fetchError;
+      throw error;
+    }
+  }
+
+  static async removeTag(tagId: number) {
+    try {
+      await api.post<any>("questionnaires/removeTag", { tagId });
     } catch (error) {
       const fetchError = getFetchError(error);
       if (fetchError) return fetchError;
