@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTagsDataSelector } from "src/redux/hooks";
-import { TagComponent, LoadingSpinner, PaginationBar } from "src/components";
+import { LoadingSpinner, PaginationBar } from "src/components";
+import { TagComponent, AddTagWidget } from "../";
 import { FetchStatus } from "src/models";
 import styles from "./TagGallery.module.sass";
 
@@ -18,21 +19,22 @@ const TagGallery = ({ resetScroll }: TagGalleryProps) => {
 
   useEffect(() => {
     if (resetScroll) resetScroll();
-  }, [activePage]);
+  }, [activePage, resetScroll]);
 
   return (
-    <div className={styles.body}>
+    <div className={styles.gallery}>
       {status === FetchStatus.Loading && <LoadingSpinner />}
 
-      {status === FetchStatus.Complete &&
-        tags.slice(startIndex, startIndex + tagsPerPage).map((tag) => {
+      {status === FetchStatus.Complete && <>
+        <AddTagWidget className={styles.addTagWidget} />
+        {tags.slice(startIndex, startIndex + tagsPerPage).map((tag) => {
           return <TagComponent
             key={tag.id}
             label={tag.label}
             freq={tag.freq}
           />
-        })
-      }
+        })}
+      </>}
 
       <PaginationBar
         className={styles.pagination}

@@ -7,12 +7,13 @@ import {
   QuestionnaireCardsBunch,
   QuestionnaireAnswerDTO
 } from "src/models";
+import { setTags } from "src/redux/slices/tagsSlice";
 
 
 class QuestionnaireService {
   static async getTags() {
     const response = await api.get<Tag[]>("questionnaires/tags");
-    return response.data;
+    store.dispatch(setTags(response.data));
   }
 
   static async getQuestionnaireCards(startPage: number, cardsPerPage: number) {
@@ -35,6 +36,19 @@ class QuestionnaireService {
       await api.post<any>(
         "questionnaires/saveAnswer",
         { userId: userId, answer: answerDTO }
+      );
+    } catch (error) {
+      const fetchError = getFetchError(error);
+      if (fetchError) return fetchError;
+      throw error;
+    }
+  }
+
+  static async addTag(label: string) {
+    try {
+      await api.post<any>(
+        "questionnaires/addTag",
+        { label: label }
       );
     } catch (error) {
       const fetchError = getFetchError(error);
