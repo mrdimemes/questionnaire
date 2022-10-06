@@ -18,8 +18,9 @@ const AddTagWidget = ({ className }: AddTagWidgetProps) => {
     if (label.length === 0) {
       return alert("Название тега не может быть пустым");
     }
-    QuestionnaireService.addTag(label);
-    setTimeout(QuestionnaireService.getTags, 1000);
+    QuestionnaireService.addTag(label).then(() => {
+      QuestionnaireService.getTags();
+    });
     setIsFocused(false);
   }
 
