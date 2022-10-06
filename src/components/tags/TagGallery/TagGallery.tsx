@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import { useTagsDataSelector } from "src/redux/hooks";
+import { useTagsDataSelector, useAppDispatch } from "src/redux/hooks";
+import { removeTag as removeTagAction } from "src/redux/slices/tagsSlice";
 import { LoadingSpinner, PaginationBar, Button } from "src/components";
 import { TagComponent, AddTagWidget } from "../";
 import { FetchStatus, Tag } from "src/models";
 import styles from "./TagGallery.module.sass";
 import { QuestionnaireService } from "src/services";
+import { FetchError } from "src/api/errors";
 
 
 type TagGalleryProps = {
@@ -17,13 +19,20 @@ const TagGallery = ({ resetScroll }: TagGalleryProps) => {
   const totalPages = Math.ceil(tags.length / tagsPerPage);
   const [activePage, setActivePage] = useState(1);
   const startIndex = (activePage - 1) * tagsPerPage;
+  const dispatch = useAppDispatch();
 
   const removeTag = (tag: Tag) => {
     const alarmText = `Вы дейсвительно хотите удалить тэг "${tag.label}" ` +
       `(опросов: ${tag.freq})?`;
     const confirmation = window.confirm(alarmText);
     if (confirmation) {
-      QuestionnaireService.removeTag(tag.id);
+      QuestionnaireService.removeTag(tag.id).then(response => {
+        if (response instanceof FetchError) {
+          console.log(response)
+        } else {
+          dispatch(removeTagAction(tag.id));
+        }
+      });
     }
   };
 

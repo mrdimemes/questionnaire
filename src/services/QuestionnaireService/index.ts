@@ -46,7 +46,10 @@ class QuestionnaireService {
 
   static async addTag(label: string) {
     try {
-      await api.post<any>("questionnaires/addTag", { label });
+      const response =
+        await api.post<number>("questionnaires/addTag", { label });
+      const tagId = response.data;
+      return tagId;
     } catch (error) {
       const fetchError = getFetchError(error);
       if (fetchError) return fetchError;

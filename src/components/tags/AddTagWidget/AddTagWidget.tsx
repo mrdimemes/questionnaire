@@ -2,6 +2,8 @@ import classNames from "classnames";
 import { useState, useRef } from "react";
 import { Button, TextInput } from "src/components";
 import { QuestionnaireService } from "src/services";
+import { useAppDispatch } from "src/redux/hooks";
+import { addTag } from "src/redux/slices/tagsSlice";
 import styles from "./AddTagWidget.module.sass";
 
 type AddTagWidgetProps = {
@@ -10,6 +12,7 @@ type AddTagWidgetProps = {
 
 const AddTagWidget = ({ className }: AddTagWidgetProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const dispatch = useAppDispatch();
   const [isFocused, setIsFocused] = useState(false);
   const toggleFocus = () => setIsFocused(!isFocused);
 
@@ -18,8 +21,10 @@ const AddTagWidget = ({ className }: AddTagWidgetProps) => {
     if (label.length === 0) {
       return alert("Название тега не может быть пустым");
     }
-    QuestionnaireService.addTag(label).then(() => {
-      QuestionnaireService.getTags();
+    QuestionnaireService.addTag(label).then(response => {
+      if (typeof response === "number") {
+        dispatch(addTag({ id: response, label: label, freq: 0 }));
+      }
     });
     setIsFocused(false);
   }
