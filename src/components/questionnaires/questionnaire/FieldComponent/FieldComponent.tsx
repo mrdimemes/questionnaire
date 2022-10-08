@@ -35,6 +35,7 @@ const FieldComponent = (props: FieldComponentProps) => {
     }
   }
 
+  // eslint-disable-next-line
   useEffect(onInputChange, []);
 
   return (

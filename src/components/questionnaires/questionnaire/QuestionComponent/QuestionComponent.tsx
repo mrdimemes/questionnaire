@@ -24,7 +24,8 @@ const QuestionComponent = ({
       });
     }
     setAnswersMap(newMap);
-  }, []);
+    // eslint-disable-next-line
+  }, [fields, questionType]);
 
   const getFieldNode = (field: Field, index: number) => {
     const fieldProps = {

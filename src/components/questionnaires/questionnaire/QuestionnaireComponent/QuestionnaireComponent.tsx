@@ -26,6 +26,7 @@ const QuestionnaireComponent = ({ id }: QuestionnaireProps) => {
     questionAnswersMap: Map<number, string>
   ) => {
     setAnswersMap(new Map(answersMap.set(questionId, questionAnswersMap)));
+    // eslint-disable-next-line
   }, []);
 
   const handleSubmit = () => {
