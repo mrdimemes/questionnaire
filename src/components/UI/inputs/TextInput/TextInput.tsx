@@ -16,6 +16,7 @@ const TextInput = (props: SpecificInputProps) => {
     onChange={props.onChange}
     onFocus={props.onFocus}
     onBlur={props.onBlur}
+    autoFocus={props.autoFocus}
   />
 }
 

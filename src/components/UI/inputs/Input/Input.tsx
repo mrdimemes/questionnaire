@@ -34,6 +34,7 @@ const Input = (props: InputProps) => {
     onChange={handleChange}
     onFocus={handleFocus}
     onBlur={handleBlur}
+    autoFocus={props.autoFocus}
   />
 };
 

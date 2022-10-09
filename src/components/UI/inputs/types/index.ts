@@ -10,7 +10,8 @@ export interface SpecificInputProps {
   onChange?: (value: string) => void,
   onFocus?: (value: string) => void,
   onBlur?: (value: string) => void,
-  forwardedRef?: RefObject<HTMLInputElement>
+  forwardedRef?: RefObject<HTMLInputElement>,
+  autoFocus?: boolean,
 }
 
 export interface InputProps extends SpecificInputProps {
