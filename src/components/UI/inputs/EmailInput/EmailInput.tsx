@@ -15,6 +15,8 @@ const EmailInput = (props: SpecificInputProps) => {
     isRequired={props.isRequired ?? true}
     forwardedRef={props.forwardedRef}
     onChange={props.onChange}
+    onFocus={props.onFocus}
+    onBlur={props.onBlur}
   />
 }
 

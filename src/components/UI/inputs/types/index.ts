@@ -7,7 +7,9 @@ export interface SpecificInputProps {
   placeholder?: string,
   maxLength?: number,
   isRequired?: boolean,
-  onChange?: () => void,
+  onChange?: (value: string) => void,
+  onFocus?: (value: string) => void,
+  onBlur?: (value: string) => void,
   forwardedRef?: RefObject<HTMLInputElement>
 }
 

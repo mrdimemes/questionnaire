@@ -14,6 +14,8 @@ const TextInput = (props: SpecificInputProps) => {
     isRequired={props.isRequired}
     forwardedRef={props.forwardedRef}
     onChange={props.onChange}
+    onFocus={props.onFocus}
+    onBlur={props.onBlur}
   />
 }
 
