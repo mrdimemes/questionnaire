@@ -10,5 +10,6 @@ export type {
 export {
   FieldAnswerDTO,
   QuestionAnswerDTO,
-  QuestionnaireAnswerDTO
+  QuestionnaireAnswerDTO,
+  QuestionnaireChangeDTO
 } from "./DTOs";

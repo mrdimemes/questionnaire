@@ -1,0 +1,1 @@
+export { default as AttachTagWidget } from "./AttachTagWidget";

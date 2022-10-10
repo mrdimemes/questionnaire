@@ -7,6 +7,7 @@ import {
   QuestionnaireListPage,
   TagsPage,
   QuestionnairePage,
+  EditPage,
   AuthPage
 } from "src/pages";
 import { QuestionnaireService } from "src/services";
@@ -33,6 +34,10 @@ function App() {
         <Route path="tags" element={<TagsPage />} />
         <Route path="questionnaire/:questionnaireId"
           element={<QuestionnairePage />} />
+        <Route path="edit/:questionnaireId"
+          element={<EditPage />} />
+        <Route path="edit"
+          element={<EditPage />} />
         <Route path="auth" element={<AuthPage />} />
       </Routes>
     </div>

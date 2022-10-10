@@ -37,7 +37,11 @@ const QuestionnaireGallery = () => {
     setStatus(FetchStatus.Complete);
   }
 
-  useEffect(() => { switchActivePageHandler() }, [activePage]);
+  useEffect(
+    () => { switchActivePageHandler() },
+    // eslint-disable-next-line
+    [activePage]
+  );
 
   return (
     <div className={classNames(

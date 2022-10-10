@@ -9,7 +9,8 @@ export {
   QuestionType,
   FieldAnswerDTO,
   QuestionAnswerDTO,
-  QuestionnaireAnswerDTO
+  QuestionnaireAnswerDTO,
+  QuestionnaireChangeDTO
 } from "./questionnaire";
 export type {
   Field,

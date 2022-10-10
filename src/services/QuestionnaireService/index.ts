@@ -5,7 +5,8 @@ import {
   Tag,
   Questionnaire,
   QuestionnaireCardsBunch,
-  QuestionnaireAnswerDTO
+  QuestionnaireAnswerDTO,
+  QuestionnaireChangeDTO
 } from "src/models";
 import { setTags } from "src/redux/slices/tagsSlice";
 
@@ -36,6 +37,19 @@ class QuestionnaireService {
       await api.post<any>(
         "questionnaires/saveAnswer",
         { userId: userId, answer: answerDTO }
+      );
+    } catch (error) {
+      const fetchError = getFetchError(error);
+      if (fetchError) return fetchError;
+      throw error;
+    }
+  }
+
+  static async changeQuestionnaire(changeDTO: QuestionnaireChangeDTO) {
+    try {
+      await api.post<any>(
+        "questionnaires/changeQuestionnaire",
+        { change: changeDTO }
       );
     } catch (error) {
       const fetchError = getFetchError(error);
