@@ -4,6 +4,7 @@ import { useThemeSelector } from "src/redux/hooks";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { TagBar, Button } from "src/components";
 import styles from "./QuestionnaireCardComponent.module.sass";
+import { QuestionnaireService } from "src/services";
 
 type QuestionnaireCardProps = {
   id: number,
@@ -19,7 +20,11 @@ const QuestionnaireCardComponent = ({
   const currentTheme = useThemeSelector();
 
   const removeQuestionnaire = () => {
-
+    const warningText = "Вы уверены что хотите удалить этот опрос? Отменить эту операцию будет невозможно.";
+    const confirmation = window.confirm(warningText);
+    if (confirmation) {
+      QuestionnaireService.removeQuestionnaire(id);
+    }
   }
 
   return (
@@ -35,9 +40,9 @@ const QuestionnaireCardComponent = ({
         <TagBar tags={tags} />
       </Link>
       <div className={styles.adminBar}>
-        <Button className={styles.button} onClick={() => { }}>
+        <Link to={"/edit/" + id} className={styles.button}>
           o
-        </Button>
+        </Link>
         <Button className={styles.button} onClick={removeQuestionnaire}>
           x
         </Button>

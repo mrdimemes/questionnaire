@@ -45,11 +45,34 @@ class QuestionnaireService {
     }
   }
 
-  static async changeQuestionnaire(changeDTO: QuestionnaireChangeDTO) {
+  static async editQuestionnaire(changeDTO: QuestionnaireChangeDTO) {
     try {
       await api.post<any>(
-        "questionnaires/changeQuestionnaire",
+        "questionnaires/editQuestionnaire",
         { change: changeDTO }
+      );
+    } catch (error) {
+      const fetchError = getFetchError(error);
+      if (fetchError) return fetchError;
+      throw error;
+    }
+  }
+
+  static async removeQuestionnaire(id: number) {
+    try {
+      await api.post<any>("questionnaires/removeQuestionnaire", { id });
+    } catch (error) {
+      const fetchError = getFetchError(error);
+      if (fetchError) return fetchError;
+      throw error;
+    }
+  }
+
+  static async addQuestionnaire(questionnaire: Questionnaire) {
+    try {
+      await api.post<any>(
+        "questionnaires/addQuestionnaire",
+        { questionnaire }
       );
     } catch (error) {
       const fetchError = getFetchError(error);

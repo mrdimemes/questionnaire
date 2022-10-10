@@ -74,22 +74,32 @@ const QuestionnaireEditor = ({ id }: QuestionnaireEditorProps) => {
     setQuestions(newQuestions);
   }
 
-  const handleCommit = () => {
+  const handleSubmit = () => {
     if (isCriticalChange) {
       const warningText = "Внесённые изменения повлекут удаление статистики по опросу старого образца. Вы уверены?";
       if (!window.confirm(warningText)) return;
     }
-    QuestionnaireService.changeQuestionnaire(new QuestionnaireChangeDTO(
-      {
-        id: id ?? 0,
-        label,
-        tags,
-        about,
-        questions
-      },
-      isCriticalChange
-    ))
-
+    const questionnaire = {
+      id: id ?? 0,
+      label,
+      tags,
+      about,
+      questions
+    };
+    if (id) {
+      QuestionnaireService.editQuestionnaire(new QuestionnaireChangeDTO(
+        questionnaire,
+        isCriticalChange
+      ));
+    } else {
+      QuestionnaireService.addQuestionnaire(questionnaire);
+    }
+  }
+  const handleRemove = () => {
+    const warningText = "Вы уверены что хотите удалить этот опрос? Отменить эту операцию будет невозможно.";
+    if (id && window.confirm(warningText)) {
+      QuestionnaireService.removeQuestionnaire(id);
+    }
   }
 
   useEffect(() => {
@@ -193,9 +203,17 @@ const QuestionnaireEditor = ({ id }: QuestionnaireEditorProps) => {
               />
             }
             <Button
-              onClick={handleCommit}
+              onClick={handleSubmit}
               children="Сохранить изменения"
             />
+            {
+              id &&
+              <Button
+                onClick={handleRemove}
+                children="Удалить опрос"
+              />
+            }
+
           </div>
         </>
       }
