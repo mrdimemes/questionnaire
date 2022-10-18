@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
-import { PageWrapper } from "../PageWrapper";
+
 import { QuestionnaireComponent } from "src/components";
+
+import { PageWrapper } from "../PageWrapper";
 
 const QuestionnairePage = () => {
   const { questionnaireId } = useParams();
@@ -10,7 +12,7 @@ const QuestionnairePage = () => {
       {questionnaireId &&
         <QuestionnaireComponent id={Number(questionnaireId)} />}
     </PageWrapper>
-  )
-}
+  );
+};
 
-export default QuestionnairePage
+export default QuestionnairePage;

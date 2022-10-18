@@ -7,19 +7,19 @@ export enum Theme {
 
 const themeInStorage = localStorage.getItem("theme");
 const initialState = {
-  theme: themeInStorage ? themeInStorage as Theme : Theme.Light
-}
+  theme: themeInStorage ? themeInStorage as Theme : Theme.Light,
+};
 
 export const themeSlice = createSlice({
-  name: 'theme',
+  name: "theme",
   initialState,
   reducers: {
     setTheme: (state, action: PayloadAction<Theme>) => {
       state.theme = action.payload;
       localStorage.setItem("theme", action.payload);
-    }
+    },
   },
-})
+});
 
 type ThemeStyles = {
   theme_light: string,

@@ -6,7 +6,7 @@ import {
   Questionnaire,
   QuestionnaireCardsBunch,
   QuestionnaireAnswerDTO,
-  QuestionnaireChangeDTO
+  QuestionnaireChangeDTO,
 } from "src/models";
 import { setTags } from "src/redux/slices/tagsSlice";
 
@@ -20,7 +20,7 @@ class QuestionnaireService {
   static async getQuestionnaireCards(startPage: number, cardsPerPage: number) {
     const response = await api.get<QuestionnaireCardsBunch>(
       "questionnaires/questionnaireCards",
-      { params: { startPage, cardsPerPage } }
+      { params: { startPage, cardsPerPage } },
     );
     return response.data;
   }
@@ -36,7 +36,7 @@ class QuestionnaireService {
       const userId = store.getState().auth.user?.id;
       await api.post<any>(
         "questionnaires/saveAnswer",
-        { userId: userId, answer: answerDTO }
+        { userId: userId, answer: answerDTO },
       );
     } catch (error) {
       const fetchError = getFetchError(error);
@@ -49,7 +49,7 @@ class QuestionnaireService {
     try {
       await api.post<any>(
         "questionnaires/editQuestionnaire",
-        { change: changeDTO }
+        { change: changeDTO },
       );
     } catch (error) {
       const fetchError = getFetchError(error);
@@ -72,7 +72,7 @@ class QuestionnaireService {
     try {
       await api.post<any>(
         "questionnaires/addQuestionnaire",
-        { questionnaire }
+        { questionnaire },
       );
     } catch (error) {
       const fetchError = getFetchError(error);
@@ -105,4 +105,4 @@ class QuestionnaireService {
   }
 }
 
-export default QuestionnaireService
+export default QuestionnaireService;

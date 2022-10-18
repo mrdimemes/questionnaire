@@ -10,4 +10,4 @@ class QuestionnaireAnswerDTO {
   }
 }
 
-export default QuestionnaireAnswerDTO
+export default QuestionnaireAnswerDTO;

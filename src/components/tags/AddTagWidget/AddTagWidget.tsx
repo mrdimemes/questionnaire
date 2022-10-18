@@ -4,6 +4,7 @@ import { Button, TextInput } from "src/components";
 import { QuestionnaireService } from "src/services";
 import { useAppDispatch } from "src/redux/hooks";
 import { addTag } from "src/redux/slices/tagsSlice";
+
 import styles from "./AddTagWidget.module.sass";
 
 type AddTagWidgetProps = {
@@ -27,7 +28,7 @@ const AddTagWidget = ({ className }: AddTagWidgetProps) => {
       }
     });
     setIsFocused(false);
-  }
+  };
 
   return <div className={classNames(styles.widget, className)}>
     <Button className={styles.focusButton} onClick={toggleFocus}>
@@ -41,7 +42,7 @@ const AddTagWidget = ({ className }: AddTagWidgetProps) => {
       />
       <Button onClick={handleClick}>Добавить</Button>
     </>}
-  </div>
-}
+  </div>;
+};
 
-export default AddTagWidget
+export default AddTagWidget;

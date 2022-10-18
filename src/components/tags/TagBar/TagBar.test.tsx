@@ -2,6 +2,7 @@ import { screen } from "@testing-library/react";
 import { setupStore } from "src/redux";
 import { renderWithProvidersAndRouters } from "src/utils/test-utils";
 import { FetchStatus } from "src/models";
+
 import TagBar from "./TagBar";
 
 const store = setupStore({
@@ -11,8 +12,8 @@ const store = setupStore({
       { id: 2, label: "TestTag2", freq: 7 },
       { id: 3, label: "TestTag3", freq: 7 },
     ],
-    tagsLoadingStatus: FetchStatus.Complete
-  }
+    tagsLoadingStatus: FetchStatus.Complete,
+  },
 });
 
 describe("TagBar component", () => {
@@ -25,7 +26,7 @@ describe("TagBar component", () => {
 
   test("TagBar snapshot", () => {
     const { container } = renderWithProvidersAndRouters(
-      <TagBar tags={[1, 2, 3]} />, { store }
+      <TagBar tags={[1, 2, 3]} />, { store },
     );
     expect(container).toMatchSnapshot();
   });

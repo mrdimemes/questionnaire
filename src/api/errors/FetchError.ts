@@ -8,7 +8,7 @@ class FetchError {
   constructor(
     statusCode: ErrorStatusCode,
     message?: string,
-    errors?: object[]
+    errors?: object[],
   ) {
     this.statusCode = statusCode;
     this.message = message;
@@ -16,4 +16,4 @@ class FetchError {
   }
 }
 
-export default FetchError
+export default FetchError;

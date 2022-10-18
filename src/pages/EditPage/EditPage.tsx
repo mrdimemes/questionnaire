@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { QuestionnaireEditor } from "src/components";
+
 import { PageWrapper } from "../PageWrapper";
 
 const AuthPage = () => {
@@ -12,7 +13,7 @@ const AuthPage = () => {
         id={questionnaireId ? Number(questionnaireId) : undefined}
       />
     </PageWrapper>
-  )
-}
+  );
+};
 
-export default AuthPage
+export default AuthPage;

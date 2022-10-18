@@ -2,8 +2,11 @@ import classNames from "classnames";
 import { useState, useEffect } from "react";
 import { FetchStatus, QuestionnaireCard } from "src/models";
 import { QuestionnaireService } from "src/services";
-import { QuestionnaireCardComponent, ViewSwitchButton } from "../";
+
 import { LoadingSpinner, PaginationBar } from "src/components";
+
+import { QuestionnaireCardComponent, ViewSwitchButton } from "../";
+
 import styles from "./QuestionnaireGallery.module.sass";
 
 export enum GalleryViews {
@@ -25,7 +28,7 @@ const QuestionnaireGallery = () => {
       id={card.id}
       label={card.label}
       tags={card.tags}
-    />
+    />;
   };
 
   const switchActivePageHandler = async () => {
@@ -35,10 +38,10 @@ const QuestionnaireGallery = () => {
     setCards(cardBunch.cards);
     setTotalPages(cardBunch.totalPages);
     setStatus(FetchStatus.Complete);
-  }
+  };
 
   useEffect(
-    () => { switchActivePageHandler() },
+    () => { switchActivePageHandler(); },
     // eslint-disable-next-line
     [activePage]
   );
@@ -46,7 +49,7 @@ const QuestionnaireGallery = () => {
   return (
     <div className={classNames(
       styles.body,
-      currentView === GalleryViews.Rows ? styles.view_rows : styles.view_plates
+      currentView === GalleryViews.Rows ? styles.view_rows : styles.view_plates,
     )}>
       {status === FetchStatus.Loading && <LoadingSpinner />}
 
@@ -79,7 +82,7 @@ const QuestionnaireGallery = () => {
       }
 
     </div >
-  )
-}
+  );
+};
 
-export default QuestionnaireGallery
+export default QuestionnaireGallery;

@@ -8,4 +8,4 @@ interface Questionnaire {
   questions: Question[]
 }
 
-export default Questionnaire
+export default Questionnaire;

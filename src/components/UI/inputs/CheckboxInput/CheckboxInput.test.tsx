@@ -1,9 +1,8 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { renderWithProviders } from "src/utils/test-utils";
-import CheckboxInput from "./CheckboxInput";
 
-const callback = jest.fn();
+import CheckboxInput from "./CheckboxInput";
 
 describe("CheckboxInput component", () => {
   test("CheckboxInput renders", () => {
@@ -21,8 +20,8 @@ describe("CheckboxInput component", () => {
   });
 
   test("CheckboxInput snapshot", () => {
-    const checkbox = renderWithProviders(
+    const view = renderWithProviders(
       <CheckboxInput name="test" value={""} />);
-    expect(checkbox).toMatchSnapshot();
+    expect(view).toMatchSnapshot();
   });
 });

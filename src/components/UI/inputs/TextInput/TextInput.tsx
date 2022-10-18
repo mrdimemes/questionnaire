@@ -1,6 +1,9 @@
 import classNames from "classnames";
+
 import { Input } from "../";
+
 import styles from "./TextInput.module.sass";
+
 import type { SpecificInputProps } from "../types";
 
 const TextInput = (props: SpecificInputProps) => {
@@ -17,7 +20,7 @@ const TextInput = (props: SpecificInputProps) => {
     onFocus={props.onFocus}
     onBlur={props.onBlur}
     autoFocus={props.autoFocus}
-  />
-}
+  />;
+};
 
 export default TextInput;

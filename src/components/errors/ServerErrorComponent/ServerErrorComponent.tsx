@@ -1,4 +1,5 @@
 import { ErrorStatusCode } from "src/api/errors";
+
 import { ErrorComponent } from "../ErrorComponent";
 
 const ServerErrorComponent = () => {
@@ -7,7 +8,7 @@ const ServerErrorComponent = () => {
       statusCode={ErrorStatusCode.ServerError}
       label="Что-то сломалось. Бип-буп... :("
     />
-  )
-}
+  );
+};
 
-export default ServerErrorComponent
+export default ServerErrorComponent;

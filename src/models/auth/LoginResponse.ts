@@ -6,4 +6,4 @@ interface LoginResponse {
   refreshToken: string;
 }
 
-export default LoginResponse
+export default LoginResponse;

@@ -4,4 +4,4 @@ interface User {
   isAdmin: boolean;
 }
 
-export default User
+export default User;

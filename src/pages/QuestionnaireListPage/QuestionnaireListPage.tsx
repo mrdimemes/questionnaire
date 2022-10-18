@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { useAppDispatch } from "src/redux/hooks";
-import { PageWrapper } from "../PageWrapper";
+
 import { NavigationPage, setActivePage } from "src/redux/slices/browseSlice";
 import { QuestionnaireGallery } from "src/components";
+
+import { PageWrapper } from "../PageWrapper";
 
 
 const QuestionnaireListPage = () => {
@@ -17,7 +19,7 @@ const QuestionnaireListPage = () => {
       <h1>Все опросы</h1>
       <QuestionnaireGallery />
     </PageWrapper>
-  )
-}
+  );
+};
 
 export default QuestionnaireListPage;

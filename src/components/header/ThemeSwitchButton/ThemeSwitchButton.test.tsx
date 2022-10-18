@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { renderWithProviders } from "src/utils/test-utils";
 import { setupStore } from "src/redux";
 import { Theme } from "src/redux/slices/themeSlice";
+
 import ThemeSwitchButton from "./ThemeSwitchButton";
 
 describe("Header/ThemeSwitchButton component", () => {
@@ -12,7 +13,7 @@ describe("Header/ThemeSwitchButton component", () => {
   });
 
   test("ThemeSwitchButton switches the app's theme", () => {
-    const store = setupStore({ theme: { theme: Theme.Light } })
+    const store = setupStore({ theme: { theme: Theme.Light } });
     renderWithProviders(<ThemeSwitchButton />, { store });
     userEvent.click(screen.getByRole("button"));
     expect(store.getState().theme.theme).toEqual(Theme.Dark);

@@ -4,4 +4,4 @@ enum FetchStatus {
   Error = "ERROR"
 }
 
-export default FetchStatus
+export default FetchStatus;

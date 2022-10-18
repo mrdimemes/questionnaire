@@ -3,4 +3,4 @@ enum AuthOption {
   login = "LOGIN"
 }
 
-export default AuthOption
+export default AuthOption;

@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import { useAppDispatch } from "src/redux/hooks";
-import { PageWrapper } from "../PageWrapper";
+
 import { NavigationPage, setActivePage } from "src/redux/slices/browseSlice";
+
+import { PageWrapper } from "../PageWrapper";
+
 import styles from "./MainPage.module.sass";
 
 const MainPage = () => {
@@ -12,7 +15,7 @@ const MainPage = () => {
   const github = "https://github.com/mrdimemes";
 
   useEffect(() => {
-    dispatch(setActivePage(NavigationPage.Main))
+    dispatch(setActivePage(NavigationPage.Main));
   }, [dispatch]);
 
   return (
@@ -86,7 +89,7 @@ const MainPage = () => {
       </section>
 
     </PageWrapper>
-  )
-}
+  );
+};
 
 export default MainPage;

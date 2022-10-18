@@ -1,4 +1,5 @@
 import { QuestionType } from "../";
+
 import { FieldAnswerDTO } from "./";
 
 
@@ -12,7 +13,7 @@ class QuestionAnswerDTO {
     questionId: number,
     questionType: QuestionType,
     fields: FieldAnswerDTO[],
-    isRequired: boolean
+    isRequired: boolean,
   ) {
     this.questionId = questionId;
     this.questionType = questionType;
@@ -21,4 +22,4 @@ class QuestionAnswerDTO {
   }
 }
 
-export default QuestionAnswerDTO
+export default QuestionAnswerDTO;

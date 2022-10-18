@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { useThemeSelector } from "src/redux/hooks";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { TagBar, Button } from "src/components";
-import styles from "./QuestionnaireCardComponent.module.sass";
+
 import { QuestionnaireService } from "src/services";
+
+import styles from "./QuestionnaireCardComponent.module.sass";
 
 type QuestionnaireCardProps = {
   id: number,
@@ -15,7 +17,7 @@ type QuestionnaireCardProps = {
 const QuestionnaireCardComponent = ({
   id,
   label,
-  tags }: QuestionnaireCardProps
+  tags }: QuestionnaireCardProps,
 ) => {
   const currentTheme = useThemeSelector();
 
@@ -25,7 +27,7 @@ const QuestionnaireCardComponent = ({
     if (confirmation) {
       QuestionnaireService.removeQuestionnaire(id);
     }
-  }
+  };
 
   return (
     <div className={styles.cardContainer}>
@@ -33,7 +35,7 @@ const QuestionnaireCardComponent = ({
         to={"/questionnaire/" + id}
         className={classNames(
           styles.card,
-          getThemeStyle(styles, currentTheme)
+          getThemeStyle(styles, currentTheme),
         )}
       >
         <h2 className={styles.label}>{label}</h2>
@@ -48,7 +50,7 @@ const QuestionnaireCardComponent = ({
         </Button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default QuestionnaireCardComponent
+export default QuestionnaireCardComponent;

@@ -1,2 +1,2 @@
-declare module '*.sass';
-declare module '*.svg';
+declare module "*.sass";
+declare module "*.svg";

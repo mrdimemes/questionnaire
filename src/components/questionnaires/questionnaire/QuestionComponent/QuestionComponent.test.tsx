@@ -1,12 +1,14 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "src/utils/test-utils";
-import QuestionComponent from "./QuestionComponent";
+
 import { QuestionType } from "src/models";
+
+import QuestionComponent from "./QuestionComponent";
 
 const fieldsPlaceholder = [
   { id: 1, text: "field1" },
-  { id: 2, text: "field2" }
-]
+  { id: 2, text: "field2" },
+];
 
 describe("Question component", () => {
   test("Checkbox question renders", () => {
@@ -58,7 +60,7 @@ describe("Question component", () => {
   });
 
   test("Question snapshot", () => {
-    const question = renderWithProviders(
+    const view = renderWithProviders(
       <QuestionComponent
         id={1}
         questionType={QuestionType.Checkbox}
@@ -67,6 +69,6 @@ describe("Question component", () => {
         isRequired={false}
         callback={jest.fn()}
       />);
-    expect(question).toMatchSnapshot();
+    expect(view).toMatchSnapshot();
   });
 });

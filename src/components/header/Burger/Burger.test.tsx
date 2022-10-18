@@ -1,6 +1,7 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { renderWithProviders } from "src/utils/test-utils";
+
 import Burger from "./Burger";
 
 const onClick = jest.fn();
@@ -14,14 +15,14 @@ describe("Header/Burger component", () => {
   test("onClick works", () => {
     const anotherOnClick = jest.fn();
     renderWithProviders(<Burger onClick={anotherOnClick} isOpen={false} />);
-    userEvent.click(screen.getByRole("button"))
+    userEvent.click(screen.getByRole("button"));
     expect(anotherOnClick).toHaveBeenCalled();
   });
 
   test("Burger snapshot", () => {
-    const burger = renderWithProviders(
-      <Burger onClick={onClick} isOpen={false} />
+    const view = renderWithProviders(
+      <Burger onClick={onClick} isOpen={false} />,
     );
-    expect(burger).toMatchSnapshot();
+    expect(view).toMatchSnapshot();
   });
 });

@@ -1,18 +1,21 @@
 import { useState } from "react";
-import { PageWrapper } from "../PageWrapper";
+
 import { AuthForm, Button } from "src/components";
 import { AuthOption } from "src/models";
+
+import { PageWrapper } from "../PageWrapper";
+
 import styles from "./AuthPage.module.sass";
 
 const AuthPage = () => {
   const [authOption, setAuthOption] = useState(AuthOption.login);
   const toggleOption = () => {
     if (authOption === AuthOption.registration) {
-      setAuthOption(AuthOption.login)
+      setAuthOption(AuthOption.login);
     } else {
-      setAuthOption(AuthOption.registration)
+      setAuthOption(AuthOption.registration);
     }
-  }
+  };
 
   return (
     <PageWrapper>
@@ -37,7 +40,7 @@ const AuthPage = () => {
 
 
     </PageWrapper>
-  )
-}
+  );
+};
 
-export default AuthPage
+export default AuthPage;

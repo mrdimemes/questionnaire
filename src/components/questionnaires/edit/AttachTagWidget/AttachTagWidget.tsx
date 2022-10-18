@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { Button, Select } from "src/components";
 import { useTagsMapSelector } from "src/redux/hooks";
+
 import styles from "./AttachTagWidget.module.sass";
 
 
@@ -19,14 +20,14 @@ const AttachTagWidget = ({ callback, ignoredTags }: AttachTagWidgetProps) => {
       if (!ignoredTags.includes(value)) options.push([value, text]);
     }
     return options;
-  }
+  };
 
   const toggleFocus = () => setIsFocused(!isFocused);
   const onSubmit = () => {
     const selectedTag = selectRef.current?.value;
     if (selectedTag) callback(Number(selectedTag));
     setIsFocused(false);
-  }
+  };
 
   return (
     <div className={styles.widget}>
@@ -43,7 +44,7 @@ const AttachTagWidget = ({ callback, ignoredTags }: AttachTagWidgetProps) => {
         <Button onClick={onSubmit}>Добавить</Button>
       </>}
     </div>
-  )
-}
+  );
+};
 
-export default AttachTagWidget
+export default AttachTagWidget;

@@ -1,7 +1,7 @@
 const validateByLength = (
   field: string,
   minLength: number,
-  maxLength: number
+  maxLength: number,
 ): string | undefined => {
   if (field.length < minLength) {
     return "Слишком короткое значение";
@@ -10,6 +10,6 @@ const validateByLength = (
   } else {
     return undefined;
   }
-}
+};
 
-export default validateByLength
+export default validateByLength;

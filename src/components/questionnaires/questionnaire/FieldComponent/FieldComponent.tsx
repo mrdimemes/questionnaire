@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Field, QuestionType } from "src/models";
 import { CheckboxInput, RadioInput, TextInput } from "src/components";
+
 import styles from "./FieldComponent.module.sass";
 
 type FieldComponentProps = {
@@ -15,25 +16,25 @@ const FieldComponent = (props: FieldComponentProps) => {
   const onInputChange = () => {
     const value = props.questionType === QuestionType.Text ?
       inputRef.current?.value ?? "" :
-      String(inputRef.current?.checked) ?? "false"
+      String(inputRef.current?.checked) ?? "false";
     props.callback(props.field.id, value);
-  }
+  };
 
   const getInputNode = () => {
     const inputProps = {
       name: String(props.questionId),
       forwardedRef: inputRef,
-      onChange: onInputChange
-    }
+      onChange: onInputChange,
+    };
     switch (props.questionType) {
-      case QuestionType.Checkbox:
-        return <CheckboxInput {...inputProps} />;
-      case QuestionType.Radio:
-        return <RadioInput {...inputProps} />;
-      case QuestionType.Text:
-        return <TextInput {...inputProps} maxLength={200} />;
+    case QuestionType.Checkbox:
+      return <CheckboxInput {...inputProps} />;
+    case QuestionType.Radio:
+      return <RadioInput {...inputProps} />;
+    case QuestionType.Text:
+      return <TextInput {...inputProps} maxLength={200} />;
     }
-  }
+  };
 
   // eslint-disable-next-line
   useEffect(onInputChange, []);
@@ -47,7 +48,7 @@ const FieldComponent = (props: FieldComponentProps) => {
       {getInputNode()}
       <div>{props.field.text}</div>
     </div>
-  )
-}
+  );
+};
 
 export default FieldComponent;

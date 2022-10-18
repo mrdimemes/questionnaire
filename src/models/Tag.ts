@@ -4,4 +4,4 @@ interface Tag {
   freq: number
 }
 
-export default Tag
+export default Tag;

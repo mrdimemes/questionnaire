@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import { AuthOption } from "src/models";
 import { useThemeSelector } from "src/redux/hooks";
@@ -9,8 +9,9 @@ import { EmailInput, NameInput, PasswordInput, Button } from "src/components";
 import {
   validateEmail,
   validateName,
-  validatePassword
+  validatePassword,
 } from "src/utils/validators";
+
 import styles from "./AuthForm.module.sass";
 
 type AuthFormProps = {
@@ -37,13 +38,13 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
     setNameError("");
     setPasswordError("");
     setConfiramtionError("");
-  }
+  };
 
   const validateForm = (
     email: string,
     name: string,
     password: string,
-    passwordConfiramtion: string
+    passwordConfiramtion: string,
   ) => {
     resetErrors();
 
@@ -63,7 +64,7 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
       !passwordValidation &&
       passwordsIsSame;
     return [isFineForLogin, isFineForRegistration];
-  }
+  };
 
   const handleSubmit = () => {
     const email = emailRef.current?.value ?? "";
@@ -72,27 +73,27 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
     const passwordConfiramtion = passwordConfiramtionRef.current?.value ?? "";
 
     const [isFineForLogin, isFineForRegistration] = validateForm(
-      email, name, password, passwordConfiramtion
+      email, name, password, passwordConfiramtion,
     );
     if (authOption === AuthOption.registration && isFineForRegistration) {
       AuthService.registration(email, name, password)
         .then(error => {
-          if (error) return console.log(error);
+          if (error) return;
           navigate("/");
-        })
+        });
     } else if (authOption === AuthOption.login && isFineForLogin) {
       AuthService.login(email, password)
         .then(error => {
-          if (error) return console.log(error);
+          if (error) return;
           navigate("/");
-        })
+        });
     }
-  }
+  };
 
   return (
     <form className={classNames(
       getThemeStyle(styles, currentTheme),
-      className
+      className,
     )}>
       <div className={styles.content}>
         <div className={styles.field}>
@@ -167,7 +168,7 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
       </Button>
 
     </form>
-  )
-}
+  );
+};
 
-export default AuthForm
+export default AuthForm;

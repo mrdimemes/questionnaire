@@ -13,7 +13,7 @@ const ErrorComponent = ({ statusCode, label, text }: ErrorComponentProps) => {
       {text && <p>{text}</p>}
       <p>Код ошибки: {statusCode}</p>
     </div>
-  )
-}
+  );
+};
 
-export default ErrorComponent
+export default ErrorComponent;

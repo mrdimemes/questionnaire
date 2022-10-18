@@ -1,6 +1,9 @@
 import classNames from "classnames";
+
 import { Input } from "../";
+
 import styles from "./EmailInput.module.sass";
+
 import type { SpecificInputProps } from "../types";
 
 const EmailInput = (props: SpecificInputProps) => {
@@ -17,7 +20,7 @@ const EmailInput = (props: SpecificInputProps) => {
     onChange={props.onChange}
     onFocus={props.onFocus}
     onBlur={props.onBlur}
-  />
-}
+  />;
+};
 
 export default EmailInput;

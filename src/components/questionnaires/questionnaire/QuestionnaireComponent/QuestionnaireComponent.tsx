@@ -4,11 +4,13 @@ import {
   Questionnaire,
   QuestionnaireAnswerDTO,
   QuestionAnswerDTO,
-  FieldAnswerDTO
+  FieldAnswerDTO,
 } from "src/models";
 import { QuestionnaireService } from "src/services";
 import { TagBar, Button, LoadingSpinner } from "src/components";
+
 import { QuestionComponent } from "../QuestionComponent";
+
 import styles from "./QuestionnaireComponent.module.sass";
 
 type QuestionnaireProps = {
@@ -17,13 +19,13 @@ type QuestionnaireProps = {
 type AnswersMap = Map<number, Map<number, string>>;
 
 const QuestionnaireComponent = ({ id }: QuestionnaireProps) => {
-  const [questionnaire, setQuestionnaire] = useState({} as Questionnaire)
+  const [questionnaire, setQuestionnaire] = useState({} as Questionnaire);
   const [status, setStatus] = useState(FetchStatus.Loading);
   const [answersMap, setAnswersMap] = useState<AnswersMap>(new Map());
 
   const updateAnswer = useCallback((
     questionId: number,
-    questionAnswersMap: Map<number, string>
+    questionAnswersMap: Map<number, string>,
   ) => {
     setAnswersMap(new Map(answersMap.set(questionId, questionAnswersMap)));
     // eslint-disable-next-line
@@ -32,8 +34,8 @@ const QuestionnaireComponent = ({ id }: QuestionnaireProps) => {
   const handleSubmit = () => {
     const answerDTO = getDTOFromState();
     QuestionnaireService.sendQuestionnaireAnswer(answerDTO)
-      .then((status) => console.log(status));
-  }
+      .then((status) => { return; }); 
+  };
 
   const getDTOFromState = () => {
     const getFields = (questionId: number) => {
@@ -42,7 +44,7 @@ const QuestionnaireComponent = ({ id }: QuestionnaireProps) => {
         DTOs.push(new FieldAnswerDTO(fieldId, value));
       });
       return DTOs;
-    }
+    };
     return new QuestionnaireAnswerDTO(
       questionnaire.id,
       questionnaire.questions.map(question => {
@@ -50,19 +52,19 @@ const QuestionnaireComponent = ({ id }: QuestionnaireProps) => {
           question.id,
           question.questionType,
           getFields(question.id),
-          question.isRequired
+          question.isRequired,
         );
-      })
+      }),
     );
-  }
+  };
 
   useEffect(() => {
     QuestionnaireService.getQuestionnaire(id).then(
       (questionnaire) => {
         setQuestionnaire(questionnaire);
         setStatus(FetchStatus.Complete);
-      }
-    )
+      },
+    );
   }, [id]);
 
   return (
@@ -78,7 +80,7 @@ const QuestionnaireComponent = ({ id }: QuestionnaireProps) => {
             return <QuestionComponent
               key={question.id}
               callback={updateAnswer}
-              {...question} />
+              {...question} />;
           })
         } </div>
 
@@ -87,7 +89,7 @@ const QuestionnaireComponent = ({ id }: QuestionnaireProps) => {
         </div>
       </>}
     </div>
-  )
-}
+  );
+};
 
-export default QuestionnaireComponent
+export default QuestionnaireComponent;

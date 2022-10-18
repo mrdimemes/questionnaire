@@ -1,4 +1,5 @@
 import { TextInput } from "../";
+
 import type { SpecificInputProps } from "../types";
 
 const NameInput = (props: SpecificInputProps) => {
@@ -16,7 +17,7 @@ const NameInput = (props: SpecificInputProps) => {
     onFocus={props.onFocus}
     onBlur={props.onBlur}
     autoFocus={props.autoFocus}
-  />
-}
+  />;
+};
 
 export default NameInput;

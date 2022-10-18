@@ -3,4 +3,4 @@ interface RefreshResponse {
   refreshToken: string;
 }
 
-export default RefreshResponse
+export default RefreshResponse;

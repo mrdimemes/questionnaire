@@ -8,4 +8,4 @@ interface Question {
   isRequired: boolean
 }
 
-export default Question
+export default Question;

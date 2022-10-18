@@ -2,11 +2,15 @@ import { useState, useEffect } from "react";
 import { useTagsDataSelector, useAppDispatch } from "src/redux/hooks";
 import { removeTag as removeTagAction } from "src/redux/slices/tagsSlice";
 import { LoadingSpinner, PaginationBar, Button } from "src/components";
-import { TagComponent, AddTagWidget } from "../";
+
 import { FetchStatus, Tag } from "src/models";
-import styles from "./TagGallery.module.sass";
+
 import { QuestionnaireService } from "src/services";
 import { FetchError } from "src/api/errors";
+
+import { TagComponent, AddTagWidget } from "../";
+
+import styles from "./TagGallery.module.sass";
 
 
 type TagGalleryProps = {
@@ -28,7 +32,7 @@ const TagGallery = ({ resetScroll }: TagGalleryProps) => {
     if (confirmation) {
       QuestionnaireService.removeTag(tag.id).then(response => {
         if (response instanceof FetchError) {
-          console.log(response)
+          return;
         } else {
           dispatch(removeTagAction(tag.id));
         }
@@ -64,7 +68,7 @@ const TagGallery = ({ resetScroll }: TagGalleryProps) => {
                 children="x"
               />
             </div>
-          )
+          );
 
         })}
       </>}
@@ -78,6 +82,6 @@ const TagGallery = ({ resetScroll }: TagGalleryProps) => {
 
     </div>
   );
-}
+};
 
-export default TagGallery
+export default TagGallery;

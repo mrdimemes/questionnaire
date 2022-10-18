@@ -6,4 +6,4 @@ enum ErrorStatusCode {
   ServiceUnavailable = 503
 }
 
-export default ErrorStatusCode
+export default ErrorStatusCode;

@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { Field, Question, QuestionType } from "src/models";
+
 import { FieldComponent } from "../";
+
 import styles from "./QuestionComponent.module.sass";
 
 interface QuestionComponentProps extends Question {
@@ -12,7 +14,7 @@ const QuestionComponent = ({
   questionType,
   text,
   fields,
-  callback
+  callback,
 }: QuestionComponentProps) => {
 
   const [answersMap, setAnswersMap] = useState<Map<number, string>>(new Map());
@@ -33,8 +35,8 @@ const QuestionComponent = ({
       questionType: questionType,
       field: field,
       callback: updateAnswer,
-    }
-    return <FieldComponent key={index} {...fieldProps} />
+    };
+    return <FieldComponent key={index} {...fieldProps} />;
   };
 
   useEffect(() => {
@@ -48,7 +50,7 @@ const QuestionComponent = ({
         {fields.map((field, index) => getFieldNode(field, index))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default QuestionComponent
+export default QuestionComponent;

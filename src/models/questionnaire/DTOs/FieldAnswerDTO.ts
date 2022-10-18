@@ -8,4 +8,4 @@ class FieldAnswerDTO {
   }
 }
 
-export default FieldAnswerDTO
+export default FieldAnswerDTO;

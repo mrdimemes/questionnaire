@@ -1,5 +1,7 @@
 import classNames from "classnames";
+
 import { PageButton, PaginationBreak, NextButton, PreviousButton } from "../";
+
 import styles from "./PaginationBar.module.sass";
 
 type PaginationBarProps = {
@@ -13,7 +15,7 @@ const PaginationBar = ({
   className,
   activePage,
   totalPages,
-  callback
+  callback,
 }: PaginationBarProps) => {
 
   const getPageButtonNode = (page: number) => {
@@ -22,8 +24,8 @@ const PaginationBar = ({
       isActivePage={page === activePage}
       onClick={() => callback(page)}
       children={page}
-    />
-  }
+    />;
+  };
 
   const getPageButtons = () => {
     const content: JSX.Element[] = [];
@@ -58,7 +60,7 @@ const PaginationBar = ({
       content.push(getPageButtonNode(page));
     }
     return content;
-  }
+  };
 
   return <>
     {totalPages !== 1 &&
@@ -77,7 +79,7 @@ const PaginationBar = ({
         />
       </div>
     }
-  </>
-}
+  </>;
+};
 
-export default PaginationBar
+export default PaginationBar;

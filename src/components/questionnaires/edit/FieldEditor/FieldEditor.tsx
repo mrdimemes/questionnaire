@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TextInput } from "src/components";
 import { Field } from "src/models";
+
 import styles from "./FieldEditor.module.sass";
 
 
@@ -16,7 +17,7 @@ const FieldEditor = ({ field, callback }: FieldEditorProps) => {
   const handleBlur = () => {
     setIsFocused(!isFocused);
     callback(value);
-  }
+  };
 
   return (
     <div className={styles.FieldEditor}>
@@ -38,7 +39,7 @@ const FieldEditor = ({ field, callback }: FieldEditorProps) => {
         />
       }
     </div>
-  )
-}
+  );
+};
 
-export default FieldEditor
+export default FieldEditor;

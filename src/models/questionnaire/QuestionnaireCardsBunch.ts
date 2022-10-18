@@ -5,4 +5,4 @@ interface QuestionnaireCardsBunch {
   totalPages: number
 }
 
-export default QuestionnaireCardsBunch
+export default QuestionnaireCardsBunch;

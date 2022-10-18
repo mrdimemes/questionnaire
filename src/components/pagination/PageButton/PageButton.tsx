@@ -1,4 +1,5 @@
 import { Button } from "src/components";
+
 import styles from "./PageButton.module.sass";
 
 type PageButtonProps = {
@@ -15,7 +16,7 @@ const PageButton = ({ isActivePage, onClick, children }: PageButtonProps) => {
       onClick={onClick}
       children={children}
     />
-  )
-}
+  );
+};
 
-export default PageButton
+export default PageButton;

@@ -4,4 +4,4 @@ enum QuestionType {
   Text = "TEXT"
 }
 
-export default QuestionType
+export default QuestionType;

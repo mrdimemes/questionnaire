@@ -3,4 +3,4 @@ interface Field {
   text: string,
 }
 
-export default Field
+export default Field;

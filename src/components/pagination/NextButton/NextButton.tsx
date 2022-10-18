@@ -9,14 +9,14 @@ type NextButtonProps = {
 const NextButton = ({
   activePage,
   totalPages,
-  callback
+  callback,
 }: NextButtonProps) => {
   return <> {
     activePage !== totalPages &&
     <Button onClick={() => callback(activePage + 1)}>
       Вперёд
     </Button>
-  } </>
-}
+  } </>;
+};
 
-export default NextButton
+export default NextButton;

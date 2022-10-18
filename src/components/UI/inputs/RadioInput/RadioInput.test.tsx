@@ -1,8 +1,7 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "src/utils/test-utils";
-import RadioInput from "./RadioInput";
 
-const callback = jest.fn();
+import RadioInput from "./RadioInput";
 
 describe("RadioInput component", () => {
   test("RadioInput renders", () => {
@@ -12,8 +11,8 @@ describe("RadioInput component", () => {
   });
 
   test("RadioInput snapshot", () => {
-    const radio = renderWithProviders(
+    const view = renderWithProviders(
       <RadioInput name="test" value={""} />);
-    expect(radio).toMatchSnapshot();
+    expect(view).toMatchSnapshot();
   });
 });

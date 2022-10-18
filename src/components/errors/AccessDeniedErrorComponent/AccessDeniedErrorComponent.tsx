@@ -1,4 +1,5 @@
 import { ErrorStatusCode } from "src/api/errors";
+
 import { ErrorComponent } from "../ErrorComponent";
 
 const AccessDeniedErrorComponent = () => {
@@ -7,7 +8,7 @@ const AccessDeniedErrorComponent = () => {
       statusCode={ErrorStatusCode.Forbidden}
       label="Доступ запрещён"
     />
-  )
-}
+  );
+};
 
-export default AccessDeniedErrorComponent
+export default AccessDeniedErrorComponent;

@@ -6,11 +6,13 @@ import {
   FetchStatus,
   Question,
   QuestionType,
-  QuestionnaireChangeDTO
+  QuestionnaireChangeDTO,
 } from "src/models";
 import { QuestionnaireService } from "src/services";
 import { TextInput, TextArea, Button, LoadingSpinner } from "src/components";
+
 import { TagEditBar, QuestionEditor } from "../";
+
 import styles from "./QuestionnaireEditor.module.sass";
 
 
@@ -40,13 +42,13 @@ const QuestionnaireEditor = ({ id }: QuestionnaireEditorProps) => {
   const handleQuestionChange = (
     updatedQuestion: Question,
     isCritical: boolean,
-    index: number
+    index: number,
   ) => {
     const newQuestions = [...questions];
     newQuestions[index] = updatedQuestion;
     if (isCritical) setIsCriticalChange(true);
     setQuestions(newQuestions);
-  }
+  };
   const addField = () => {
     if (questions.length >= maxQuestions) return;
     setIsCriticalChange(true);
@@ -58,12 +60,12 @@ const QuestionnaireEditor = ({ id }: QuestionnaireEditorProps) => {
         text: "Новый вопрос",
         fields: [
           { id: 0, text: "Первый вариант" },
-          { id: 0, text: "Второй вариант" }
+          { id: 0, text: "Второй вариант" },
         ],
-        isRequired: false
-      }
+        isRequired: false,
+      },
     ]);
-  }
+  };
   const removeQuestion = (index: number) => {
     if (questions.length <= minQuestions) return;
     setIsCriticalChange(true);
@@ -72,7 +74,7 @@ const QuestionnaireEditor = ({ id }: QuestionnaireEditorProps) => {
       if (idx !== index) newQuestions.push(question);
     });
     setQuestions(newQuestions);
-  }
+  };
 
   const handleSubmit = () => {
     if (isCriticalChange) {
@@ -84,23 +86,23 @@ const QuestionnaireEditor = ({ id }: QuestionnaireEditorProps) => {
       label,
       tags,
       about,
-      questions
+      questions,
     };
     if (id) {
       QuestionnaireService.editQuestionnaire(new QuestionnaireChangeDTO(
         questionnaire,
-        isCriticalChange
+        isCriticalChange,
       ));
     } else {
       QuestionnaireService.addQuestionnaire(questionnaire);
     }
-  }
+  };
   const handleRemove = () => {
     const warningText = "Вы уверены что хотите удалить этот опрос? Отменить эту операцию будет невозможно.";
     if (id && window.confirm(warningText)) {
       QuestionnaireService.removeQuestionnaire(id);
     }
-  }
+  };
 
   useEffect(() => {
     if (id) {
@@ -111,7 +113,7 @@ const QuestionnaireEditor = ({ id }: QuestionnaireEditorProps) => {
           setTags(questionnaire.tags);
           setQuestions(questionnaire.questions);
           setStatus(FetchStatus.Complete);
-        }
+        },
       );
     } else {
       setStatus(FetchStatus.Complete);
@@ -121,7 +123,7 @@ const QuestionnaireEditor = ({ id }: QuestionnaireEditorProps) => {
   return (
     <div className={classNames(
       styles.QuestionnaireEditor,
-      getThemeStyle(styles, currentTheme)
+      getThemeStyle(styles, currentTheme),
     )}>
       {
         id && status === FetchStatus.Loading &&
@@ -176,19 +178,19 @@ const QuestionnaireEditor = ({ id }: QuestionnaireEditorProps) => {
                         key={index}
                         question={question}
                         callback={(question, isCritical) => {
-                          handleQuestionChange(question, isCritical, index)
+                          handleQuestionChange(question, isCritical, index);
                         }}
                       />
                       {
                         questions.length > minQuestions &&
                         <Button
                           className={styles.removeQuestionButton}
-                          onClick={() => { removeQuestion(index) }}
+                          onClick={() => { removeQuestion(index); }}
                           children="Удалить вопрос"
                         />
                       }
                     </div>
-                  )
+                  );
                 })
               }
             </div>
@@ -219,7 +221,7 @@ const QuestionnaireEditor = ({ id }: QuestionnaireEditorProps) => {
       }
 
     </div>
-  )
-}
+  );
+};
 
-export default QuestionnaireEditor
+export default QuestionnaireEditor;

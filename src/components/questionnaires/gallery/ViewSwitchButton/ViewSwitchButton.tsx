@@ -2,9 +2,12 @@ import classNames from "classnames";
 import { useThemeSelector } from "src/redux/hooks";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { Button } from "src/components/UI/Button";
-import { GalleryViews } from "../QuestionnaireGallery/QuestionnaireGallery";
+
 import Plates from "src/assets/images/icons/plates.svg";
 import Rows from "src/assets/images/icons/rows.svg";
+
+import { GalleryViews } from "../QuestionnaireGallery/QuestionnaireGallery";
+
 import styles from "./ViewSwitchButton.module.sass";
 
 type ViewSwitchProps = {
@@ -13,17 +16,17 @@ type ViewSwitchProps = {
 };
 
 const ViewSwitchButton = (
-  { setCurrentView, currentView }: ViewSwitchProps
+  { setCurrentView, currentView }: ViewSwitchProps,
 ) => {
   const currentTheme = useThemeSelector();
   const toggleView = () => {
     switch (currentView) {
-      case GalleryViews.Plates:
-        setCurrentView(GalleryViews.Rows);
-        break;
-      case GalleryViews.Rows:
-        setCurrentView(GalleryViews.Plates)
-        break;
+    case GalleryViews.Plates:
+      setCurrentView(GalleryViews.Rows);
+      break;
+    case GalleryViews.Rows:
+      setCurrentView(GalleryViews.Plates);
+      break;
     }
   };
 
@@ -32,7 +35,7 @@ const ViewSwitchButton = (
       onClick={toggleView}
       className={classNames(
         styles.body,
-        getThemeStyle(styles, currentTheme)
+        getThemeStyle(styles, currentTheme),
       )}
     >
       <img
@@ -40,7 +43,7 @@ const ViewSwitchButton = (
         alt="view mode"
       />
     </Button>
-  )
-}
+  );
+};
 
-export default ViewSwitchButton
+export default ViewSwitchButton;

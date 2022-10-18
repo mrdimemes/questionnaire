@@ -1,4 +1,5 @@
 import { RefObject } from "react";
+
 import styles from "./PageWrapper.module.sass";
 
 type PageWrapperProps = {
@@ -13,7 +14,7 @@ const PageWrapper = ({ children, pageRef }: PageWrapperProps) => {
         {children}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default PageWrapper
+export default PageWrapper;

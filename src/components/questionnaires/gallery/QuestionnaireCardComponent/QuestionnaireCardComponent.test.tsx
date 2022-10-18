@@ -2,6 +2,7 @@ import { screen } from "@testing-library/react";
 import { FetchStatus } from "src/models";
 import { setupStore } from "src/redux";
 import { renderWithProvidersAndRouters } from "src/utils/test-utils";
+
 import QuestionnaireCardComponent from "./QuestionnaireCardComponent";
 
 describe("QuestionnaireCard component", () => {
@@ -10,12 +11,12 @@ describe("QuestionnaireCard component", () => {
     const store = setupStore({
       tags: {
         tags: [{ id: 1, label: "TestTag", freq: 7 }],
-        tagsLoadingStatus: FetchStatus.Complete
-      }
+        tagsLoadingStatus: FetchStatus.Complete,
+      },
     });
     renderWithProvidersAndRouters(
       <QuestionnaireCardComponent id={1} label="QuestionLabel" tags={[1]} />,
-      { store }
+      { store },
     );
     expect(screen.getByText(/questionlabel/i)).toBeInTheDocument();
     expect(screen.getByText(/testtag/i)).toBeInTheDocument();
@@ -25,12 +26,12 @@ describe("QuestionnaireCard component", () => {
     const store = setupStore({
       tags: {
         tags: [{ id: 1, label: "TestTag", freq: 7 }],
-        tagsLoadingStatus: FetchStatus.Complete
-      }
+        tagsLoadingStatus: FetchStatus.Complete,
+      },
     });
     const { container } = renderWithProvidersAndRouters(
       <QuestionnaireCardComponent id={1} label="QuestionLabel" tags={[1]} />,
-      { store }
+      { store },
     );
     expect(container).toMatchSnapshot();
   });

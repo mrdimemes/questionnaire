@@ -4,4 +4,4 @@ interface QuestionnaireCard {
   tags: number[]
 }
 
-export default QuestionnaireCard
+export default QuestionnaireCard;

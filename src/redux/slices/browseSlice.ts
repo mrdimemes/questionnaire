@@ -8,18 +8,18 @@ export enum NavigationPage {
 }
 
 const initialState = {
-  activePage: NavigationPage.None
-}
+  activePage: NavigationPage.None,
+};
 
 export const browseSlice = createSlice({
-  name: 'browse',
+  name: "browse",
   initialState,
   reducers: {
     setActivePage: (state, action: PayloadAction<NavigationPage>) => {
       state.activePage = action.payload;
-    }
+    },
   },
-})
+});
 
 export const { setActivePage } = browseSlice.actions;
 export default browseSlice.reducer;

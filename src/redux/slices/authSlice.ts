@@ -8,8 +8,8 @@ interface AuthState {
 const userInStorage = localStorage.getItem("user");
 
 const initialState: AuthState = {
-  user: userInStorage ? JSON.parse(userInStorage) : null
-}
+  user: userInStorage ? JSON.parse(userInStorage) : null,
+};
 
 export const authSlice = createSlice({
   name: "auth",
@@ -22,9 +22,9 @@ export const authSlice = createSlice({
     clearUser: (state) => {
       state.user = null;
       localStorage.removeItem("user");
-    }
+    },
   },
-})
+});
 
 export const { setUser, clearUser } = authSlice.actions;
 export default authSlice.reducer;

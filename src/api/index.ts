@@ -3,7 +3,7 @@ import { RefreshResponse } from "src/models";
 
 const api = axios.create({
   withCredentials: true,
-  baseURL: process.env.REACT_APP_BACKEND_URL
+  baseURL: process.env.REACT_APP_BACKEND_URL,
 });
 
 api.interceptors.request.use(config => {
@@ -15,7 +15,7 @@ api.interceptors.request.use(config => {
 });
 
 api.interceptors.response.use(
-  config => { return config },
+  config => { return config; },
   async error => {
     const originalRequest = error.config;
     if (error.response.status === 401 &&
@@ -25,7 +25,7 @@ api.interceptors.response.use(
       originalRequest._isRetry = true;
       const response = await api.get<RefreshResponse>(
         "auth/refresh",
-        { withCredentials: true }
+        { withCredentials: true },
       );
       localStorage.setItem("accessToken", response.data.accessToken);
       localStorage.setItem("refreshToken", response.data.refreshToken);

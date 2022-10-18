@@ -1,7 +1,10 @@
 import classNames from "classnames";
 import { TagComponent, Button } from "src/components";
-import { AttachTagWidget } from "../";
+
 import { useTagsMapSelector } from "src/redux/hooks";
+
+import { AttachTagWidget } from "../";
+
 import styles from "./TagEditBar.module.sass";
 
 type TagEditBarProps = {
@@ -20,11 +23,11 @@ const TagEditBar = ({ className, tags, callback }: TagEditBarProps) => {
     const newTagArray = [...tags];
     if (tagIndex !== -1) newTagArray.splice(tagIndex, 1);
     callback(newTagArray);
-  }
+  };
   const addTag = (tag: number) => {
     const newTags = [...new Set([...tags, tag])];
     callback(newTags.slice(0, maxTags));
-  }
+  };
 
   return (
     <div className={classNames(styles.TagEditBar, className)}>
@@ -39,11 +42,11 @@ const TagEditBar = ({ className, tags, callback }: TagEditBarProps) => {
               <Button
                 className={styles.button}
                 key={`rb-${tagId}`}
-                onClick={() => { removeTag(tagId) }}
+                onClick={() => { removeTag(tagId); }}
                 children="x"
               />
             </div>
-          )
+          );
         })
       }
       {
@@ -51,7 +54,7 @@ const TagEditBar = ({ className, tags, callback }: TagEditBarProps) => {
         <AttachTagWidget ignoredTags={tags} callback={addTag} />
       }
     </div>
-  )
-}
+  );
+};
 
-export default TagEditBar
+export default TagEditBar;

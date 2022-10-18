@@ -2,7 +2,9 @@ import classNames from "classnames";
 import { useState, useEffect } from "react";
 import { Question, Field, QuestionType } from "src/models";
 import { Select, CheckboxInput, TextArea, Button } from "src/components";
+
 import { FieldEditor } from "../";
+
 import styles from "./QuestionEditor.module.sass";
 
 
@@ -24,19 +26,19 @@ const QuestionEditor = ({ question, callback }: QuestionEditorProps) => {
 
   const handleQuestionTypeChange = (newType: string) => {
     setQuestionType(newType as QuestionType);
-  }
+  };
   const toggleIsRequired = () => setIsRequired(!isRequired);
   const handleTextChange = (newText: string) => setText(newText);
   const handleFieldChange = (newValue: string, index: number) => {
     const newFields = [...fields];
     newFields[index].text = newValue;
     setFields(newFields);
-  }
+  };
   const addField = () => {
     if (fields.length >= maxFields) return;
     setIsCriticalChange(true);
     setFields([...fields, { id: 0, text: "Новый вариант" }]);
-  }
+  };
   const removeField = (index: number) => {
     if (fields.length <= minFields) return;
     setIsCriticalChange(true);
@@ -45,7 +47,7 @@ const QuestionEditor = ({ question, callback }: QuestionEditorProps) => {
       if (idx !== index) newFields.push(field);
     });
     setFields(newFields);
-  }
+  };
 
   const returnQuestion = () => {
     callback(
@@ -54,18 +56,19 @@ const QuestionEditor = ({ question, callback }: QuestionEditorProps) => {
         questionType,
         text,
         fields,
-        isRequired
+        isRequired,
       } as Question,
-      isCriticalChange
+      isCriticalChange,
     );
-  }
+  };
 
+  // eslint-disable-next-line
   useEffect(returnQuestion, [id, questionType, text, fields, isRequired]);
 
   const typeOptions: [string, string][] = [
     [QuestionType.Checkbox, "Чекбокс"],
     [QuestionType.Radio, "Радио"],
-    [QuestionType.Text, "Текст"]
+    [QuestionType.Text, "Текст"],
   ];
 
   return (
@@ -107,7 +110,7 @@ const QuestionEditor = ({ question, callback }: QuestionEditorProps) => {
                   key={index}
                   className={classNames(
                     styles.listItem,
-                    styles.fieldContainer
+                    styles.fieldContainer,
                   )}
                 >
                   <FieldEditor
@@ -125,7 +128,7 @@ const QuestionEditor = ({ question, callback }: QuestionEditorProps) => {
                     />
                   }
                 </li>
-              )
+              );
             })
           }
         </ul>
@@ -139,7 +142,7 @@ const QuestionEditor = ({ question, callback }: QuestionEditorProps) => {
         }
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default QuestionEditor
+export default QuestionEditor;

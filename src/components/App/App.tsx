@@ -8,11 +8,12 @@ import {
   TagsPage,
   QuestionnairePage,
   EditPage,
-  AuthPage
+  AuthPage,
 } from "src/pages";
 import { QuestionnaireService } from "src/services";
 import { useThemeSelector } from "src/redux/hooks";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
+
 import styles from "./App.module.sass";
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
   return (
     <div className={classNames(
       styles.body,
-      getThemeStyle(styles, currentTheme)
+      getThemeStyle(styles, currentTheme),
     )}>
       <Header />
       <Routes>

@@ -1,5 +1,6 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "src/utils/test-utils";
+
 import TagComponent from "./TagComponent";
 
 describe("Tag component", () => {

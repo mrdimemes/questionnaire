@@ -1,9 +1,10 @@
 import classNames from "classnames";
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useUserSelector } from "src/redux/hooks";
 import { AuthService } from "src/services";
 import { Button } from "src/components/UI/Button";
+
 import styles from "./User.module.sass";
 
 const User = () => {
@@ -23,7 +24,7 @@ const User = () => {
             children={user.name}
           />
           <div className={classNames(
-            styles.popup, { [styles.opened]: isPopupOpen }
+            styles.popup, { [styles.opened]: isPopupOpen },
           )}>
             <Button
               children="Выйти"
@@ -40,7 +41,7 @@ const User = () => {
       )}
     </div>
 
-  )
-}
+  );
+};
 
-export default User
+export default User;

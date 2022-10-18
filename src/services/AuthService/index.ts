@@ -21,7 +21,7 @@ class AuthService {
     try {
       const response = await api.post<LoginResponse>(
         "/auth/registration",
-        { email, name, password }
+        { email, name, password },
       );
       this.setAuth(response.data);
     } catch (error) {
@@ -35,7 +35,7 @@ class AuthService {
     try {
       const response = await api.post<LoginResponse>(
         "/auth/login",
-        { email, password }
+        { email, password },
       );
       this.setAuth(response.data);
     } catch (error) {
@@ -52,4 +52,4 @@ class AuthService {
   }
 }
 
-export default AuthService
+export default AuthService;

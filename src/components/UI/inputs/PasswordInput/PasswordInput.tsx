@@ -1,6 +1,9 @@
 import classNames from "classnames";
+
 import { Input } from "../";
+
 import styles from "./PasswordInput.module.sass";
+
 import type { SpecificInputProps } from "../types";
 
 const PasswordInput = (props: SpecificInputProps) => {
@@ -19,7 +22,7 @@ const PasswordInput = (props: SpecificInputProps) => {
     onFocus={props.onFocus}
     onBlur={props.onBlur}
     autoFocus={props.autoFocus}
-  />
-}
+  />;
+};
 
 export default PasswordInput;

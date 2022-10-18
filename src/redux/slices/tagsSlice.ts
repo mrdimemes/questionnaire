@@ -3,11 +3,11 @@ import { Tag, FetchStatus } from "src/models";
 
 const initialState = {
   tags: new Array<Tag>(),
-  tagsLoadingStatus: FetchStatus.Loading
-}
+  tagsLoadingStatus: FetchStatus.Loading,
+};
 
 export const tagsSlice = createSlice({
-  name: 'tags',
+  name: "tags",
   initialState,
   reducers: {
     setTags: (state, action: PayloadAction<Array<Tag>>) => {
@@ -26,9 +26,9 @@ export const tagsSlice = createSlice({
         if (tag.id !== targetTagId) newTagArray.push(tag as Tag);
       }
       state.tags = newTagArray;
-    }
+    },
   },
-})
+});
 
 export const { setTags, addTag, removeTag } = tagsSlice.actions;
 export default tagsSlice.reducer;

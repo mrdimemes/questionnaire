@@ -11,7 +11,7 @@ const PreviousButton = ({ activePage, callback }: PreviousButtonProps) => {
     <Button onClick={() => callback(activePage - 1)}>
       Назад
     </Button>
-  } </>
-}
+  } </>;
+};
 
-export default PreviousButton
+export default PreviousButton;

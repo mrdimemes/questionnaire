@@ -4,12 +4,12 @@ export type { default as Question } from "./Question";
 export type { default as Questionnaire } from "./Questionnaire";
 export type { default as QuestionnaireCard } from "./QuestionnaireCard";
 export type {
-  default as QuestionnaireCardsBunch
+  default as QuestionnaireCardsBunch,
 } from "./QuestionnaireCardsBunch";
 
 export {
   FieldAnswerDTO,
   QuestionAnswerDTO,
   QuestionnaireAnswerDTO,
-  QuestionnaireChangeDTO
+  QuestionnaireChangeDTO,
 } from "./DTOs";
