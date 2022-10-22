@@ -2,7 +2,7 @@ import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { renderWithProviders } from "src/utils/test-utils";
 
-import Burger from "./Burger";
+import Burger from "./BurgerMenuButton";
 
 const onClick = jest.fn();
 

@@ -2,28 +2,47 @@
 
 exports[`QuestionnaireCard component QuestionnaireCard snapshot 1`] = `
 <div>
-  <a
-    class="body theme_light"
-    href="/questionnaire/1"
+  <div
+    class="cardContainer"
   >
-    <h2
-      class="label"
+    <a
+      class="card theme_light"
+      href="/questionnaire/1"
     >
-      QuestionLabel
-    </h2>
-    <div
-      class="body"
-    >
-       
-      <div
-        class="body theme_light"
+      <h2
+        class="label"
       >
-        <div>
-          TestTag
+        QuestionLabel
+      </h2>
+      <div
+        class="body"
+      >
+         
+        <div
+          class="body theme_light"
+        >
+          <div>
+            TestTag
+          </div>
         </div>
+         
       </div>
-       
+    </a>
+    <div
+      class="adminBar"
+    >
+      <a
+        class="button"
+        href="/edit/1"
+      >
+        o
+      </a>
+      <button
+        class="body theme_light button"
+      >
+        x
+      </button>
     </div>
-  </a>
+  </div>
 </div>
 `;

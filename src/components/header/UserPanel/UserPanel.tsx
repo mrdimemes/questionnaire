@@ -5,9 +5,9 @@ import { useUserSelector } from "src/redux/hooks";
 import { AuthService } from "src/services";
 import { Button } from "src/components/UI/Button";
 
-import styles from "./User.module.sass";
+import styles from "./UserPanel.module.sass";
 
-const User = () => {
+const UserPanel = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const user = useUserSelector();
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const User = () => {
   const redirectToAuth = () => navigate("/auth");
 
   return (
-    <div className={styles.body}>
+    <div className={styles.UserPanel}>
       {user && (
         <>
           <Button
@@ -44,4 +44,4 @@ const User = () => {
   );
 };
 
-export default User;
+export default UserPanel;

@@ -1,11 +1,14 @@
 import classNames from "classnames";
 import { useThemeSelector, useAppDispatch } from "src/redux/hooks";
-import { Theme, setTheme, getThemeStyle } from "src/redux/slices/themeSlice";
-import { Button } from "src/components/UI/Button";
+import { Theme, setTheme } from "src/redux/slices/themeSlice";
+import { Button } from "src/components";
+import { withTheme } from "src/HOCs";
 
 import styles from "./ThemeSwitchButton.module.sass";
 
-const ThemeSwitchButton = () => {
+import { ThemeSwitchButtonProps } from "./ThemeSwitchButtonProps";
+
+const ThemeSwitchButton = ({ className }: ThemeSwitchButtonProps) => {
   const dispatch = useAppDispatch();
   const currentTheme = useThemeSelector();
 
@@ -20,12 +23,9 @@ const ThemeSwitchButton = () => {
   return (
     <Button
       onClick={toggleTheme}
-      className={classNames(
-        styles.body,
-        getThemeStyle(styles, currentTheme),
-      )}
+      className={classNames(styles.body, className)}
     />
   );
 };
 
-export default ThemeSwitchButton;
+export default withTheme(ThemeSwitchButton, styles);

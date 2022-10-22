@@ -1,11 +1,11 @@
 @use "src/sass/foundation/colors"
 @use "src/sass/foundation/breakpoints"
 
-.body
+.Menu
   display: flex
   align-items: center
 
-.interactive
+.container
   transition: background-color 0.3s, transform 0.3s
   display: flex
   align-items: center
@@ -20,13 +20,13 @@
     row-gap: 25px
     transform: translateX(100vw)
 
-.theme_dark
+.theme_dark .container
   background-color: colors.$dark-theme-2
 
-.theme_light
+.theme_light .container
   background-color: colors.$light-theme-1
 
-.meta
+.bar
   display: flex
   align-items: center
   column-gap: 30px

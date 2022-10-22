@@ -3,51 +3,110 @@
 exports[`TagGallery component TagGallery empty snapshot 1`] = `
 <div>
   <div
-    class="body"
-  />
+    class="gallery"
+  >
+    <div
+      class="widget addTagWidget"
+    >
+      <button
+        class="body theme_light focusButton"
+      >
+        +
+      </button>
+    </div>
+    <div
+      class="Bar pagination"
+    >
+       
+       
+       
+      <button
+        class="body theme_light"
+      >
+        Вперёд
+      </button>
+       
+    </div>
+  </div>
 </div>
 `;
 
 exports[`TagGallery component TagGallery fillfull snapshot 1`] = `
 <div>
   <div
-    class="body"
+    class="gallery"
   >
     <div
-      class="body theme_light"
+      class="widget addTagWidget"
     >
-      <div>
-        tag0
-      </div>
-      <div
-        class="freq freq_theme_light"
+      <button
+        class="body theme_light focusButton"
       >
-        99
-      </div>
+        +
+      </button>
     </div>
     <div
-      class="body theme_light"
+      class="tagContainer"
     >
-      <div>
-        tag1
-      </div>
       <div
-        class="freq freq_theme_light"
+        class="body theme_light"
       >
-        1
+        <div>
+          tag0
+        </div>
+        <div
+          class="freq freq_theme_light"
+        >
+          99
+        </div>
       </div>
+      <button
+        class="body theme_light removeTagButton"
+      >
+        x
+      </button>
     </div>
     <div
-      class="body theme_light"
+      class="tagContainer"
     >
-      <div>
-        tag2
-      </div>
       <div
-        class="freq freq_theme_light"
+        class="body theme_light"
       >
-        205
+        <div>
+          tag1
+        </div>
+        <div
+          class="freq freq_theme_light"
+        >
+          1
+        </div>
       </div>
+      <button
+        class="body theme_light removeTagButton"
+      >
+        x
+      </button>
+    </div>
+    <div
+      class="tagContainer"
+    >
+      <div
+        class="body theme_light"
+      >
+        <div>
+          tag2
+        </div>
+        <div
+          class="freq freq_theme_light"
+        >
+          205
+        </div>
+      </div>
+      <button
+        class="body theme_light removeTagButton"
+      >
+        x
+      </button>
     </div>
   </div>
 </div>

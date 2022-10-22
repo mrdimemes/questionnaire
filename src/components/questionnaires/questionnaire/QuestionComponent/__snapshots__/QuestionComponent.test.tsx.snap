@@ -15,7 +15,7 @@ Object {
           class="fields"
         >
           <div
-            class="body"
+            class="row_field"
           >
             <input
               class="Input theme_light CheckboxInput theme_light"
@@ -28,7 +28,7 @@ Object {
             </div>
           </div>
           <div
-            class="body"
+            class="row_field"
           >
             <input
               class="Input theme_light CheckboxInput theme_light"
@@ -55,7 +55,7 @@ Object {
         class="fields"
       >
         <div
-          class="body"
+          class="row_field"
         >
           <input
             class="Input theme_light CheckboxInput theme_light"
@@ -68,7 +68,7 @@ Object {
           </div>
         </div>
         <div
-          class="body"
+          class="row_field"
         >
           <input
             class="Input theme_light CheckboxInput theme_light"

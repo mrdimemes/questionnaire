@@ -3,10 +3,10 @@
 exports[`Header component Header snapshot 1`] = `
 <div>
   <header
-    class="body theme_light"
+    class="Header theme_light"
   >
     <div
-      class="wrapper wrapper"
+      class="content wrapper"
     >
       <div
         class="logo"

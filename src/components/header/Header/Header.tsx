@@ -1,20 +1,17 @@
 import classNames from "classnames";
-import { useThemeSelector } from "src/redux/hooks";
-import { getThemeStyle } from "src/redux/slices/themeSlice";
+import { withTheme } from "src/HOCs";
 
 import { Menu } from "../Menu";
 
 import styles from "./Header.module.sass";
 
-const Header = () => {
-  const currentTheme = useThemeSelector();
+import type { HeaderProps } from "./HeaderProps";
 
+
+const Header = ({ className }: HeaderProps) => {
   return (
-    <header className={classNames(
-      styles.body,
-      getThemeStyle(styles, currentTheme),
-    )}>
-      <div className={`wrapper ${styles.wrapper}`}>
+    <header className={classNames(styles.Header, className)}>
+      <div className={classNames(styles.content, "wrapper")}>
         <div className={styles.logo}>Questions!</div>
         <Menu />
       </div>
@@ -22,4 +19,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default withTheme(Header, styles);

@@ -15,7 +15,7 @@ function App({ className }: AppProps) {
   }, []);
 
   return (
-    <div className={classNames(styles.body, className)}>
+    <div className={classNames(styles.App, className)}>
       <Header />
       <AppRoutes />
     </div>

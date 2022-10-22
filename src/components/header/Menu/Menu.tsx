@@ -1,35 +1,44 @@
 import classNames from "classnames";
-import { useThemeSelector } from "src/redux/hooks";
-import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { useState } from "react";
 
-import { Navigation, ThemeSwitchButton, Burger, User } from "../";
+import { withTheme } from "src/HOCs";
+
+import {
+  Navigation,
+  ThemeSwitchButton,
+  BurgerMenuButton,
+  UserPanel,
+} from "../";
 
 import styles from "./Menu.module.sass";
 
-const Menu = () => {
-  const currentTheme = useThemeSelector();
+import { MenuProps } from "./MenuProps";
+
+
+const Menu = ({ className }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleIsOpen = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div className={styles.body}>
+    <div className={classNames(styles.Menu, className)}>
+      <BurgerMenuButton onClick={toggleIsOpen} isOpen={isOpen} />
+
       <div className={classNames(
-        styles.interactive,
-        { [styles.opened]: isOpen },
-        getThemeStyle(styles, currentTheme),
+        styles.container,
+        isOpen ? styles.opened : null,
       )}>
+
         <Navigation />
-        <div className={styles.meta}>
+        <div className={styles.bar}>
           <ThemeSwitchButton />
-          <User />
+          <UserPanel />
         </div>
+
       </div>
-      <Burger onClick={toggleIsOpen} isOpen={isOpen} />
-    </div>
+    </div >
   );
 };
 
-export default Menu;
+export default withTheme(Menu, styles);

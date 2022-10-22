@@ -10,7 +10,7 @@ const Navigation = () => {
   const activePage = useActivePageSelector();
 
   return (
-    <nav className={styles.body}>
+    <nav className={styles.Navigation}>
 
       <Link to="/" className={classNames(
         styles.link,

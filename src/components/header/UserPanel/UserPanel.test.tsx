@@ -2,7 +2,7 @@ import { screen } from "@testing-library/react";
 import { renderWithProvidersAndRouters } from "src/utils/test-utils";
 import { setupStore } from "src/redux";
 
-import User from "./User";
+import User from "./UserPanel";
 
 describe("Header/User component", () => {
   test("Header/User renders without user in the store", () => {
