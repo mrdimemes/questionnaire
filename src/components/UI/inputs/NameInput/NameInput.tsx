@@ -2,6 +2,7 @@ import { TextInput } from "../";
 
 import type { SpecificInputProps } from "../types";
 
+
 const NameInput = (props: SpecificInputProps) => {
   return <TextInput
     className={props.className}

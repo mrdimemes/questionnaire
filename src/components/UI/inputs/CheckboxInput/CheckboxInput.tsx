@@ -1,6 +1,6 @@
 import classNames from "classnames";
-import { useThemeSelector } from "src/redux/hooks";
-import { getThemeStyle } from "src/redux/slices/themeSlice";
+
+import { withTheme } from "src/HOCs";
 
 import { Input } from "../";
 
@@ -8,15 +8,10 @@ import styles from "./CheckboxInput.module.sass";
 
 import type { SpecificInputProps } from "../types";
 
-const CheckboxInput = (props: SpecificInputProps) => {
-  const currentTheme = useThemeSelector();
 
+const CheckboxInput = (props: SpecificInputProps) => {
   return <Input
-    className={classNames(
-      styles.CheckboxInput,
-      getThemeStyle(styles, currentTheme),
-      props.className,
-    )}
+    className={classNames(styles.CheckboxInput, props.className)}
     inputType="checkbox"
     name={props.name}
     onChange={props.onChange}
@@ -24,4 +19,4 @@ const CheckboxInput = (props: SpecificInputProps) => {
   />;
 };
 
-export default CheckboxInput;
+export default withTheme(CheckboxInput, styles);

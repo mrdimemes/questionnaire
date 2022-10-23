@@ -6,6 +6,7 @@ import styles from "./PasswordInput.module.sass";
 
 import type { SpecificInputProps } from "../types";
 
+
 const PasswordInput = (props: SpecificInputProps) => {
   return <Input
     className={classNames(styles.PasswordInput, props.className)}

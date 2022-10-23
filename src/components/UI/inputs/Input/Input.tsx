@@ -1,15 +1,14 @@
 import React from "react";
 import classNames from "classnames";
-import { useThemeSelector } from "src/redux/hooks";
-import { getThemeStyle } from "src/redux/slices/themeSlice";
+
+import { withTheme } from "src/HOCs";
 
 import styles from "./Input.module.sass";
 
 import type { InputProps } from "../types";
 
-const Input = (props: InputProps) => {
-  const currentTheme = useThemeSelector();
 
+const Input = (props: InputProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (props.onChange) props.onChange(event.target.value);
   };
@@ -21,11 +20,7 @@ const Input = (props: InputProps) => {
   };
 
   return <input
-    className={classNames(
-      styles.Input,
-      getThemeStyle(styles, currentTheme),
-      props.className,
-    )}
+    className={classNames(styles.Input, props.className)}
     type={props.inputType}
     name={props.name}
     placeholder={props.placeholder}
@@ -40,4 +35,4 @@ const Input = (props: InputProps) => {
   />;
 };
 
-export default Input;
+export default withTheme(Input, styles);

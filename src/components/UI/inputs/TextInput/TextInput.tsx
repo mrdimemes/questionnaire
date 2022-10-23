@@ -6,6 +6,7 @@ import styles from "./TextInput.module.sass";
 
 import type { SpecificInputProps } from "../types";
 
+
 const TextInput = (props: SpecificInputProps) => {
   return <Input
     className={classNames(styles.TextInput, props.className)}
