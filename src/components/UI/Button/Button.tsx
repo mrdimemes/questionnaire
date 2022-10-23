@@ -1,18 +1,13 @@
 import React from "react";
 import classNames from "classnames";
-import { useThemeSelector } from "src/redux/hooks";
-import { getThemeStyle } from "src/redux/slices/themeSlice";
+import { withTheme } from "src/HOCs";
 
 import styles from "./Button.module.sass";
 
-type ButtonProps = {
-  children?: any,
-  onClick: Function,
-  className?: string
-}
+import { ButtonProps } from "./ButtonProps";
+
 
 const Button = ({ children, onClick, className }: ButtonProps) => {
-  const currentTheme = useThemeSelector();
   const onClickHandler = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
     onClick();
@@ -20,11 +15,7 @@ const Button = ({ children, onClick, className }: ButtonProps) => {
 
   return (
     <button
-      className={classNames(
-        styles.body,
-        getThemeStyle(styles, currentTheme),
-        className,
-      )}
+      className={classNames(styles.Button, className)}
       onClick={onClickHandler}
     >
       {children}
@@ -32,4 +23,4 @@ const Button = ({ children, onClick, className }: ButtonProps) => {
   );
 };
 
-export default Button;
+export default withTheme(Button, styles);
