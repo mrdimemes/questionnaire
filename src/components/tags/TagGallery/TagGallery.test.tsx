@@ -11,9 +11,9 @@ describe("TagGallery component", () => {
     const store = setupStore({
       tags: {
         tags: [
-          { id: 0, label: "tag0", freq: 99 },
-          { id: 1, label: "tag1", freq: 1 },
-          { id: 2, label: "tag2", freq: 205 }],
+          { id: 0, label: "tag0", frequency: 99 },
+          { id: 1, label: "tag1", frequency: 1 },
+          { id: 2, label: "tag2", frequency: 205 }],
         tagsLoadingStatus: FetchStatus.Complete,
       },
     });
@@ -38,9 +38,9 @@ describe("TagGallery component", () => {
     const store = setupStore({
       tags: {
         tags: [
-          { id: 0, label: "tag0", freq: 99 },
-          { id: 1, label: "tag1", freq: 1 },
-          { id: 2, label: "tag2", freq: 205 }],
+          { id: 0, label: "tag0", frequency: 99 },
+          { id: 1, label: "tag1", frequency: 1 },
+          { id: 2, label: "tag2", frequency: 205 }],
         tagsLoadingStatus: FetchStatus.Complete,
       },
     });

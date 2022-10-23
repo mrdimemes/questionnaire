@@ -1,30 +1,20 @@
 import classNames from "classnames";
-import { useThemeSelector } from "src/redux/hooks";
-import { Theme, getThemeStyle } from "src/redux/slices/themeSlice";
+
+import { withTheme } from "src/HOCs";
 
 import styles from "./TagComponent.module.sass";
 
-type TagProps = {
-  label: string,
-  freq?: number
-}
+import type { TagComponentProps } from "./TagComponentProps";
 
-const TagComponent = ({ label, freq }: TagProps) => {
-  const currentTheme = useThemeSelector();
 
+const TagComponent = ({ label, frequency, className }: TagComponentProps) => {
   return (
-    <div className={classNames(
-      styles.body,
-      getThemeStyle(styles, currentTheme),
-    )}>
+    <div className={classNames(styles.Tag, className)}>
       <div>{label}</div>
-      {Number.isInteger(freq) && <div className={classNames(
-        styles.freq,
-        currentTheme === Theme.Light ?
-          styles.freq_theme_light : styles.freq_theme_dark,
-      )}>{freq}</div>}
+      {frequency !== 0 && frequency &&
+        <div className={styles.frequency}>{frequency}</div>}
     </div>
   );
 };
 
-export default TagComponent;
+export default withTheme(TagComponent, styles);

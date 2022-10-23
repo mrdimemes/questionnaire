@@ -1,7 +1,13 @@
-interface Tag {
-  id: number,
-  label: string,
-  freq: number
-}
+class Tag {
+  id: number;
+  label: string;
+  frequency: number;
+
+  constructor(id: number, label: string, frequency: number) {
+    this.id = id;
+    this.label = label;
+    this.frequency = frequency;
+  }
+};
 
 export default Tag;

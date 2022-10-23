@@ -46,7 +46,7 @@ const server = setupServer(
 const store = setupStore({
   tags: {
     tags: [
-      { id: 1, label: "TestTag1", freq: 7 },
+      { id: 1, label: "TestTag1", frequency: 7 },
     ],
     tagsLoadingStatus: FetchStatus.Complete,
   },

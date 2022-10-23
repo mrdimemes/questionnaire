@@ -5,7 +5,7 @@ import TagComponent from "./TagComponent";
 
 describe("Tag component", () => {
   test("Tag renders", () => {
-    renderWithProviders(<TagComponent label="TestLabel" freq={123} />);
+    renderWithProviders(<TagComponent label="TestLabel" frequency={123} />);
     expect(screen.getByText(/testlabel/i)).toBeInTheDocument();
     expect(screen.getByText(/123/i)).toBeInTheDocument();
   });

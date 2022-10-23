@@ -10,7 +10,7 @@ describe("QuestionnaireCard component", () => {
   test("QuestionnaireCard renders", () => {
     const store = setupStore({
       tags: {
-        tags: [{ id: 1, label: "TestTag", freq: 7 }],
+        tags: [{ id: 1, label: "TestTag", frequency: 7 }],
         tagsLoadingStatus: FetchStatus.Complete,
       },
     });
@@ -25,7 +25,7 @@ describe("QuestionnaireCard component", () => {
   test("QuestionnaireCard snapshot", () => {
     const store = setupStore({
       tags: {
-        tags: [{ id: 1, label: "TestTag", freq: 7 }],
+        tags: [{ id: 1, label: "TestTag", frequency: 7 }],
         tagsLoadingStatus: FetchStatus.Complete,
       },
     });

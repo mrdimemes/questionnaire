@@ -27,7 +27,7 @@ const TagGallery = ({ resetScroll }: TagGalleryProps) => {
 
   const removeTag = (tag: Tag) => {
     const alarmText = `Вы дейсвительно хотите удалить тэг "${tag.label}" ` +
-      `(опросов: ${tag.freq})?`;
+      `(опросов: ${tag.frequency})?`;
     const confirmation = window.confirm(alarmText);
     if (confirmation) {
       QuestionnaireService.removeTag(tag.id).then(response => {
@@ -59,7 +59,7 @@ const TagGallery = ({ resetScroll }: TagGalleryProps) => {
               <TagComponent
                 key={`tag-${tag.id}`}
                 label={tag.label}
-                freq={tag.freq}
+                frequency={tag.frequency}
               />
               <Button
                 className={styles.removeTagButton}

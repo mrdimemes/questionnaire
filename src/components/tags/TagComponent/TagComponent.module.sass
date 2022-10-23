@@ -1,6 +1,6 @@
 @use "src/sass/foundation/colors"
 
-.body
+.Tag
   transition: background-color 0.3s
   padding: 3px 10px
   border-radius: 15px
@@ -10,21 +10,19 @@
   width: max-content
   cursor: pointer
 
-.freq
+.frequency
   transition: background-color 0.3s
   font-size: .7em
   height: max-content
   padding: 0 3px
   border-radius: 15px
 
-.freq_theme_dark
-  background-color: colors.$dark-theme-2
-
-.freq_theme_light
-  background-color: colors.$light-theme-2
-
 .theme_dark
   background-color: colors.$dark-theme-3
+  & .frequency
+    background-color: colors.$dark-theme-2
 
 .theme_light
   background-color: colors.$light-theme-3
+  & .frequency
+    background-color: colors.$light-theme-2

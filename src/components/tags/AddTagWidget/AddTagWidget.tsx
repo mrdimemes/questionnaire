@@ -24,7 +24,7 @@ const AddTagWidget = ({ className }: AddTagWidgetProps) => {
     }
     QuestionnaireService.addTag(label).then(response => {
       if (typeof response === "number") {
-        dispatch(addTag({ id: response, label: label, freq: 0 }));
+        dispatch(addTag({ id: response, label: label, frequency: 0 }));
       }
     });
     setIsFocused(false);

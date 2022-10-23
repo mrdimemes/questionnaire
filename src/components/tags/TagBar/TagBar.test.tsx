@@ -8,9 +8,9 @@ import TagBar from "./TagBar";
 const store = setupStore({
   tags: {
     tags: [
-      { id: 1, label: "TestTag1", freq: 7 },
-      { id: 2, label: "TestTag2", freq: 7 },
-      { id: 3, label: "TestTag3", freq: 7 },
+      { id: 1, label: "TestTag1", frequency: 7 },
+      { id: 2, label: "TestTag2", frequency: 7 },
+      { id: 3, label: "TestTag3", frequency: 7 },
     ],
     tagsLoadingStatus: FetchStatus.Complete,
   },
