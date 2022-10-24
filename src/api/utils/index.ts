@@ -1,1 +1,1 @@
-export { default as getFetchError } from "./getFetchError";
+export { default as wrapFetchError } from "./wrapFetchError";

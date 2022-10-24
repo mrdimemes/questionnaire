@@ -78,13 +78,11 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
     if (authOption === AuthOption.registration && isFineForRegistration) {
       AuthService.registration(email, name, password)
         .then(error => {
-          if (error) return;
           navigate("/");
         });
     } else if (authOption === AuthOption.login && isFineForLogin) {
       AuthService.login(email, password)
         .then(error => {
-          if (error) return;
           navigate("/");
         });
     }

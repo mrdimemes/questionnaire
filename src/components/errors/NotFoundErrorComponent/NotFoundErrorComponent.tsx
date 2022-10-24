@@ -1,11 +1,11 @@
-import { ErrorStatusCode } from "src/api/errors";
+import { HTTPErrorStatusCode } from "src/api/exceptions";
 
 import { ErrorComponent } from "../ErrorComponent";
 
 const NotFoundErrorComponent = () => {
   return (
     <ErrorComponent 
-      statusCode={ErrorStatusCode.NotFound}
+      statusCode={HTTPErrorStatusCode.NotFound}
       label="Страница не найдена"
     />
   );

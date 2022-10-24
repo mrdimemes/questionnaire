@@ -34,7 +34,7 @@ const QuestionnaireComponent = ({ id }: QuestionnaireProps) => {
   const handleSubmit = () => {
     const answerDTO = getDTOFromState();
     QuestionnaireService.sendQuestionnaireAnswer(answerDTO)
-      .then((status) => { return; }); 
+      .then((status) => { return; });
   };
 
   const getDTOFromState = () => {
@@ -59,12 +59,13 @@ const QuestionnaireComponent = ({ id }: QuestionnaireProps) => {
   };
 
   useEffect(() => {
-    QuestionnaireService.getQuestionnaire(id).then(
-      (questionnaire) => {
-        setQuestionnaire(questionnaire);
-        setStatus(FetchStatus.Complete);
-      },
-    );
+    QuestionnaireService.getQuestionnaire(id)
+      .then(
+        (questionnaire) => {
+          setQuestionnaire(questionnaire);
+          setStatus(FetchStatus.Complete);
+        },
+      ).catch(() => {return;});
   }, [id]);
 
   return (

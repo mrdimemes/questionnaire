@@ -1,7 +1,7 @@
-import { ErrorStatusCode } from "src/api/errors";
+import { HTTPErrorStatusCode } from "src/api/exceptions";
 
 type ErrorComponentProps = {
-  statusCode: ErrorStatusCode;
+  statusCode: HTTPErrorStatusCode;
   label: string;
   text?: string;
 }

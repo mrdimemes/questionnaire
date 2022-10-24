@@ -1,11 +1,11 @@
-import { ErrorStatusCode } from "src/api/errors";
+import { HTTPErrorStatusCode } from "src/api/exceptions";
 
 import { ErrorComponent } from "../ErrorComponent";
 
 const AccessDeniedErrorComponent = () => {
   return (
     <ErrorComponent
-      statusCode={ErrorStatusCode.Forbidden}
+      statusCode={HTTPErrorStatusCode.Forbidden}
       label="Доступ запрещён"
     />
   );
