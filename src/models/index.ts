@@ -1,5 +1,5 @@
 export { default as FetchStatus } from "./FetchStatus";
-export type { default as Tag } from "./Tag";
+export { default as Tag } from "./Tag";
 export type { default as User } from "./User";
 
 export { AuthOption } from "./auth";

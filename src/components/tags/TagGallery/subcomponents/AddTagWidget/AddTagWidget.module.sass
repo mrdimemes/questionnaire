@@ -1,0 +1,39 @@
+@use "src/sass/foundation/mixins"
+@use "src/sass/foundation/colors"
+@use "src/sass/foundation/breakpoints"
+
+.AddTagWidget
+  display: flex
+  gap: 10px
+  align-items: center
+  @media (max-width: breakpoints.$tablet)
+    flex-direction: column
+    align-items: flex-end
+
+.switchButton
+  @include mixins.square(17px)
+  min-width: 10px
+  @include mixins.mask-image("/assets/images/icons/plus.svg")
+  border: 0
+  border-radius: 0
+  padding: 0
+
+.opened .switchButton
+  @include mixins.square(10px)
+  @include mixins.mask-image("/assets/images/icons/close.svg")
+
+.theme_light
+  & .switchButton
+    background-color: colors.$gray-1
+    &:hover
+      background-color: colors.$light-theme-success
+  &.opened .switchButton:hover
+    background-color: colors.$light-theme-error
+
+.theme_dark
+  & .switchButton
+    background-color: colors.$dark-theme-4
+    &:hover
+      background-color: colors.$dark-theme-success
+  &.opened .switchButton:hover
+    background-color: colors.$dark-theme-error

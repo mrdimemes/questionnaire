@@ -8,7 +8,6 @@ export { PaginationBar } from "./pagination";
 export { TagComponent } from "./tags";
 export { TagGallery } from "./tags";
 export { TagBar } from "./tags";
-export { AddTagWidget } from "./tags";
 
 export { QuestionnaireGallery } from "./questionnaires/gallery";
 export { QuestionnaireComponent } from "./questionnaires/questionnaire";
@@ -28,3 +27,7 @@ export { Select } from "./UI/inputs";
 export { AuthForm } from "./AuthForm";
 
 export { LoadingSpinner } from "./LoadingSpinner";
+
+export { NotFoundErrorComponent } from "./errors/NotFoundErrorComponent";
+
+export { Loadable } from "./Loadable";
