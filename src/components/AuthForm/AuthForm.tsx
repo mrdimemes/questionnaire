@@ -6,11 +6,8 @@ import { useThemeSelector } from "src/redux/hooks";
 import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { AuthService } from "src/services";
 import { EmailInput, NameInput, PasswordInput, Button } from "src/components";
-import {
-  validateEmail,
-  validateName,
-  validatePassword,
-} from "src/utils/validators";
+import { validateAuthForm } from "src/utils/validation";
+import { ValidationError } from "src/utils/validation/exceptions";
 
 import styles from "./AuthForm.module.sass";
 
@@ -31,39 +28,35 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
   const [emailError, setEmailError] = useState("");
   const [nameError, setNameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [confiramtionError, setConfiramtionError] = useState("");
+  const [confirmationError, setConfirmationError] = useState("");
 
   const resetErrors = () => {
     setEmailError("");
     setNameError("");
     setPasswordError("");
-    setConfiramtionError("");
+    setConfirmationError("");
   };
 
-  const validateForm = (
+  const validate = (
     email: string,
     name: string,
     password: string,
     passwordConfiramtion: string,
   ) => {
     resetErrors();
-
-    const emailValidation = validateEmail(email);
-    if (emailValidation) setEmailError(emailValidation);
-    const nameValidation = validateName(name);
-    if (nameValidation) setNameError(nameValidation);
-    const passwordValidation = validatePassword(password);
-    if (passwordValidation) setPasswordError(passwordValidation);
-    const passwordsIsSame = password === passwordConfiramtion;
-    if (!passwordsIsSame) setConfiramtionError("Пароли не совпадают");
-
-    const isFineForLogin = !emailValidation && !passwordValidation;
-    const isFineForRegistration =
-      !emailValidation &&
-      !nameValidation &&
-      !passwordValidation &&
-      passwordsIsSame;
-    return [isFineForLogin, isFineForRegistration];
+    try {
+      validateAuthForm(email, name, password, passwordConfiramtion);
+    } catch (error) {
+      if (!(error instanceof ValidationError)) throw error;
+      for (const warning of error.warnings) {
+        if (warning.fieldName === "email") setEmailError(warning.message);
+        if (warning.fieldName === "name") setNameError(warning.message);
+        if (warning.fieldName === "password") setPasswordError(warning.message);
+        if (warning.fieldName === "passwordConfirmation") {
+          setConfirmationError(warning.message);
+        };
+      };
+    };
   };
 
   const handleSubmit = () => {
@@ -72,9 +65,11 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
     const password = passwordRef.current?.value ?? "";
     const passwordConfiramtion = passwordConfiramtionRef.current?.value ?? "";
 
-    const [isFineForLogin, isFineForRegistration] = validateForm(
-      email, name, password, passwordConfiramtion,
-    );
+    validate(email, name, password, passwordConfiramtion);
+    const isFineForLogin = !emailError && !passwordError;
+    const isFineForRegistration =
+      isFineForLogin && !nameError && !confirmationError;
+
     if (authOption === AuthOption.registration && isFineForRegistration) {
       AuthService.registration(email, name, password)
         .then(error => {
@@ -146,7 +141,7 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
               >
                 Подтвердите пароль
               </label>
-              <div className={styles.error}>{confiramtionError}</div>
+              <div className={styles.error}>{confirmationError}</div>
             </div>
 
             <PasswordInput
