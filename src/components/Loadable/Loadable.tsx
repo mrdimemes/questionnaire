@@ -13,7 +13,8 @@ const Loadable = ({
   className,
 }: LoadableProps) => {
 
-  const [status, setStatus] = useState(loadingStatus ?? FetchStatus.Loading);
+  const [status, setStatus] = useState(FetchStatus.Loading);
+
   useEffect(() => {
     if (load) {
       load()
@@ -22,11 +23,15 @@ const Loadable = ({
     }
   }, [load]);
 
+  useEffect(() => {
+    setStatus(loadingStatus ?? FetchStatus.Loading);
+  }, [loadingStatus]);
+
   return (
     <div className={className}>
-      {status === FetchStatus.Loading ? <LoadingSpinner /> :
-        status === FetchStatus.Complete ? children :
-          <NotFoundErrorComponent />}
+      {status === FetchStatus.Loading && <LoadingSpinner />}
+      {status === FetchStatus.Complete && children}
+      {status === FetchStatus.Error && <NotFoundErrorComponent />}
     </div>
   );
 };
