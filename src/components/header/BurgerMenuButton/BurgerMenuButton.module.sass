@@ -3,17 +3,18 @@
 @use "src/sass/foundation/mixins"
 
 .BurgerMenuButton
-  @include mixins.square(60px)
-  @include mixins.unhighlightable
-  border: 0
-  border-radius: 0
-  padding: 0
-  background-color: transparent
-  position: relative
-  transform: scale(0.4) translateX(60%) translateY(-10%)
-  display: none
-  @media (max-width: breakpoints.$tablet)
-    display: block
+  &#{&}
+    @include mixins.square(60px)
+    @include mixins.unhighlightable
+    border: 0
+    border-radius: 0
+    padding: 0
+    background-color: transparent
+    position: relative
+    transform: scale(0.4) translateX(60%) translateY(-10%)
+    display: none
+    @media (max-width: breakpoints.$tablet)
+      display: block
 
 .icon
   transition: background-color 0.3s

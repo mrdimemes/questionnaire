@@ -2,13 +2,14 @@
 @use "src/sass/foundation/breakpoints"
 
 .body
-  background-color: transparent
-  border: 0
-  padding: 0
-  @include mixins.square(25px)
-  @include mixins.unhighlightable
-  @media (max-width: breakpoints.$tablet)
-    @include mixins.square(20px)
+  &#{&}
+    background-color: transparent
+    border: 0
+    padding: 0
+    @include mixins.square(25px)
+    @include mixins.unhighlightable
+    @media (max-width: breakpoints.$tablet)
+      @include mixins.square(20px)
 
 .theme_light
   background-image: url("/assets/images/icons/light-mode-icon.svg")
