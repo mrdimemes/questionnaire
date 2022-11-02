@@ -10,7 +10,7 @@ export { TagGallery } from "./tags";
 export { TagBar } from "./tags";
 
 export { QuestionnaireGallery } from "./questionnaires/gallery";
-export { QuestionnaireComponent } from "./questionnaires/questionnaire";
+export { QuestionnaireComponent } from "./questionnaires";
 export { QuestionnaireEditor } from "./questionnaires/edit";
 
 export { Button } from "./UI/Button";

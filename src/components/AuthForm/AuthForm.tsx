@@ -7,7 +7,7 @@ import { getThemeStyle } from "src/redux/slices/themeSlice";
 import { AuthService } from "src/services";
 import { EmailInput, NameInput, PasswordInput, Button } from "src/components";
 import { validateAuthForm } from "src/utils/validation";
-import { ValidationError } from "src/utils/validation/exceptions";
+import { ValidationError } from "src/exceptions";
 
 import styles from "./AuthForm.module.sass";
 
@@ -77,7 +77,7 @@ const AuthForm = ({ className, authOption }: AuthFormProps) => {
         });
     } else if (authOption === AuthOption.login && isFineForLogin) {
       AuthService.login(email, password)
-        .then(error => {
+        .then(() => {
           navigate("/");
         });
     }

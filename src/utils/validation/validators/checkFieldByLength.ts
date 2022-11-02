@@ -1,4 +1,4 @@
-import { ValidationWarning } from "../models";
+import { ValidationWarning } from "src/models";
 
 
 const checkFieldByLength = (

@@ -5,7 +5,9 @@ import { QuestionnaireService } from "src/services";
 import { FetchError } from "src/api/exceptions";
 import { addTag } from "src/redux/slices/tagsSlice";
 import { useAppDispatch } from "src/redux/hooks";
-import { validateAddTagForm, ValidationError } from "src/utils/validation";
+import { ValidationError } from "src/exceptions";
+
+import { validateAddTagForm } from "src/utils/validation";
 
 import styles from "./AddTagForm.module.sass";
 

@@ -1,0 +1,23 @@
+@use "src/sass/foundation/colors"
+
+.Question
+  margin-bottom: 2em
+
+.text
+  margin-bottom: 0.8em
+
+.fields
+  display: flex
+  flex-direction: column
+  row-gap: 0.3em
+
+.required::after
+  content: " *"
+
+.theme_light
+  & .required::after
+    color: colors.$light-theme-error
+
+.theme_dark
+  & .required::after
+    color: colors.$dark-theme-error

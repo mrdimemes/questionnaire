@@ -1,0 +1,40 @@
+@use "src/sass/foundation/mixins"
+@use "src/sass/foundation/colors"
+
+.QuestionnaireComponent
+  text-align: justify
+
+.tags
+  margin-bottom: 1em
+
+.about
+  margin-bottom: 3em
+  position: relative
+  &::after
+    content: ""
+    display: block
+    height: 2px
+    width: 100px
+    border-radius: 5px
+    position: absolute
+    bottom: -1.5em
+    left: 0
+    right: 0
+    margin-left: auto
+    margin-right: auto
+    transition: background-color 0.3s
+
+.questions
+  margin-bottom: 2em
+  display: flex
+  flex-direction: column
+  row-gap: 1em
+
+.buttons
+  @include mixins.flex-centered
+
+.theme_light .about::after
+  background-color: colors.$gray-7
+
+.theme_dark .about::after
+  background-color: colors.$dark-theme-4

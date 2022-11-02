@@ -1,5 +1,5 @@
-import { ValidationError } from "../exceptions";
-import { ValidationWarning } from "../models";
+import { ValidationError } from "src/exceptions";
+import { ValidationWarning } from "src/models";
 
 import {
   checkEmailField,

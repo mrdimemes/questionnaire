@@ -1,4 +1,4 @@
-import { ValidationError } from "../exceptions";
+import { ValidationError } from "src/exceptions";
 
 import { checkTagLabelField } from "./";
 

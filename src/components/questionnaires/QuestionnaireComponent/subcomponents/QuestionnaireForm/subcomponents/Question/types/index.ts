@@ -1,0 +1,1 @@
+export type { QuestionProps } from "./QuestionProps";
