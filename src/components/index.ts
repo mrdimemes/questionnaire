@@ -3,7 +3,7 @@ export { AppRoutes } from "./AppRoutes";
 
 export { Header } from "./header";
 
-export { PaginationBar } from "./pagination";
+export { PaginationBar } from "./PaginationBar";
 
 export { TagComponent } from "./tags";
 export { TagGallery } from "./tags";

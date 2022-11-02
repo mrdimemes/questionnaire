@@ -1,10 +1,7 @@
 import { Button } from "src/components";
 
-type NextButtonProps = {
-  activePage: number;
-  totalPages: number;
-  callback: (page: number) => void;
-}
+import type { NextButtonProps } from "./types";
+
 
 const NextButton = ({
   activePage,
@@ -13,9 +10,7 @@ const NextButton = ({
 }: NextButtonProps) => {
   return <> {
     activePage !== totalPages &&
-    <Button onClick={() => callback(activePage + 1)}>
-      Вперёд
-    </Button>
+    <Button onClick={() => callback(activePage + 1)}>Вперёд</Button>
   } </>;
 };
 
