@@ -9,18 +9,22 @@ const checkTextQuestion = (question: QuestionAnswerDTO) => {
   const warnings: ValidationWarning[] = [];
 
   question.fields.forEach(field => {
-    let warning = checkFieldByCharset(
-      field.value,
-      "" + field.fieldId,
-      Charset.Basic,
-    );
-    if (warning) { warnings.push(warning); warning = undefined; }
-
-    warning = checkFieldByLength(
+    let warning = checkFieldByLength(
       field.value,
       "" + field.fieldId,
       question.isRequired ? 1 : 0,
       200,
+    );
+    if (warning) { 
+      warnings.push(warning); 
+      warning = undefined; 
+      return;
+    }
+
+    warning = checkFieldByCharset(
+      field.value,
+      "" + field.fieldId,
+      Charset.Basic,
     );
     if (warning) { warnings.push(warning); warning = undefined; }
   });
