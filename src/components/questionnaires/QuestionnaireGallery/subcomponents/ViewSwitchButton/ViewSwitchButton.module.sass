@@ -1,0 +1,17 @@
+@use "src/sass/foundation/mixins"
+@use "src/sass/foundation/colors"
+
+.ViewSwitchButton
+  @include mixins.square(25px)
+  @include mixins.noborder
+  padding: 0
+  &.plates
+    @include mixins.mask-image("/assets/images/icons/plates.svg")
+  &.rows
+    @include mixins.mask-image("/assets/images/icons/rows.svg")
+
+.theme_dark
+  background-color: colors.$dark-theme-4
+
+.theme_light
+  background-color: colors.$gray-1

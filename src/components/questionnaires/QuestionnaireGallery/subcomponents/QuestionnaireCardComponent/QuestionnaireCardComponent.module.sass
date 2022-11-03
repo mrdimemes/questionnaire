@@ -1,0 +1,52 @@
+@use "src/sass/foundation/colors"
+@use "src/sass/foundation/mixins"
+@use "src/sass/foundation/breakpoints"
+
+.QuestionnaireCard
+  position: relative
+
+.card
+  display: block
+  padding: 10px
+  border-radius: 6px
+  cursor: pointer
+  height: max-content
+
+.label
+  margin-bottom: 0.8em
+
+.adminBar
+  position: absolute
+  top: 10px
+  right: 10px
+  display: flex
+  column-gap: 0.5em
+
+.icon
+  @include mixins.square(10px)
+  border: 0
+  border-radius: 0
+  padding: 0
+  transition: background-color 0.3s
+
+.deleteButton
+  @include mixins.mask-image("/assets/images/icons/close.svg")
+
+.editLink
+  @include mixins.mask-image("/assets/images/icons/edit.svg")
+
+.theme_dark
+  & .card:hover
+    background-color: colors.$dark-theme-bg-highlight
+  & .deleteButton, .editLink
+    background-color: colors.$dark-theme-4
+    &:hover
+      background-color: colors.$dark-theme-error
+
+.theme_light
+  & .card:hover
+    background-color: colors.$light-theme-bg-highlight
+  & .deleteButton, .editLink
+    background-color: colors.$gray-1
+    &:hover
+      background-color: colors.$light-theme-error

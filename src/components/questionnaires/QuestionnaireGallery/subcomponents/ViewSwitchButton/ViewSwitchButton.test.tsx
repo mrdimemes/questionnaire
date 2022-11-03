@@ -2,16 +2,16 @@ import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { renderWithProviders } from "src/utils/test-utils";
 
-import { GalleryViews } from "../QuestionnaireGallery/QuestionnaireGallery";
+import { GalleryView } from "../../models";
 
 import ViewSwitchButton from "./ViewSwitchButton";
 
-let currentView: GalleryViews;
-const setCurrentView = (newView: GalleryViews) => {
+let currentView: GalleryView;
+const setCurrentView = (newView: GalleryView) => {
   currentView = newView;
 };
 
-beforeEach(() => setCurrentView(GalleryViews.Rows));
+beforeEach(() => setCurrentView(GalleryView.Rows));
 
 describe("QuestionnaireGallery/ViewSwitchButton component", () => {
   test("ViewSwitchButton renders", () => {
@@ -32,7 +32,7 @@ describe("QuestionnaireGallery/ViewSwitchButton component", () => {
       />,
     );
     userEvent.click(screen.getByRole("button"));
-    expect(currentView).toEqual(GalleryViews.Plates);
+    expect(currentView).toEqual(GalleryView.Plates);
   });
 
   test("ViewSwitchButton snapshot", () => {
