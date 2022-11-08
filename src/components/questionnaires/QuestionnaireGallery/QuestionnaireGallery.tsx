@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 import { QuestionnaireCard } from "src/models";
 import { QuestionnaireService } from "src/services";
@@ -17,12 +17,15 @@ const QuestionnaireGallery = () => {
   const cardsPerPage = 10;
 
 
-  const loadPage = async () => {
-    const cardBunch = await QuestionnaireService
-      .getQuestionnaireCards(activePage, cardsPerPage);
-    setCards(cardBunch.cards);
-    setTotalPages(cardBunch.totalPages);
-  };
+  const loadPage = useCallback(
+    async () => {
+      const cardBunch = await QuestionnaireService
+        .getQuestionnaireCards(activePage, cardsPerPage);
+      setCards(cardBunch.cards);
+      setTotalPages(cardBunch.totalPages);
+    },
+    [activePage],
+  );
 
   return (
     <Loadable load={loadPage}>
