@@ -1,0 +1,28 @@
+@use "src/sass/foundation/mixins"
+
+.FieldsEditor
+  position: relative
+
+.header
+  margin-bottom: 0.5em
+
+.field
+  margin-bottom: 0.5em
+  &::before
+    content: "•"
+    margin-right: 10px
+    margin-left: 10px
+    font-size: 1em
+
+.addFieldButton
+  position: absolute
+  top: 0
+  right: 0
+  @include mixins.small-interactive-icon("/assets/images/icons/plus.svg")
+  width: 1em
+
+.theme_light .addFieldButton
+  @include mixins.success-mask-image-light-theme()
+
+.theme_dark .addFieldButton
+  @include mixins.success-mask-image-dark-theme()

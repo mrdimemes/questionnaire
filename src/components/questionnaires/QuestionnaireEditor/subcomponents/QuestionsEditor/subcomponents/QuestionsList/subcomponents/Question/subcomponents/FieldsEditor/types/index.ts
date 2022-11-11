@@ -1,0 +1,1 @@
+export type { FieldsEditorProps } from "./FieldsEditorProps";

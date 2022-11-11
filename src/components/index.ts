@@ -1,14 +1,17 @@
 export { App } from "./App";
 export { AppRoutes } from "./AppRoutes";
 
+export { AuthForm } from "./AuthForm";
+
 export { Header } from "./header";
 
-export { PaginationBar } from "./PaginationBar";
 
 export { TagComponent, TagGallery, TagBar } from "./tags";
-
-export { QuestionnaireComponent, QuestionnaireGallery } from "./questionnaires";
-export { QuestionnaireEditor } from "./questionnaires/edit";
+export {
+  QuestionnaireComponent,
+  QuestionnaireGallery,
+  QuestionnaireEditor,
+} from "./questionnaires";
 
 export { Button } from "./UI/Button";
 export {
@@ -23,10 +26,10 @@ export {
   Select,
 } from "./UI/inputs";
 
-export { AuthForm } from "./AuthForm";
-
-export { LoadingSpinner } from "./LoadingSpinner";
-
 export { NotFoundErrorComponent } from "./errors/NotFoundErrorComponent";
 
+export { LoadingSpinner } from "./LoadingSpinner";
 export { Loadable } from "./Loadable";
+export { Removeable } from "./Removeable";
+
+export { PaginationBar } from "./PaginationBar";

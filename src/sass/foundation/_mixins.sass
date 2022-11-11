@@ -1,3 +1,5 @@
+@use "colors"
+
 @mixin unselectable
   cursor: default
   user-select: none
@@ -36,3 +38,30 @@
   mask-repeat: no-repeat
   -webkit-mask-position: center
   mask-position: center
+
+@mixin small-interactive-icon($path)
+  @include square(10px)
+  @include mask-image($path)
+  border: 0
+  border-radius: 0
+  padding: 0
+
+@mixin error-mask-image-light-theme()
+  background-color: colors.$gray-1
+  &:hover
+    background-color: colors.$light-theme-error
+
+@mixin error-mask-image-dark-theme()
+  background-color: colors.$dark-theme-4
+  &:hover
+    background-color: colors.$dark-theme-error
+
+@mixin success-mask-image-light-theme()
+  background-color: colors.$gray-1
+  &:hover
+    background-color: colors.$light-theme-success
+
+@mixin success-mask-image-dark-theme()
+  background-color: colors.$dark-theme-4
+  &:hover
+    background-color: colors.$dark-theme-success

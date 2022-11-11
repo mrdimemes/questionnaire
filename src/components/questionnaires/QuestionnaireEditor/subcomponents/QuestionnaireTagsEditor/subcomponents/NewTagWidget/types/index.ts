@@ -1,0 +1,1 @@
+export type { NewTagWidgetProps } from "./NewTagWidgetProps";

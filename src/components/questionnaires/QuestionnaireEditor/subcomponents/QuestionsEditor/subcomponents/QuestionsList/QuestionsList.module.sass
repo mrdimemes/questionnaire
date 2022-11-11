@@ -1,0 +1,30 @@
+@use "src/sass/foundation/colors"
+
+.QuestionsList
+  display: flex
+  flex-direction: column
+  row-gap: 2em
+
+.QuestionListItem
+  position: relative
+  flex-direction: column
+  align-items: flex-end !important
+  row-gap: 0.5em
+  &::after
+    position: absolute
+    bottom: -1em
+    content: ""
+    display: block
+    width: 100%
+    height: 1px
+  &:last-child::after
+    display: none
+
+.removeButton
+  color: inherit
+
+.theme_light .QuestionListItem::after
+  background-color: colors.$gray-1
+
+.theme_dark .QuestionListItem::after
+  background-color: colors.$dark-theme-4

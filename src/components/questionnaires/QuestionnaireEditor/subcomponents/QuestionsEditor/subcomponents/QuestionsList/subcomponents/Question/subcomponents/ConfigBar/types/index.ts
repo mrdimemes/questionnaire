@@ -1,0 +1,1 @@
+export type { ConfigBarProps } from "./ConfigBarProps";

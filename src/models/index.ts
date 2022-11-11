@@ -12,11 +12,11 @@ export {
   QuestionAnswerDTO,
   QuestionnaireAnswerDTO,
   QuestionnaireChangeDTO,
-} from "./questionnaire";
-export type {
   Field,
   Question,
   Questionnaire,
+} from "./questionnaire";
+export type {
   QuestionnaireCard,
   QuestionnaireCardsBunch,
 } from "./questionnaire";

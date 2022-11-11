@@ -1,0 +1,24 @@
+@use "src/sass/foundation/colors"
+
+.QuestionnaireEditor
+  display: flex
+  flex-direction: column
+  row-gap: 2em
+
+.section
+  position: relative
+  &::after
+    position: absolute
+    bottom: -1em
+    content: ""
+    display: block
+    width: 100%
+    height: 1px
+  &:last-child::after
+    display: none
+
+.theme_light .section::after
+    background-color: colors.$gray-1
+
+.theme_dark .section::after
+    background-color: colors.$dark-theme-4

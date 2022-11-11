@@ -1,0 +1,15 @@
+@use "src/sass/foundation/mixins"
+
+.Removeable
+  display: flex
+  align-items: center
+  column-gap: 10px
+
+.removeButton
+  @include mixins.small-interactive-icon("/assets/images/icons/close.svg")
+
+.theme_light .removeButton
+  @include mixins.error-mask-image-light-theme()
+
+.theme_dark .removeButton
+  @include mixins.error-mask-image-dark-theme()

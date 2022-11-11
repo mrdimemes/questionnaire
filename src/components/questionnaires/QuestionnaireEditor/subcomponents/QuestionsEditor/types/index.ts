@@ -1,0 +1,1 @@
+export type { QuestionsEditorProps } from "./QuestionsEditorProps";

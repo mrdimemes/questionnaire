@@ -1,0 +1,38 @@
+@use "src/sass/foundation/mixins"
+@use "src/sass/foundation/colors"
+
+.NewTagWidget
+  display: flex
+  align-items: center
+  gap: 1em
+  &.opened
+    & .addButton
+      display: block
+    & .selectInput
+      display: block
+    & .openButton
+      @include mixins.mask-image("/assets/images/icons/close.svg")
+      @include mixins.square(10px)
+
+.selectInput
+  width: 200px
+  display: none
+
+.openButton
+  @include mixins.small-interactive-icon("/assets/images/icons/plus.svg")
+  @include mixins.square(18px)
+
+.addButton
+  display: none
+
+.theme_light
+  & .openButton
+    @include mixins.success-mask-image-light-theme
+  &.opened .openButton
+    @include mixins.error-mask-image-light-theme
+
+.theme_dark
+  & .openButton
+    @include mixins.success-mask-image-dark-theme
+  &.opened .openButton
+    @include mixins.error-mask-image-dark-theme

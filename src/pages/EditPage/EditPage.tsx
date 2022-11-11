@@ -10,7 +10,7 @@ const AuthPage = () => {
     <PageWrapper>
       <h1>Edit Page</h1>
       <QuestionnaireEditor
-        id={questionnaireId ? Number(questionnaireId) : undefined}
+        questionnaireId={questionnaireId ? Number(questionnaireId) : undefined}
       />
     </PageWrapper>
   );

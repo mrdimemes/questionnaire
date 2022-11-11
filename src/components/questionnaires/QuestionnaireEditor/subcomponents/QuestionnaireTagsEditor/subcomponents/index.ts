@@ -1,0 +1,1 @@
+export { NewTagWidget } from "./NewTagWidget";

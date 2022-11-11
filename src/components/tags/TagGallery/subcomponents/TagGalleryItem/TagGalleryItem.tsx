@@ -1,13 +1,8 @@
-import classNames from "classnames";
-
-import { TagComponent, Button } from "src/components";
-import { withTheme } from "src/HOCs";
+import { TagComponent, Removeable } from "src/components";
 import { QuestionnaireService } from "src/services";
 import { useAppDispatch } from "src/redux/hooks";
 import { removeTag as removeTagAction } from "src/redux/slices/tagsSlice";
 import { executeWithConfirmation } from "src/utils/helpers";
-
-import styles from "./TagGalleryItem.module.sass";
 
 import type { TagGalleryItemProps } from "./types/TagGalleryItemProps";
 
@@ -28,11 +23,10 @@ const TagGalleryItem = ({ tag, className }: TagGalleryItemProps) => {
   };
 
   return (
-    <div className={classNames(styles.TagGalleryItem, className)}>
+    <Removeable remove={removeTag} removeCondition={true}>
       <TagComponent label={tag.label} frequency={tag.frequency} />
-      <Button className={styles.deleteButton} onClick={removeTag} />
-    </div>
+    </Removeable>
   );
 };
 
-export default withTheme(TagGalleryItem, styles);
+export default TagGalleryItem;
