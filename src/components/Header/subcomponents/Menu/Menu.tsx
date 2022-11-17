@@ -8,11 +8,10 @@ import {
   ThemeSwitchButton,
   BurgerMenuButton,
   UserPanel,
-} from "../";
-
+} from "./subcomponents";
 import styles from "./Menu.module.sass";
 
-import { MenuProps } from "./MenuProps";
+import type { MenuProps } from "./types";
 
 
 const Menu = ({ className }: MenuProps) => {

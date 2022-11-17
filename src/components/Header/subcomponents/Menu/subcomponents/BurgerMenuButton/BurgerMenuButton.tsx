@@ -5,7 +5,7 @@ import { withTheme } from "src/HOCs";
 
 import styles from "./BurgerMenuButton.module.sass";
 
-import type { BurgerMenuButtonProps as Props } from "./BurgerMenuButtonProps";
+import type { BurgerMenuButtonProps as Props } from "./types";
 
 
 const BurgerMenuButton = ({ onClick, isOpen, className }: Props) => {

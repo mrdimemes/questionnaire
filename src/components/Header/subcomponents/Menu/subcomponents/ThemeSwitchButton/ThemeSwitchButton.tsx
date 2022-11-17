@@ -6,7 +6,7 @@ import { withTheme } from "src/HOCs";
 
 import styles from "./ThemeSwitchButton.module.sass";
 
-import { ThemeSwitchButtonProps } from "./ThemeSwitchButtonProps";
+import type { ThemeSwitchButtonProps } from "./types";
 
 const ThemeSwitchButton = ({ className }: ThemeSwitchButtonProps) => {
   const dispatch = useAppDispatch();

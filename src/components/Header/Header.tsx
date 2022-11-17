@@ -1,17 +1,17 @@
 import classNames from "classnames";
 import { withTheme } from "src/HOCs";
 
-import { Menu } from "../Menu";
+import { Menu } from "./subcomponents";
 
 import styles from "./Header.module.sass";
 
-import type { HeaderProps } from "./HeaderProps";
+import type { HeaderProps } from "./types";
 
 
 const Header = ({ className }: HeaderProps) => {
   return (
     <header className={classNames(styles.Header, className)}>
-      <div className={classNames(styles.content, "wrapper")}>
+      <div className={classNames(styles.wrapper, "wrapper")}>
         <div className={styles.logo}>Questions!</div>
         <Menu />
       </div>

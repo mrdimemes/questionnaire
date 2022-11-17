@@ -3,7 +3,7 @@ export { AppRoutes } from "./AppRoutes";
 
 export { AuthForm } from "./AuthForm";
 
-export { Header } from "./header";
+export { Header } from "./Header";
 
 
 export { TagComponent, TagGallery, TagBar } from "./tags";
