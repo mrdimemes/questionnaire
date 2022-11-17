@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+
 export enum Theme {
   Light = "LIGHT",
   Dark = "DARK"
@@ -20,15 +21,6 @@ export const themeSlice = createSlice({
     },
   },
 });
-
-type ThemeStyles = {
-  theme_light: string,
-  theme_dark: string
-}
-
-export const getThemeStyle = (styles: ThemeStyles, currentTheme: Theme) => {
-  return currentTheme === Theme.Light ? styles.theme_light : styles.theme_dark;
-};
 
 export const { setTheme } = themeSlice.actions;
 export default themeSlice.reducer;

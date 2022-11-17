@@ -1,22 +1,19 @@
 import classNames from "classnames";
-import { getThemeStyle } from "src/redux/slices/themeSlice";
-import { useThemeSelector } from "src/redux/hooks";
+
+import { withTheme } from "src/HOCs";
 
 import styles from "./LoadingSpinner.module.sass";
 
-const LoadingSpinner = () => {
-  const currentTheme = useThemeSelector();
+import type { LoadingSpinnerProps } from "./types";
 
+const LoadingSpinner = ({ className }: LoadingSpinnerProps) => {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.container}>
-        <div className={classNames(
-          styles.body,
-          getThemeStyle(styles, currentTheme),
-        )} />
+    <div className={classNames(styles.LoadingSpinner, className)}>
+      <div className={styles.iconContainer}>
+        <div className={styles.icon} />
       </div>
     </div>
   );
 };
 
-export default LoadingSpinner;
+export default withTheme(LoadingSpinner, styles);

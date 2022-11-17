@@ -7,7 +7,16 @@
   100%
     transform: rotate(360deg)
 
-.body
+.LoadingSpinner
+  width: 100%
+  min-height: 100%
+  @include mixins.flex-centered
+
+.iconContainer
+  @include mixins.square(50px)
+  position: relative
+
+.icon
   position: absolute
   left: 10px
   right: 10px
@@ -20,17 +29,8 @@
   animation: spinner 2s linear infinite
   transition: border-color 0.3s
 
-.wrapper
-  width: 100%
-  min-height: 100%
-  @include mixins.flex-centered
-
-.container
-  @include mixins.square(50px)
-  position: relative
-
-.theme_light
+.theme_light .icon
   border-color: transparent colors.$gray-1
 
-.theme_dark
+.theme_dark .icon
   border-color: transparent colors.$dark-theme-4
