@@ -1,0 +1,29 @@
+@use "src/sass/foundation/colors"
+
+.AuthFormField
+  margin-bottom: 10px
+
+.header
+  font-size: 0.9em
+  display: flex
+  justify-content: space-between
+
+.required::after
+  content: "*"
+  margin-left: 0.2em
+  transition: color 0.3s
+
+.error
+  transition: color 0.3s
+
+.theme_light
+  & .error
+    color: colors.$light-theme-error
+  & .required::after
+    color: colors.$light-theme-error
+
+.theme_dark
+  & .error
+    color: colors.$dark-theme-error
+  & .required::after
+    color: colors.$dark-theme-error

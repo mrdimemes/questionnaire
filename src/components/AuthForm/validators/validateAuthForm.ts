@@ -1,5 +1,5 @@
 import { ValidationError } from "src/exceptions";
-import { ValidationWarning } from "src/models";
+import { ValidationWarning, AuthOption } from "src/models";
 
 import {
   checkEmailField,
@@ -10,6 +10,7 @@ import {
 
 
 const validateAuthForm = (
+  authOption: AuthOption,
   email: string,
   name: string,
   password: string,
@@ -21,14 +22,18 @@ const validateAuthForm = (
   if (emailWarning) warnings.push(emailWarning);
 
   const nameWarning = checkNameField(name);
-  if (nameWarning) warnings.push(nameWarning);
+  if (authOption === AuthOption.registration && nameWarning) {
+    warnings.push(nameWarning);
+  }
 
   const passwordWarning = checkPasswordField(password);
   if (passwordWarning) warnings.push(passwordWarning);
 
   const passwordConfirmationWarning =
     checkPasswordConfirmationField(password, passwordConfirmation);
-  if (passwordConfirmationWarning) warnings.push(passwordConfirmationWarning);
+  if (authOption === AuthOption.registration && passwordConfirmationWarning) {
+    warnings.push(passwordConfirmationWarning);
+  }
 
   if (warnings.length > 0) throw new ValidationError(warnings);
 };

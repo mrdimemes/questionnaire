@@ -1,6 +1,5 @@
-import { Charset } from "../models";
-
-import { checkFieldByLength, checkFieldByCharset } from "./";
+import { Charset } from "src/utils/validation/models";
+import { checkFieldByLength, checkFieldByCharset } from "src/utils/validation";
 
 
 const checkNameField = (name: string) => {

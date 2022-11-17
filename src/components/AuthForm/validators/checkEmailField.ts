@@ -1,4 +1,7 @@
-import { checkFieldByLength, checkFieldByEmailRegex } from "./";
+import {
+  checkFieldByLength,
+  checkFieldByEmailRegex,
+} from "src/utils/validation";
 
 
 const checkEmailField = (email: string) => {
