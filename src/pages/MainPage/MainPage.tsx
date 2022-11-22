@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useAppDispatch } from "src/redux/hooks";
 
+import { useAppDispatch } from "src/redux/hooks";
 import { NavigationPage, setActivePage } from "src/redux/slices/browseSlice";
 
 import { PageWrapper } from "../PageWrapper";
@@ -33,7 +33,7 @@ const MainPage = () => {
         <ul>
           <li className={styles.listItem}>Регистрация и авторизация на основе JWT-токенов (подтверждение электронной почты не требуется из соображений репрезентативности)</li>
           <li className={styles.listItem}>Прохождение опросов в гостевом и авторизованном режимах</li>
-          <li className={styles.listItem}>Добавление, редактирование, удаление и модерация опросов из под учетной записи с правами администратора</li>
+          <li className={styles.listItem}>Добавление, редактирование и удаление опросов из под учетной записи с правами администратора</li>
           <li className={styles.listItem}>Добавление и удаление тегов из под учетной записи с правами администратора</li>
           <li className={styles.listItem}>Поиск и сортировка по списку опросов и тегов</li>
           <li className={styles.listItem}>Выгрузка ответов на опросы из под учетной записи администратора</li>
