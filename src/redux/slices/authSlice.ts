@@ -2,13 +2,18 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { User } from "src/models";
 
 interface AuthState {
-  user: User | null
+  userName: string | null,
+  userId: number | null,
+  isAdmin: boolean,
 }
 
-const userInStorage = localStorage.getItem("user");
+const userString = localStorage.getItem("user");
+const userInStorage = userString ? JSON.parse(userString) : null;
 
 const initialState: AuthState = {
-  user: userInStorage ? JSON.parse(userInStorage) : null,
+  userName: userInStorage ? String(userInStorage.name) : null,
+  userId: userInStorage ? Number(userInStorage.id) : null,
+  isAdmin: userInStorage ? Boolean(userInStorage.isAdmin) : false,
 };
 
 export const authSlice = createSlice({
@@ -16,11 +21,16 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, action: PayloadAction<User>) => {
-      state.user = action.payload;
-      localStorage.setItem("user", JSON.stringify(action.payload));
+      const user = action.payload;
+      state.userName = user.name;
+      state.userId = user.id;
+      state.isAdmin = Boolean(user.isAdmin);
+      localStorage.setItem("user", JSON.stringify(user));
     },
     clearUser: (state) => {
-      state.user = null;
+      state.userName = null;
+      state.userId = null;
+      state.isAdmin = false;
       localStorage.removeItem("user");
     },
   },

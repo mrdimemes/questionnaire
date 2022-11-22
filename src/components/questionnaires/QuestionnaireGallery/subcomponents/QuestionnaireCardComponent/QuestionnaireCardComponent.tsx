@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import { TagBar, Button } from "src/components";
 import { withTheme } from "src/HOCs";
+import { useUserAdminFlagSelector } from "src/redux/hooks";
 import { QuestionnaireService } from "src/services";
 import { executeWithConfirmation } from "src/utils/helpers";
 
@@ -18,6 +19,7 @@ const QuestionnaireCardComponent = ({
   className,
 }: QuestionnaireCardComponentProps,
 ) => {
+  const isUserAdmin = useUserAdminFlagSelector();
 
   const removeQuestionnaire = () => {
     executeWithConfirmation(
@@ -33,14 +35,18 @@ const QuestionnaireCardComponent = ({
         <TagBar tags={tags} />
       </Link>
 
-      <div className={styles.adminBar}>
-        <Link
-          to={"/edit/" + id}
-          className={classNames(styles.icon, styles.editLink)} />
-        <Button
-          className={classNames(styles.icon, styles.deleteButton)}
-          onClick={removeQuestionnaire} />
-      </div>
+      {
+        isUserAdmin &&
+        <div className={styles.adminBar}>
+          <Link
+            to={"/edit/" + id}
+            className={classNames(styles.icon, styles.editLink)} />
+          <Button
+            className={classNames(styles.icon, styles.deleteButton)}
+            onClick={removeQuestionnaire} />
+        </div>
+      }
+
     </div>
   );
 };

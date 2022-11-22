@@ -6,7 +6,11 @@ import User from "./UserPanel";
 
 describe("Header/User component", () => {
   test("Header/User renders without user in the store", () => {
-    const store = setupStore({ auth: { user: null } });
+    const store = setupStore({ auth: {
+      userName: null, 
+      userId: null, 
+      isAdmin: false,
+    } });
     renderWithProvidersAndRouters(<User />, { store });
     expect(screen.getByRole("button")).toBeInTheDocument();
   });
@@ -14,7 +18,9 @@ describe("Header/User component", () => {
   test("Header/User renders with user in the store", () => {
     const store = setupStore({
       auth: {
-        user: { name: "TestName", id: 0, isAdmin: false },
+        userName: "TestName", 
+        userId: 0, 
+        isAdmin: false,
       },
     });
     renderWithProvidersAndRouters(<User />, { store });

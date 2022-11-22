@@ -6,7 +6,13 @@ import Header from "./Header";
 
 describe("Header component", () => {
   test("Menu renders without user in the store", () => {
-    const store = setupStore({ auth: { user: null } });
+    const store = setupStore({
+      auth: {
+        userName: null,
+        userId: null,
+        isAdmin: false,
+      },
+    });
     renderWithProvidersAndRouters(<Header />, { store });
     expect(screen.getByText(/questions!/i)).toBeInTheDocument();
     expect(screen.getByRole("navigation")).toBeInTheDocument();
@@ -19,7 +25,9 @@ describe("Header component", () => {
   test("Menu renders with user in the store", () => {
     const store = setupStore({
       auth: {
-        user: { name: "TestName", id: 0, isAdmin: false },
+        userName: "TestName",
+        userId: 0,
+        isAdmin: false,
       },
     });
     renderWithProvidersAndRouters(<Header />, { store });

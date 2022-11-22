@@ -6,7 +6,13 @@ import Menu from "./Menu";
 
 describe("Header/Menu component", () => {
   test("Menu renders without user in the store", () => {
-    const store = setupStore({ auth: { user: null } });
+    const store = setupStore({
+      auth: {
+        userName: null,
+        userId: null,
+        isAdmin: false,
+      },
+    });
     renderWithProvidersAndRouters(<Menu />, { store });
     expect(screen.getByRole("navigation")).toBeInTheDocument();
     expect(screen.getByText(/главная/i)).toBeInTheDocument();
@@ -18,7 +24,9 @@ describe("Header/Menu component", () => {
   test("Menu renders with user in the store", () => {
     const store = setupStore({
       auth: {
-        user: { name: "TestName", id: 0, isAdmin: false },
+        userName: "TestName",
+        userId: 0,
+        isAdmin: false,
       },
     });
     renderWithProvidersAndRouters(<Menu />, { store });

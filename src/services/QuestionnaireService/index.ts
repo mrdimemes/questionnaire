@@ -45,7 +45,7 @@ class QuestionnaireService {
 
   static async sendQuestionnaireAnswer(answerDTO: QuestionnaireAnswerDTO) {
     try {
-      const userId = store.getState().auth.user?.id;
+      const userId = store.getState().auth.userId;
       await api.post<any>(
         "questionnaires/saveAnswer",
         { userId: userId, answer: answerDTO },

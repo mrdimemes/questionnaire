@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import { useTagsDataSelector } from "src/redux/hooks";
 import { PaginationBar, Loadable } from "src/components";
+import { useUserAdminFlagSelector } from "src/redux/hooks";
 
 import { TagGalleryItem, AddTagWidget } from "./subcomponents";
 import { TagGalleryProps } from "./types/TagGalleryProps";
@@ -14,6 +15,7 @@ const TagGallery = ({ pageSize, resetScroll }: TagGalleryProps) => {
   const totalPages = Math.ceil(tags.length / tagsPerPage);
   const [activePage, setActivePage] = useState(1);
   const startIndex = (activePage - 1) * tagsPerPage;
+  const isUserAdmin = useUserAdminFlagSelector();
 
   const changeActivePage = (page: number) => {
     setActivePage(page > totalPages ? totalPages : page);
@@ -27,7 +29,10 @@ const TagGallery = ({ pageSize, resetScroll }: TagGalleryProps) => {
     <Loadable loadingStatus={status}>
       <div className={styles.TagGallery}>
 
-        <AddTagWidget className={styles.addTagWidget} />
+        {
+          isUserAdmin &&
+          <AddTagWidget className={styles.addTagWidget} />
+        }
 
         {tags.slice(startIndex, startIndex + tagsPerPage).map((tag) => {
           return <TagGalleryItem key={tag.id} tag={tag} />;

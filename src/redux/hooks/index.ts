@@ -4,4 +4,9 @@ export { default as useTagsDataSelector } from "./useTagsDataSelector";
 export { default as useTagsMapSelector } from "./useTagsMapSelector";
 export { default as useThemeSelector } from "./useThemeSelector";
 export { default as useActivePageSelector } from "./useActivePageSelector";
-export { default as useUserSelector } from "./useUserSelector";
+
+export { default as useUserNameSelector } from "./useUserNameSelector";
+export { default as useUserIdSelector } from "./useUserIdSelector";
+export {
+  default as useUserAdminFlagSelector,
+} from "./useUserAdminFlagSelector";

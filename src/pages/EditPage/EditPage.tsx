@@ -1,17 +1,32 @@
 import { useParams } from "react-router-dom";
-import { QuestionnaireEditor } from "src/components";
+import {
+  QuestionnaireEditor,
+  AccessDeniedErrorComponent,
+} from "src/components";
+import { useUserAdminFlagSelector } from "src/redux/hooks";
 
 import { PageWrapper } from "../PageWrapper";
 
 const AuthPage = () => {
   const { questionnaireId } = useParams();
+  const isUserAdmin = useUserAdminFlagSelector();
 
   return (
     <PageWrapper>
-      <h1>Edit Page</h1>
-      <QuestionnaireEditor
-        questionnaireId={questionnaireId ? Number(questionnaireId) : undefined}
-      />
+      {
+        isUserAdmin ?
+          <>
+            <h1>Edit Page</h1>
+            <QuestionnaireEditor
+              questionnaireId={
+                questionnaireId ?
+                  Number(questionnaireId)
+                  : undefined
+              }
+            />
+          </> :
+          <AccessDeniedErrorComponent />
+      }
     </PageWrapper>
   );
 };
