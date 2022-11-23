@@ -7,6 +7,7 @@ import {
   QuestionnaireCardsBunch,
   QuestionnaireAnswerDTO,
   QuestionnaireChangeDTO,
+  SortOption,
 } from "src/models";
 import { setTags } from "src/redux/slices/tagsSlice";
 
@@ -21,11 +22,25 @@ class QuestionnaireService {
     };
   };
 
-  static async getQuestionnaireCards(startPage: number, cardsPerPage: number) {
+  static async getQuestionnaireCards(
+    sortOption: SortOption,
+    searchPhrase: string,
+    filterTag: number | null,
+    startPage: number,
+    cardsPerPage: number,
+  ) {
     try {
       const response = await api.get<QuestionnaireCardsBunch>(
         "questionnaires/questionnaireCards",
-        { params: { startPage, cardsPerPage } },
+        {
+          params: {
+            sortOption,
+            searchPhrase,
+            filterTag,
+            startPage,
+            cardsPerPage,
+          },
+        },
       );
       return response.data;
     } catch (error) {
