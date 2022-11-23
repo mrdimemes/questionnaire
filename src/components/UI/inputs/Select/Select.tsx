@@ -18,6 +18,7 @@ const Select = (props: SelectProps) => {
       name={props.name}
       ref={props.forwardedRef}
       onChange={handleChange}
+      defaultValue={props.defaultOption}
     >
       {
         props.options.map(([value, text]) => {

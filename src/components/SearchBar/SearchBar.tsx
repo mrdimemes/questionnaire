@@ -5,8 +5,8 @@ import { TextInput } from "src/components";
 import type { SearchBarProps } from "./types";
 
 
-const SearchBar = ({ search }: SearchBarProps) => {
-  const [searchPhrase, setSearchPhrase] = useState("");
+const SearchBar = ({ className, search, defaultPhrase }: SearchBarProps) => {
+  const [searchPhrase, setSearchPhrase] = useState(defaultPhrase ?? "");
 
   useEffect(() => {
     const timer = setTimeout(() => search(searchPhrase), 1000);
@@ -15,6 +15,7 @@ const SearchBar = ({ search }: SearchBarProps) => {
 
   return (
     <TextInput
+      className={className}
       name="search"
       value={searchPhrase}
       onChange={setSearchPhrase}

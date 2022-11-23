@@ -1,3 +1,5 @@
 export type SearchBarProps = {
-  search: (searchPhrase: string) => void;
+  className?: string,
+  search: (searchPhrase: string) => void,
+  defaultPhrase?: string,
 };

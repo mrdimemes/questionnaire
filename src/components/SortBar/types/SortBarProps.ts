@@ -1,4 +1,8 @@
+import { SortOption } from "src/models";
+
+
 export type SortBarProps = {
-  options: [string | number, string][],
-  sort: (option: string | number) => void,
+  options: [SortOption, string][],
+  selectedOption: SortOption,
+  setSortOption: (option: SortOption) => void,
 };
