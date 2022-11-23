@@ -32,6 +32,7 @@ export { Removeable } from "./Removeable";
 
 export { PaginationBar } from "./PaginationBar";
 export { SearchBar } from "./SearchBar";
+export { SortBar } from "./SortBar";
 
 export {
   NotFoundErrorComponent,

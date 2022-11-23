@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { Button } from "src/components";
 import { withTheme } from "src/HOCs";
 
-import { GalleryView } from "../../models";
+import { GalleryView } from "../../../../models";
 
 import styles from "./ViewSwitchButton.module.sass";
 

@@ -1,10 +1,10 @@
 import { useState, useCallback } from "react";
 
-import { QuestionnaireCard } from "src/models";
+import { QuestionnaireCard, SortOption } from "src/models";
 import { QuestionnaireService } from "src/services";
 import { PaginationBar, Loadable } from "src/components";
 
-import { ViewSwitchButton, PlatesView, RowsView } from "./subcomponents";
+import { PlatesView, RowsView, SettingsBar } from "./subcomponents";
 import { GalleryView } from "./models";
 import styles from "./QuestionnaireGallery.module.sass";
 
@@ -12,6 +12,8 @@ import styles from "./QuestionnaireGallery.module.sass";
 const QuestionnaireGallery = () => {
   const [cards, setCards] = useState<QuestionnaireCard[]>([]);
   const [currentView, setCurrentView] = useState(GalleryView.Rows);
+  const [sortOption, setSortOption] = useState(SortOption.NoSort);
+  const [searchPhrase, setSearchPhrase] = useState("");
   const [activePage, setActivePage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const cardsPerPage = 10;
@@ -27,14 +29,18 @@ const QuestionnaireGallery = () => {
     [activePage],
   );
 
+
   return (
     <Loadable load={loadPage}>
       <div className={styles.QuestionnaireGallery}>
 
-        <ViewSwitchButton
+        <SettingsBar
+          sortOption={sortOption}
+          setSortOption={setSortOption}
           currentView={currentView}
           setCurrentView={setCurrentView}
-          className={styles.viewSwitch}
+          searchPhrase={searchPhrase}
+          setSearchPhrase={setSearchPhrase}
         />
 
         {currentView === GalleryView.Plates && <PlatesView cards={cards} />}

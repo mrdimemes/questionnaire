@@ -17,6 +17,7 @@ const SearchBar = ({ className, search, defaultPhrase }: SearchBarProps) => {
     <TextInput
       className={className}
       name="search"
+      placeholder="Поиск..."
       value={searchPhrase}
       onChange={setSearchPhrase}
       maxLength={50}

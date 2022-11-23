@@ -2,7 +2,7 @@ import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { renderWithProviders } from "src/utils/test-utils";
 
-import { GalleryView } from "../../models";
+import { GalleryView } from "../../../../models";
 
 import ViewSwitchButton from "./ViewSwitchButton";
 
