@@ -1,0 +1,1 @@
+export type { TagBarProps } from "./TagBarProps";

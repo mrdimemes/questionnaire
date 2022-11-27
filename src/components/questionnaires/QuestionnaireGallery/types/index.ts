@@ -1,0 +1,1 @@
+export type { QuestionnaireGalleryProps } from "./QuestionnaireGalleryProps";

@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { TagBar, Button } from "src/components";
 import { withTheme } from "src/HOCs";
@@ -19,6 +19,7 @@ const QuestionnaireCardComponent = ({
   className,
 }: QuestionnaireCardComponentProps,
 ) => {
+  const navigate = useNavigate();
   const isUserAdmin = useUserAdminFlagSelector();
 
   const removeQuestionnaire = () => {
@@ -29,18 +30,21 @@ const QuestionnaireCardComponent = ({
   };
 
   return (
-    <div className={classNames(styles.QuestionnaireCard, className)}>
-      <Link to={"/questionnaire/" + id} className={styles.card}>
-        <h2 className={styles.label}>{label}</h2>
-        <TagBar tags={tags} />
-      </Link>
+    <div
+      className={classNames(styles.QuestionnaireCard, className)}
+      onClick={() => navigate("/questionnaire/" + id)}
+    >
+
+      <h2 className={styles.label}>{label}</h2>
+      <TagBar tags={tags} />
 
       {
         isUserAdmin &&
         <div className={styles.adminBar}>
-          <Link
-            to={"/edit/" + id}
-            className={classNames(styles.icon, styles.editLink)} />
+          <Button
+            className={classNames(styles.icon, styles.editButton)}
+            onClick={() => navigate("/edit/" + id)}
+          />
           <Button
             className={classNames(styles.icon, styles.deleteButton)}
             onClick={removeQuestionnaire} />

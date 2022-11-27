@@ -1,18 +1,32 @@
 import classNames from "classnames";
+import { SyntheticEvent } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { withTheme } from "src/HOCs";
 
 import styles from "./TagComponent.module.sass";
 
-import type { TagComponentProps } from "./TagComponentProps";
+import type { TagComponentProps } from "./types";
 
 
-const TagComponent = ({ label, frequency, className }: TagComponentProps) => {
+const TagComponent = ({ tag, className }: TagComponentProps) => {
+  const navigate = useNavigate();
+
+  const onClick = (event: SyntheticEvent) => {
+    event.stopPropagation();
+    navigate("/questionnaires/" + tag.id);
+  };
+
   return (
-    <div className={classNames(styles.Tag, className)}>
-      <div>{label}</div>
-      {frequency !== 0 && frequency &&
-        <div className={styles.frequency}>{frequency}</div>}
+    <div
+      onClick={onClick}
+      className={classNames(styles.Tag, className)}
+    >
+      <div>{tag.label}</div>
+      {
+        tag.frequency !== 0 &&
+        <div className={styles.frequency}>{tag.frequency}</div>
+      }
     </div>
   );
 };

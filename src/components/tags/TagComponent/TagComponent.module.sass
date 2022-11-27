@@ -1,7 +1,7 @@
 @use "src/sass/foundation/colors"
 
 .Tag
-  transition: background-color 0.3s
+  transition: background-color 0.3s, scale 0.1s
   padding: 3px 10px
   border-radius: 15px
   display: flex
@@ -9,6 +9,8 @@
   column-gap: 1em
   width: max-content
   cursor: pointer
+  &:hover
+    scale: 1.05
 
 .frequency
   transition: background-color 0.3s

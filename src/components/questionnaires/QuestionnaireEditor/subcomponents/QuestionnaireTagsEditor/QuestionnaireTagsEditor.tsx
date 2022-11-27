@@ -1,5 +1,6 @@
 import classNames from "classnames";
 
+import { Tag } from "src/models";
 import { Removeable, TagComponent } from "src/components";
 import { useTagsMapSelector } from "src/redux/hooks";
 
@@ -29,12 +30,15 @@ const QuestionnaireTagsEditor = ({
   return (
     <div className={classNames(styles.QuestionnaireTagsEditor, className)}>
       {
-        tags.map((tag) => <Removeable
-          key={tag}
-          remove={() => removeTag(tag)}
+        tags.map((tagId) => <Removeable
+          key={tagId}
+          remove={() => removeTag(tagId)}
           removeCondition={true}
         >
-          <TagComponent label={"" + tagsMap.get(tag)} />
+          <TagComponent tag={
+            tagsMap.get(tagId) ??
+            new Tag(-1, "Удалённый тег", 0)
+          } />
         </Removeable>,
         )
       }

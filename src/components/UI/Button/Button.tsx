@@ -10,6 +10,7 @@ import { ButtonProps } from "./ButtonProps";
 const Button = ({ children, onClick, className }: ButtonProps) => {
   const onClickHandler = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
+    event.stopPropagation();
     onClick();
   };
 

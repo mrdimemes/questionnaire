@@ -14,6 +14,7 @@ const AppRoutes = () => {
       <Route path="/" element={<MainPage />} />
       <Route path="/tags" element={<TagsPage />} />
       <Route path="/questionnaires" element={<QuestionnaireListPage />} />
+      <Route path="/questionnaires/:tagId" element={<QuestionnaireListPage />} />
       <Route path="/questionnaire/:questionnaireId"
         element={<QuestionnairePage />} />
       <Route path="/edit" element={<EditPage />} />

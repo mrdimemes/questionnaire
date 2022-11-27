@@ -4,10 +4,10 @@ import { useAppDispatch, useUserAdminFlagSelector } from "src/redux/hooks";
 import { removeTag as removeTagAction } from "src/redux/slices/tagsSlice";
 import { executeWithConfirmation } from "src/utils/helpers";
 
-import type { TagGalleryItemProps } from "./types/TagGalleryItemProps";
+import type { TagGalleryItemProps } from "./types";
 
 
-const TagGalleryItem = ({ tag, className }: TagGalleryItemProps) => {
+const TagGalleryItem = ({ tag }: TagGalleryItemProps) => {
   const dispatch = useAppDispatch();
   const isUserAdmin = useUserAdminFlagSelector();
 
@@ -25,7 +25,7 @@ const TagGalleryItem = ({ tag, className }: TagGalleryItemProps) => {
 
   return (
     <Removeable remove={removeTag} removeCondition={isUserAdmin}>
-      <TagComponent label={tag.label} frequency={tag.frequency} />
+      <TagComponent tag={tag} />
     </Removeable>
   );
 };

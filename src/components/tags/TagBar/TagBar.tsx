@@ -1,11 +1,12 @@
 import classNames from "classnames";
 
 import { TagComponent } from "src/components";
+import { Tag } from "src/models";
 import { useTagsMapSelector } from "src/redux/hooks";
 
 import styles from "./TagBar.module.sass";
 
-import { TagBarProps } from "./TagBarProps";
+import type { TagBarProps } from "./types";
 
 
 const TagBar = ({ className, tags }: TagBarProps) => {
@@ -17,7 +18,8 @@ const TagBar = ({ className, tags }: TagBarProps) => {
         tags.map((tagId) => {
           return <TagComponent
             key={tagId}
-            label={tagsMap.get(tagId) ?? "Удалённый тэг"} />;
+            tag={tagsMap.get(tagId) ?? new Tag(-1, "Удалённый тег", 0)}
+          />;
         })
       }
     </div>

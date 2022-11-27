@@ -1,6 +1,6 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
-import { QuestionnaireCard, SortOption, Tag } from "src/models";
+import { QuestionnaireCard, SortOption } from "src/models";
 import { QuestionnaireService } from "src/services";
 import { PaginationBar, Loadable } from "src/components";
 
@@ -8,13 +8,14 @@ import { PlatesView, RowsView, SettingsBar } from "./subcomponents";
 import { GalleryView } from "./models";
 import styles from "./QuestionnaireGallery.module.sass";
 
+import type { QuestionnaireGalleryProps } from "./types";
 
-const QuestionnaireGallery = () => {
+
+const QuestionnaireGallery = ({ filterTag }: QuestionnaireGalleryProps) => {
   const [cards, setCards] = useState<QuestionnaireCard[]>([]);
   const [currentView, setCurrentView] = useState(GalleryView.Rows);
   const [sortOption, setSortOption] = useState(SortOption.NoSort);
   const [searchPhrase, setSearchPhrase] = useState("");
-  const [filterTag, _setFilterTag] = useState<Tag | null>(null);
   const [activePage, setActivePage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const cardsPerPage = 10;
@@ -35,6 +36,8 @@ const QuestionnaireGallery = () => {
     [activePage, filterTag, searchPhrase, sortOption],
   );
 
+  useEffect(() => setActivePage(1), [sortOption, filterTag, searchPhrase]);
+
   return (
     <Loadable load={loadPage}>
       <div className={styles.QuestionnaireGallery}>
@@ -48,7 +51,12 @@ const QuestionnaireGallery = () => {
           setSearchPhrase={setSearchPhrase}
         />
 
-        {filterTag && <p>Опросы, содержащие тег «{filterTag.label}».</p>}
+        {
+          filterTag &&
+          <p className={styles.tagFilterText}>
+            Опросы, содержащие тег «{filterTag.label}».
+          </p>
+        }
 
         {currentView === GalleryView.Plates && <PlatesView cards={cards} />}
         {currentView === GalleryView.Rows && <RowsView cards={cards} />}

@@ -1,10 +1,13 @@
+import { Tag } from "src/models";
+
+
 export const getOptions = (
-  tagsMap: Map<number, string>,
+  tagsMap: Map<number, Tag>,
   ignoredTags: number[],
 ) => {
   const options = [] as [number, string][];
-  for (const [value, text] of Array.from(tagsMap.entries())) {
-    if (!ignoredTags.includes(value)) options.push([value, text]);
+  for (const [id, tag] of Array.from(tagsMap.entries())) {
+    if (!ignoredTags.includes(id)) options.push([id, tag.label]);
   }
   return options;
 };

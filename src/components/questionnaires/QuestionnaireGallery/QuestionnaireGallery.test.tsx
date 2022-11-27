@@ -60,7 +60,10 @@ afterAll(() => server.close());
 describe("QuestionnaireGallery component", () => {
   test("QuestionnaireGallery load cards from api and renders",
     async () => {
-      renderWithProvidersAndRouters(<QuestionnaireGallery />, { store });
+      renderWithProvidersAndRouters(
+        <QuestionnaireGallery filterTag={null} />,
+        { store },
+      );
       await waitFor(
         () => expect(screen.getAllByText(/label/i)).toHaveLength(5),
       );

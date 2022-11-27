@@ -1,5 +1,7 @@
+import { Tag } from "src/models";
+
+
 export type TagComponentProps = {
-  label: string,
-  frequency?: number,
+  tag: Tag,
   className?: string,
 };

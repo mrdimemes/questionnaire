@@ -4,8 +4,6 @@
 
 .QuestionnaireCard
   position: relative
-
-.card
   display: block
   padding: 10px
   border-radius: 6px
@@ -32,21 +30,21 @@
 .deleteButton
   @include mixins.mask-image("/assets/images/icons/close.svg")
 
-.editLink
+.editButton
   @include mixins.mask-image("/assets/images/icons/edit.svg")
 
 .theme_dark
-  & .card:hover
+  &:hover
     background-color: colors.$dark-theme-bg-highlight
-  & .deleteButton, .editLink
+  & .deleteButton, .editButton
     background-color: colors.$dark-theme-4
     &:hover
       background-color: colors.$dark-theme-error
 
 .theme_light
-  & .card:hover
+  &:hover
     background-color: colors.$light-theme-bg-highlight
-  & .deleteButton, .editLink
+  & .deleteButton, .editButton
     background-color: colors.$gray-1
     &:hover
       background-color: colors.$light-theme-error
