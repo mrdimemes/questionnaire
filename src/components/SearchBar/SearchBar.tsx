@@ -9,7 +9,7 @@ const SearchBar = ({ className, search, defaultPhrase }: SearchBarProps) => {
   const [searchPhrase, setSearchPhrase] = useState(defaultPhrase ?? "");
 
   useEffect(() => {
-    const timer = setTimeout(() => search(searchPhrase), 1000);
+    const timer = setTimeout(() => search(searchPhrase), 500);
     return () => clearTimeout(timer);
   }, [search, searchPhrase]);
 
