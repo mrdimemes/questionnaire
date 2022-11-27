@@ -30,6 +30,8 @@ const TagGallery = ({ pageSize, resetScroll }: TagGalleryProps) => {
     if (resetScroll) resetScroll();
   }, [activePage, resetScroll]);
 
+  useEffect(() => setActivePage(1), [sortOption, searchPhrase]);
+
   return (
     <Loadable loadingStatus={status}>
       <div className={styles.TagGallery}>
