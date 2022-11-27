@@ -1,12 +1,17 @@
 @use "src/sass/foundation/breakpoints"
 
 .TagGallery
+  position: relative
+
+.settings
+  margin-bottom: 2em
+
+.tags
   display: grid
   grid-template-columns: 1fr 1fr
   gap: 15px
   justify-content: center
-  position: relative
-  padding-bottom: 100px
+  padding-bottom: 3em
   @media (max-width: breakpoints.$tablet)
     grid-template-columns: 1fr
     justify-items: center
@@ -19,9 +24,3 @@
     top: -46px
   @media (max-width: breakpoints.$tablet)
     top: -42px
-
-.pagination
-  position: absolute
-  bottom: 0
-  left: 0
-  right: 0
