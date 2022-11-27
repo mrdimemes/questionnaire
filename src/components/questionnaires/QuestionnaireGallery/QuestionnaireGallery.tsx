@@ -53,9 +53,14 @@ const QuestionnaireGallery = ({ filterTag }: QuestionnaireGalleryProps) => {
 
         {
           filterTag &&
-          <p className={styles.tagFilterText}>
+          <p className={styles.prompt}>
             Опросы, содержащие тег «{filterTag.label}».
           </p>
+        }
+
+        {
+          cards.length === 0 &&
+          <p className={styles.prompt}>По запросу ничего не найдено.</p>
         }
 
         {currentView === GalleryView.Plates && <PlatesView cards={cards} />}

@@ -14,10 +14,11 @@ import type { TagGalleryProps } from "./types";
 
 const TagGallery = ({ pageSize, resetScroll }: TagGalleryProps) => {
   const [tags, status] = useTagsDataSelector();
+  const [filteredTags, setFilteredTags] = useState([] as Tag[]);
   const [sortOption, setSortOption] = useState(SortOption.NoSort);
   const [searchPhrase, setSearchPhrase] = useState("");
   const tagsPerPage = pageSize ?? 20;
-  const totalPages = Math.ceil(tags.length / tagsPerPage);
+  const totalPages = Math.ceil(filteredTags.length / tagsPerPage);
   const [activePage, setActivePage] = useState(1);
   const startIndex = (activePage - 1) * tagsPerPage;
   const isUserAdmin = useUserAdminFlagSelector();
@@ -30,7 +31,14 @@ const TagGallery = ({ pageSize, resetScroll }: TagGalleryProps) => {
     if (resetScroll) resetScroll();
   }, [activePage, resetScroll]);
 
-  useEffect(() => setActivePage(1), [sortOption, searchPhrase]);
+  useEffect(() => {
+    setFilteredTags(
+      tags
+        .filter((tag: Tag) => searchFilter(tag, searchPhrase))
+        .sort(getCompareFunction(sortOption)),
+    );
+    setActivePage(1);
+  }, [sortOption, searchPhrase, tags]);
 
   return (
     <Loadable loadingStatus={status}>
@@ -45,16 +53,20 @@ const TagGallery = ({ pageSize, resetScroll }: TagGalleryProps) => {
         />
 
         {
+          filteredTags.length === 0 &&
+          <p className={styles.prompt}>По запросу ничего не найдено.</p>
+        }
+
+        {
           isUserAdmin &&
           <AddTagWidget className={styles.addTagWidget} />
         }
 
         <div className={styles.tags}>
           {
-            tags
-              .filter((tag: Tag) => searchFilter(tag, searchPhrase))
-              .sort(getCompareFunction(sortOption))
-              .slice(startIndex, startIndex + tagsPerPage).map((tag) => {
+            filteredTags
+              .slice(startIndex, startIndex + tagsPerPage)
+              .map((tag) => {
                 return <TagGalleryItem key={tag.id} tag={tag} />;
               })
           }
