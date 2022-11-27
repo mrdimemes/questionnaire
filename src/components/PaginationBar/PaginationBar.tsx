@@ -16,7 +16,8 @@ const PaginationBar = ({
 }: PaginationBarProps) => {
 
   return <>
-    {totalPages !== 1 &&
+    {
+      totalPages > 1 &&
       <div className={classNames(styles.PaginationBar, className)}>
         <PreviousButton
           activePage={activePage}
