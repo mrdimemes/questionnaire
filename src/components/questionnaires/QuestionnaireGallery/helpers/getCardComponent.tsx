@@ -1,6 +1,6 @@
-import { QuestionnaireCard } from "src/models";
-
 import { QuestionnaireCardComponent } from "../subcomponents";
+
+import type { QuestionnaireCard } from "src/types";
 
 
 export const getCardComponent = (card: QuestionnaireCard) => {

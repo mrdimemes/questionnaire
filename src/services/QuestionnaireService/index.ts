@@ -4,13 +4,12 @@ import store from "src/redux";
 import {
   Tag,
   Questionnaire,
-  QuestionnaireCardsBunch,
   QuestionnaireAnswerDTO,
   SortOption,
 } from "src/models";
 import { setTags } from "src/redux/slices/tagsSlice";
 
-import type { AnswersFromServer } from "src/types";
+import type { AnswersFromServer, QuestionnaireCardsBunch } from "src/types";
 
 
 class QuestionnaireService {

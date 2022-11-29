@@ -7,7 +7,7 @@ class Tag {
     this.id = id;
     this.label = label;
     this.frequency = frequency;
-  }
+  };
 };
 
 export default Tag;

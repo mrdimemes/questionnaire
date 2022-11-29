@@ -1,8 +1,9 @@
 import api from "src/api";
 import { wrapFetchError } from "src/api/utils";
-import { LoginResponse } from "src/models";
 import store from "src/redux";
 import { setUser, clearUser } from "src/redux/slices/authSlice";
+
+import type { LoginResponse } from "src/types";
 
 
 class AuthService {

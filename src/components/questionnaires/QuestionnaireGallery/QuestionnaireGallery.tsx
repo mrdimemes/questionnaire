@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 
-import { QuestionnaireCard, SortOption } from "src/models";
+import { SortOption } from "src/models";
 import { QuestionnaireService } from "src/services";
 import { PaginationBar, Loadable } from "src/components";
 
@@ -8,6 +8,7 @@ import { PlatesView, RowsView, SettingsBar } from "./subcomponents";
 import { GalleryView } from "./models";
 import styles from "./QuestionnaireGallery.module.sass";
 
+import type { QuestionnaireCard } from "src/types";
 import type { QuestionnaireGalleryProps } from "./types";
 
 

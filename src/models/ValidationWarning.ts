@@ -8,6 +8,6 @@ class ValidationWarning {
     this.fieldValue = fieldValue;
     this.message = message;
   };
-}
+};
 
 export default ValidationWarning;

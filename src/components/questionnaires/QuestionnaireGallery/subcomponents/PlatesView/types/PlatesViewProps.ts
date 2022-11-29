@@ -1,4 +1,4 @@
-import { QuestionnaireCard } from "src/models";
+import type { QuestionnaireCard } from "src/types";
 
 
 export type PlatesViewProps = {
