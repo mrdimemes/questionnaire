@@ -10,12 +10,25 @@ import {
 } from "src/models";
 import { setTags } from "src/redux/slices/tagsSlice";
 
+import type { AnswersFromServer } from "src/types";
+
 
 class QuestionnaireService {
   static async getTags() {
     try {
       const response = await api.get<Tag[]>("questionnaires/tags");
       store.dispatch(setTags(response.data));
+    } catch (error) {
+      throw wrapFetchError(error);
+    };
+  };
+
+  static async getAnswers(questionnaireId: number) {
+    try {
+      const response = await api.get<AnswersFromServer[]>(
+        "questionnaires/getAnswers/" + questionnaireId,
+      );
+      return response.data;
     } catch (error) {
       throw wrapFetchError(error);
     };
