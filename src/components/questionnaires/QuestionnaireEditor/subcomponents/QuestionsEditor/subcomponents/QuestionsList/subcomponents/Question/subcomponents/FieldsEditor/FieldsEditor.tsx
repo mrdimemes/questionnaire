@@ -1,11 +1,8 @@
-import { useContext } from "react";
 import classNames from "classnames";
 
 import { Field as FieldModel } from "src/models";
 import { Button, Removeable } from "src/components";
 import { withTheme } from "src/HOCs";
-
-import { CriticalContext } from "../../../../../../../../contexts";
 
 import { Field } from "./subcomponents";
 import styles from "./FieldsEditor.module.sass";
@@ -15,7 +12,6 @@ import type { FieldsEditorProps } from "./types";
 
 const FieldsEditor = ({ className, fields, setFields }: FieldsEditorProps) => {
 
-  const critical = useContext(CriticalContext);
   const maxFields =
     Number(process.env.REACT_APP_MAX_FIELDS_PER_QUESTION ?? "10");
   const minFields = 1;
@@ -27,12 +23,10 @@ const FieldsEditor = ({ className, fields, setFields }: FieldsEditorProps) => {
   };
 
   const addField = () => {
-    critical();
     setFields([...fields, new FieldModel(0, "Новый вариант")]);
   };
 
   const removeField = (index: number) => {
-    critical();
     const fieldsCopy = [] as FieldModel[];
     fields.forEach((field, idx) => {
       if (idx !== index) fieldsCopy.push(field);

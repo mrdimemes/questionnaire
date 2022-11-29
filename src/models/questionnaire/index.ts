@@ -11,5 +11,4 @@ export {
   FieldAnswerDTO,
   QuestionAnswerDTO,
   QuestionnaireAnswerDTO,
-  QuestionnaireChangeDTO,
 } from "./DTOs";

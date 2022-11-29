@@ -6,7 +6,6 @@ import {
   Questionnaire,
   QuestionnaireCardsBunch,
   QuestionnaireAnswerDTO,
-  QuestionnaireChangeDTO,
   SortOption,
 } from "src/models";
 import { setTags } from "src/redux/slices/tagsSlice";
@@ -70,11 +69,11 @@ class QuestionnaireService {
     };
   };
 
-  static async editQuestionnaire(changeDTO: QuestionnaireChangeDTO) {
+  static async editQuestionnaire(questionnaire: Questionnaire) {
     try {
       await api.post<any>(
         "questionnaires/editQuestionnaire",
-        { change: changeDTO },
+        { questionnaire },
       );
     } catch (error) {
       throw wrapFetchError(error);

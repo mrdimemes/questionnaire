@@ -12,7 +12,6 @@ export {
   FieldAnswerDTO,
   QuestionAnswerDTO,
   QuestionnaireAnswerDTO,
-  QuestionnaireChangeDTO,
   Field,
   Question,
   Questionnaire,

@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 
 import { Question, Questionnaire } from "src/models";
@@ -13,8 +14,6 @@ import {
   QuestionsEditor,
   Buttons,
 } from "./subcomponents";
-import { QuestionnaireIdContext, CriticalContext } from "./contexts";
-import { applyChanges, applyCriticalChanges } from "./helpers";
 import styles from "./QuestionnaireEditor.module.sass";
 
 import type { QuestionnaireEditorProps } from "./types";
@@ -31,14 +30,16 @@ const QuestionnaireEditor = ({
   const [tags, setTags] = useState([] as number[]);
   const [questions, setQuestions] = useState([] as Question[]);
 
-  const [isCriticalChange, setIsCriticalChange] = useState(false);
-  const critical = () => setIsCriticalChange(true);
+  const navigate = useNavigate();
 
   const submit = () => {
     const questionnaire = new Questionnaire(id, label, tags, about, questions);
-    if (id === 0) return QuestionnaireService.addQuestionnaire(questionnaire);
-    if (isCriticalChange) return applyCriticalChanges(questionnaire);
-    applyChanges(questionnaire);
+    if (id === 0) {
+      QuestionnaireService.addQuestionnaire(questionnaire);
+    } else {
+      QuestionnaireService.editQuestionnaire(questionnaire);
+    }
+    navigate("/");
   };
 
   const remove = () => executeWithConfirmation(
@@ -58,39 +59,36 @@ const QuestionnaireEditor = ({
 
   return (
     <Loadable load={loadQuestionnaire}>
-      <QuestionnaireIdContext.Provider value={id}>
-        <CriticalContext.Provider value={critical}>
-          <form className={classNames(styles.QuestionnaireEditor, className)}>
+      <form className={classNames(styles.QuestionnaireEditor, className)}>
 
-            <QuestionnaireHeaderEditor
-              label={label}
-              setLabel={setLabel}
-              about={about}
-              setAbout={setAbout}
-              className={styles.section}
-            />
+        <QuestionnaireHeaderEditor
+          label={label}
+          setLabel={setLabel}
+          about={about}
+          setAbout={setAbout}
+          className={styles.section}
+        />
 
-            <QuestionnaireTagsEditor
-              tags={tags}
-              callback={setTags}
-              className={styles.section}
-            />
+        <QuestionnaireTagsEditor
+          tags={tags}
+          callback={setTags}
+          className={styles.section}
+        />
 
-            <QuestionsEditor
-              questions={questions}
-              setQuestions={setQuestions}
-              className={styles.section}
-            />
+        <QuestionsEditor
+          questions={questions}
+          setQuestions={setQuestions}
+          className={styles.section}
+        />
 
-            <Buttons
-              className={styles.section}
-              sumbit={submit}
-              remove={remove}
-            />
+        <Buttons
+          className={styles.section}
+          sumbit={submit}
+          remove={remove}
+          isQuestionnaireNew={id === 0}
+        />
 
-          </form>
-        </CriticalContext.Provider>
-      </QuestionnaireIdContext.Provider>
+      </form>
     </Loadable>
   );
 };

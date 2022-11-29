@@ -1,9 +1,7 @@
-import { useContext } from "react";
 
 import { Button } from "src/components";
 import { Question, QuestionType } from "src/models";
 
-import { QuestionnaireIdContext, CriticalContext } from "../../contexts";
 
 import { QuestionsList } from "./subcomponents";
 import styles from "./QuestionsEditor.module.sass";
@@ -17,9 +15,6 @@ const QuestionsEditor = ({
   className,
 }: QuestionsEditorProps) => {
 
-  const questionnaireId = useContext(QuestionnaireIdContext);
-  const critical = useContext(CriticalContext);
-
   const updateQuestion = (question: Question, index: number) => {
     const questionsCopy = [...questions];
     questionsCopy[index] = question;
@@ -27,7 +22,6 @@ const QuestionsEditor = ({
   };
 
   const removeQuestion = (index: number) => {
-    critical();
     const questionsCopy = [] as Question[];
     questions.forEach((question: Question, idx: number) => {
       if (idx !== index) questionsCopy.push(question);
@@ -36,7 +30,6 @@ const QuestionsEditor = ({
   };
 
   const addQuestion = () => {
-    critical();
     const fields = [
       { id: 0, text: "Первый вариант" },
       { id: 0, text: "Второй вариант" },
@@ -50,14 +43,6 @@ const QuestionsEditor = ({
   return (
     <div className={className}>
       <h2>Вопросы</h2>
-
-      {
-        questionnaireId !== 0 &&
-        <p className={styles.warningText}>
-          Добавление и/или удаление вопросов и/или вариантов ответа
-          повлечёт удаление данных уже собранных опросов!
-        </p>
-      }
 
       <QuestionsList
         questions={questions}

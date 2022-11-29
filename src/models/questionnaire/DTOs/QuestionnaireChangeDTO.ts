@@ -2,11 +2,9 @@ import Questionnaire from "../Questionnaire";
 
 class QuestionnaireChangeDTO {
   questionnaire: Questionnaire;
-  isCritical: boolean;
 
-  constructor(questionnaire: Questionnaire, isCritical: boolean) {
+  constructor(questionnaire: Questionnaire) {
     this.questionnaire = questionnaire;
-    this.isCritical = isCritical;
   }
 }
 
