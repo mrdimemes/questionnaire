@@ -9,7 +9,11 @@ import {
 } from "src/models";
 import { setTags } from "src/redux/slices/tagsSlice";
 
-import type { AnswersFromServer, QuestionnaireCardsBunch } from "src/types";
+import type {
+  AnswersFromServer,
+  QuestionnaireCardsBunch,
+  UserStatistics,
+} from "src/types";
 
 
 class QuestionnaireService {
@@ -26,6 +30,17 @@ class QuestionnaireService {
     try {
       const response = await api.get<AnswersFromServer[]>(
         "questionnaires/getAnswers/" + questionnaireId,
+      );
+      return response.data;
+    } catch (error) {
+      throw wrapFetchError(error);
+    };
+  };
+
+  static async getStatistics(userId: number) {
+    try {
+      const response = await api.get<UserStatistics[]>(
+        "questionnaires/getStatistics/" + userId,
       );
       return response.data;
     } catch (error) {
