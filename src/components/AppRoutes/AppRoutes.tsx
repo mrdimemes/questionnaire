@@ -6,6 +6,7 @@ import {
   QuestionnairePage,
   EditPage,
   AuthPage,
+  StatisticsPage,
 } from "src/pages";
 
 const AppRoutes = () => {
@@ -20,6 +21,7 @@ const AppRoutes = () => {
       <Route path="/edit" element={<EditPage />} />
       <Route path="/edit/:questionnaireId" element={<EditPage />} />
       <Route path="/auth" element={<AuthPage />} />
+      <Route path="/statistics" element={<StatisticsPage />} />
     </Routes>
   );
 };

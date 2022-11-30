@@ -4,3 +4,4 @@ export { TagsPage } from "./TagsPage";
 export { QuestionnairePage } from "./QuestionnairePage";
 export { EditPage } from "./EditPage";
 export { AuthPage } from "./AuthPage";
+export { StatisticsPage } from "./StatisticsPage";

@@ -14,12 +14,14 @@
 .popup
   position: absolute
   right: 0
-  bottom: -65px
+  top: 2em
   display: none
   @media (max-width: breakpoints.$small-screen)
     bottom: -55px
   @media (max-width: breakpoints.$tablet)
     bottom: -40px
-
-.opened
-  display: block
+  &.opened
+    display: flex
+    flex-direction: column
+    gap: 0.5em
+    align-items: end

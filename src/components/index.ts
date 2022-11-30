@@ -36,6 +36,8 @@ export { PaginationBar } from "./PaginationBar";
 export { SearchBar } from "./SearchBar";
 export { SortBar } from "./SortBar";
 
+export { UserStatistics } from "./UserStatistics";
+
 export {
   NotFoundErrorComponent,
   AccessDeniedErrorComponent,

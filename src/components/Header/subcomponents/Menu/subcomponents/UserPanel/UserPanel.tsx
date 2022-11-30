@@ -13,6 +13,7 @@ const UserPanel = () => {
   const navigate = useNavigate();
   const togglePopup = () => setIsPopupOpen(!isPopupOpen);
   const redirectToAuth = () => navigate("/auth");
+  const redirectToStatistics = () => navigate("/statistics");
 
   return (
     <div className={styles.UserPanel}>
@@ -26,6 +27,10 @@ const UserPanel = () => {
           <div className={classNames(
             styles.popup, { [styles.opened]: isPopupOpen },
           )}>
+            <Button
+              children="Статистика"
+              onClick={redirectToStatistics}
+            />
             <Button
               children="Выйти"
               onClick={AuthService.logout.bind(AuthService)}
