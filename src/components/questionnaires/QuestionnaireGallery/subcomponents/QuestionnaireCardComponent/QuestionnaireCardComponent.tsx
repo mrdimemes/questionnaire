@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { useNavigate } from "react-router-dom";
 
-import { TagBar, Button } from "src/components";
+import { TagBar, Button, LoadCSVButton } from "src/components";
 import { withTheme } from "src/HOCs";
 import { useUserAdminFlagSelector } from "src/redux/hooks";
 import { QuestionnaireService } from "src/services";
@@ -29,6 +29,7 @@ const QuestionnaireCardComponent = ({
     );
   };
 
+
   return (
     <div
       className={classNames(styles.QuestionnaireCard, className)}
@@ -41,6 +42,12 @@ const QuestionnaireCardComponent = ({
       {
         isUserAdmin &&
         <div className={styles.adminBar}>
+          <LoadCSVButton 
+            className={classNames(styles.icon, styles.loadButton)}
+            id={id}
+            fileName={`${id}-answers.csv`}
+            loadData={() => QuestionnaireService.getAnswers(id)}
+          />
           <Button
             className={classNames(styles.icon, styles.editButton)}
             onClick={() => navigate("/edit/" + id)}

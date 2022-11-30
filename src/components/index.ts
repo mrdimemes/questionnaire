@@ -30,6 +30,8 @@ export { LoadingSpinner } from "./LoadingSpinner";
 export { Loadable } from "./Loadable";
 export { Removeable } from "./Removeable";
 
+export { LoadCSVButton } from "./LoadCSVButton";
+
 export { PaginationBar } from "./PaginationBar";
 export { SearchBar } from "./SearchBar";
 export { SortBar } from "./SortBar";
