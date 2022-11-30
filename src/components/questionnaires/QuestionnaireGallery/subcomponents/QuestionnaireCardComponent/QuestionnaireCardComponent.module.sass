@@ -41,13 +41,17 @@
     background-color: colors.$dark-theme-bg-highlight
   & .deleteButton, .editButton, .loadButton
     background-color: colors.$dark-theme-4
-    &:hover
-      background-color: colors.$dark-theme-error
+  & .deleteButton:hover
+    background-color: colors.$dark-theme-error
+  & .editButton:hover, .loadButton:hover
+    background-color: colors.$dark-theme-success
 
 .theme_light
   &:hover
     background-color: colors.$light-theme-bg-highlight
   & .deleteButton, .editButton, .loadButton
     background-color: colors.$gray-1
-    &:hover
-      background-color: colors.$light-theme-error
+  & .deleteButton:hover
+    background-color: colors.$light-theme-error
+  & .editButton:hover, .loadButton:hover
+    background-color: colors.$light-theme-success
