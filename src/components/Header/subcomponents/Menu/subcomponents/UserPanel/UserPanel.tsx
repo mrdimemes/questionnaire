@@ -12,8 +12,14 @@ const UserPanel = () => {
   const userName = useUserNameSelector();
   const navigate = useNavigate();
   const togglePopup = () => setIsPopupOpen(!isPopupOpen);
-  const redirectToAuth = () => navigate("/auth");
-  const redirectToStatistics = () => navigate("/statistics");
+  const redirectToAuth = () => {
+    navigate("/auth");
+    setIsPopupOpen(false);
+  };
+  const redirectToStatistics = () => {
+    navigate("/statistics");
+    setIsPopupOpen(false);
+  };
 
   return (
     <div className={styles.UserPanel}>

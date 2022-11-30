@@ -19,6 +19,7 @@ const Menu = ({ className }: MenuProps) => {
   const toggleIsOpen = () => {
     setIsOpen(!isOpen);
   };
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <div className={classNames(styles.Menu, className)}>
@@ -29,7 +30,7 @@ const Menu = ({ className }: MenuProps) => {
         isOpen ? styles.opened : null,
       )}>
 
-        <Navigation />
+        <Navigation onClick={closeMenu} />
         <div className={styles.bar}>
           <ThemeSwitchButton />
           <UserPanel />

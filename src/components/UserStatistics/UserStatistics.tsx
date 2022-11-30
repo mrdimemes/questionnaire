@@ -20,7 +20,7 @@ const UserStatistics = ({ userId }: UserStatisticsProps) => {
   }[]>([]);
 
   const loadStatistics = useCallback(async () => {
-    const statistics = await QuestionnaireService.getStatistics(userId)
+    const statistics = await QuestionnaireService.getStatistics(userId);
     setTotalAnswers(statistics.totalAnswers);
     setWeekAnswers(statistics.weekAnswers);
     setMonthAnswers(statistics.monthAnswers);
