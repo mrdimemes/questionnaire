@@ -39,7 +39,7 @@ class QuestionnaireService {
 
   static async getStatistics(userId: number) {
     try {
-      const response = await api.get<UserStatistics[]>(
+      const response = await api.get<UserStatistics>(
         "questionnaires/getStatistics/" + userId,
       );
       return response.data;
