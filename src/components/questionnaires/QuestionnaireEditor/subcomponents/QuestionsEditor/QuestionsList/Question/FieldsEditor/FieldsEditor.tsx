@@ -4,7 +4,7 @@ import { Field as FieldModel } from "src/models";
 import { Button, Removeable } from "src/components";
 import { withTheme } from "src/HOCs";
 
-import { Field } from "./subcomponents";
+import { Field } from "./Field";
 import styles from "./FieldsEditor.module.sass";
 
 import type { FieldsEditorProps } from "./types";

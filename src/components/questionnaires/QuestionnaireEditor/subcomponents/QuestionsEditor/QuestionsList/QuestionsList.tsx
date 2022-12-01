@@ -4,7 +4,7 @@ import { Removeable } from "src/components";
 import { withTheme } from "src/HOCs";
 import { Question as QuestionModel } from "src/models";
 
-import { Question } from "./subcomponents";
+import { Question } from "./Question";
 import styles from "./QuestionsList.module.sass";
 
 import type { QuestionsListProps } from "./types";

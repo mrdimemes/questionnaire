@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 
 import { Question as QuestionModel } from "src/models";
 
-import { ConfigBar, QuestionTextEditor, FieldsEditor } from "./subcomponents";
-
+import { ConfigBar } from "./ConfigBar";
+import { QuestionTextEditor } from "./QuestionTextEditor";
+import { FieldsEditor } from "./FieldsEditor";
 import styles from "./Question.module.sass";
 
 import type { QuestionProps } from "./types";
