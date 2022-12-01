@@ -15,7 +15,7 @@ const Navigation = ({ onClick }: NavigationProps) => {
     <nav className={styles.Navigation}>
 
       <Link
-        to="/"
+        to="/questionnaire-client"
         className={classNames(
           styles.link,
           { [styles.active]: activePage === NavigationPage.Main },
@@ -26,7 +26,7 @@ const Navigation = ({ onClick }: NavigationProps) => {
       </Link>
 
       <Link
-        to="/questionnaires"
+        to="/questionnaire-client/questionnaires"
         className={classNames(
           styles.link,
           { [styles.active]: activePage === NavigationPage.QuestionnaireList },
@@ -37,7 +37,7 @@ const Navigation = ({ onClick }: NavigationProps) => {
       </Link>
 
       <Link
-        to="/tags"
+        to="/questionnaire-client/tags"
         className={classNames(
           styles.link,
           { [styles.active]: activePage === NavigationPage.Tags },

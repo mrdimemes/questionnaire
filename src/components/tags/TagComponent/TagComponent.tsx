@@ -14,7 +14,7 @@ const TagComponent = ({ tag, className }: TagComponentProps) => {
 
   const onClick = (event: SyntheticEvent) => {
     event.stopPropagation();
-    navigate("/questionnaires/" + tag.id);
+    navigate("/questionnaire-client/questionnaires/" + tag.id);
   };
 
   return (

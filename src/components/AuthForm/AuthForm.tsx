@@ -55,9 +55,10 @@ const AuthForm = ({ authOption, className }: AuthFormProps) => {
       validateAuthForm(authOption, email, name, password, passwordConfiramtion);
       if (authOption === AuthOption.registration) {
         AuthService.registration(email, name, password)
-          .then(() => navigate("/"));
+          .then(() => navigate("/questionnaire-client"));
       } else {
-        AuthService.login(email, password).then(() => navigate("/"));
+        AuthService.login(email, password)
+          .then(() => navigate("/questionnaire-client"));
       }
     } catch (error) {
       if (error instanceof ValidationError) {

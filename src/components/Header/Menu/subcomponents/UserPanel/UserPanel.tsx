@@ -13,11 +13,11 @@ const UserPanel = () => {
   const navigate = useNavigate();
   const togglePopup = () => setIsPopupOpen(!isPopupOpen);
   const redirectToAuth = () => {
-    navigate("/auth");
+    navigate("/questionnaire-client/auth");
     setIsPopupOpen(false);
   };
   const redirectToStatistics = () => {
-    navigate("/statistics");
+    navigate("/questionnaire-client/statistics");
     setIsPopupOpen(false);
   };
 

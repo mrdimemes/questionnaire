@@ -33,7 +33,7 @@ const QuestionnaireCardComponent = ({
   return (
     <div
       className={classNames(styles.QuestionnaireCard, className)}
-      onClick={() => navigate("/questionnaire/" + id)}
+      onClick={() => navigate("/questionnaire-client/questionnaire/" + id)}
     >
 
       <h2 className={styles.label}>{label}</h2>

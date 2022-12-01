@@ -12,16 +12,16 @@ import {
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainPage />} />
-      <Route path="/tags" element={<TagsPage />} />
-      <Route path="/questionnaires" element={<QuestionnaireListPage />} />
-      <Route path="/questionnaires/:tagId" element={<QuestionnaireListPage />} />
-      <Route path="/questionnaire/:questionnaireId"
+      <Route path="/questionnaire-client" element={<MainPage />} />
+      <Route path="/questionnaire-client/tags" element={<TagsPage />} />
+      <Route path="/questionnaire-client/questionnaires" element={<QuestionnaireListPage />} />
+      <Route path="/questionnaire-client/questionnaires/:tagId" element={<QuestionnaireListPage />} />
+      <Route path="/questionnaire-client/questionnaire/:questionnaireId"
         element={<QuestionnairePage />} />
-      <Route path="/edit" element={<EditPage />} />
-      <Route path="/edit/:questionnaireId" element={<EditPage />} />
-      <Route path="/auth" element={<AuthPage />} />
-      <Route path="/statistics" element={<StatisticsPage />} />
+      <Route path="/questionnaire-client/edit" element={<EditPage />} />
+      <Route path="/questionnaire-client/edit/:questionnaireId" element={<EditPage />} />
+      <Route path="/questionnaire-client/auth" element={<AuthPage />} />
+      <Route path="/questionnaire-client/statistics" element={<StatisticsPage />} />
     </Routes>
   );
 };

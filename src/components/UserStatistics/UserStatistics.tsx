@@ -46,7 +46,10 @@ const UserStatistics = ({ userId }: UserStatisticsProps) => {
           {
             lastAnswers.map(answer => {
               return <div className={styles.questionnaire}>
-                <Link to={"questionnaire/" + answer.questionnaireId}>
+                <Link
+                  to={"/questionnaire-clientquestionnaire/" +
+                    answer.questionnaireId}
+                >
                   {answer.questionnaireId}
                 </Link>
                 <span>{answer.uploadDate}</span>

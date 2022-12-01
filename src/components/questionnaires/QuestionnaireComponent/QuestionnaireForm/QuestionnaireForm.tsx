@@ -29,7 +29,7 @@ const QuestionnaireForm = ({
     try {
       validateQuestionnaireForm(answerDTO);
       QuestionnaireService.sendQuestionnaireAnswer(answerDTO);
-      navigate("/");
+      navigate("/questionnaire-client");
     } catch (error) {
       if (error instanceof ValidationError) {
         alertValidationResult(error.warnings);

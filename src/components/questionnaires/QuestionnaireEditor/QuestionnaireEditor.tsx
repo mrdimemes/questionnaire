@@ -39,7 +39,7 @@ const QuestionnaireEditor = ({
     } else {
       QuestionnaireService.editQuestionnaire(questionnaire);
     }
-    navigate("/");
+    navigate("/questionnaire-client");
   };
 
   const remove = () => executeWithConfirmation(
