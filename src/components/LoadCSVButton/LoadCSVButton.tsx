@@ -19,7 +19,7 @@ const LoadCSVButton = ({ className, id, loadData, fileName }: Props) => {
     loadData()
       .then(loadedData => {
         setData(loadedData);
-        linkRef.current?.link.click();
+        setTimeout(() => linkRef.current?.link.click(), 1000);
       });
   };
 
