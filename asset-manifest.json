@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/questionnaire-client/static/css/main.41ebe827.css",
+    "main.js": "/questionnaire-client/static/js/main.40179863.js",
+    "static/media/nunito-900.woff": "/questionnaire-client/static/media/nunito-900.37f1740c38600cd3db87.woff",
+    "static/media/nunito-600.woff": "/questionnaire-client/static/media/nunito-600.c8ac955628cc7c662b4f.woff",
+    "static/media/nunito-800.woff": "/questionnaire-client/static/media/nunito-800.59bc0f530ffcde17afde.woff",
+    "static/media/nunito-400.woff": "/questionnaire-client/static/media/nunito-400.7d4bc95464101ce8cc92.woff",
+    "static/media/nunito-300.woff": "/questionnaire-client/static/media/nunito-300.a5ac1eb0b224db2bf77e.woff",
+    "static/media/nunito-900.woff2": "/questionnaire-client/static/media/nunito-900.988e5d11e05271caa380.woff2",
+    "static/media/nunito-800.woff2": "/questionnaire-client/static/media/nunito-800.dd249807c54acf1bbe3b.woff2",
+    "static/media/nunito-600.woff2": "/questionnaire-client/static/media/nunito-600.41cc0cbd48472384f327.woff2",
+    "static/media/nunito-400.woff2": "/questionnaire-client/static/media/nunito-400.452ea049a3006104a023.woff2",
+    "static/media/nunito-300.woff2": "/questionnaire-client/static/media/nunito-300.a3297c068bde0e335d98.woff2",
+    "static/media/edu-nsw-act-foundation-700.woff": "/questionnaire-client/static/media/edu-nsw-act-foundation-700.db3cae7e6f3a529f0d20.woff",
+    "static/media/edu-nsw-act-foundation-700.woff2": "/questionnaire-client/static/media/edu-nsw-act-foundation-700.d6321c8ec6089eac671f.woff2",
+    "static/media/light-mode-icon.svg": "/questionnaire-client/static/media/light-mode-icon.cc57054c0dc3cd810126.svg",
+    "static/media/dark-mode-icon.svg": "/questionnaire-client/static/media/dark-mode-icon.9b430fea8cf954bf485b.svg",
+    "static/media/download.svg": "/questionnaire-client/static/media/download.8f072ba889345f31fd6e.svg",
+    "static/media/edit.svg": "/questionnaire-client/static/media/edit.d963810ab331d31b1a8f.svg",
+    "static/media/plates.svg": "/questionnaire-client/static/media/plates.94a62269724d5c20b35c.svg",
+    "static/media/rows.svg": "/questionnaire-client/static/media/rows.0021864954de2b22f156.svg",
+    "static/media/close.svg": "/questionnaire-client/static/media/close.028d97f175176ec3450d.svg",
+    "index.html": "/questionnaire-client/index.html",
+    "static/media/plus.svg": "/questionnaire-client/static/media/plus.62ae69e7f1c5913c5764.svg",
+    "main.41ebe827.css.map": "/questionnaire-client/static/css/main.41ebe827.css.map",
+    "main.40179863.js.map": "/questionnaire-client/static/js/main.40179863.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.41ebe827.css",
+    "static/js/main.40179863.js"
+  ]
+}
