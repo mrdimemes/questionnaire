@@ -4,7 +4,7 @@ import { Tag } from "src/models";
 import { Removeable, TagComponent } from "src/components";
 import { useTagsMapSelector } from "src/redux/hooks";
 
-import { NewTagWidget } from "./subcomponents";
+import { NewTagWidget } from "./NewTagWidget";
 import styles from "./QuestionnaireTagsEditor.module.sass";
 
 import type { QuestionnaireTagsEditorBarProps } from "./types";

@@ -1,8 +1,8 @@
 import classNames from "classnames";
+
 import { withTheme } from "src/HOCs";
 
-import { Menu } from "./subcomponents";
-
+import { Menu } from "./Menu";
 import styles from "./Header.module.sass";
 
 import type { HeaderProps } from "./types";

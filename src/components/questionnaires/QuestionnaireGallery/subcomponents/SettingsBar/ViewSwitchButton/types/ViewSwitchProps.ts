@@ -1,4 +1,4 @@
-import { GalleryView } from "../../../../../models";
+import { GalleryView } from "../../../../models";
 
 
 export type ViewSwitchProps = {

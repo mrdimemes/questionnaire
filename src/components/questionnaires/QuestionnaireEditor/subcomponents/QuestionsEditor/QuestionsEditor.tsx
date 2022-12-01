@@ -2,8 +2,7 @@
 import { Button } from "src/components";
 import { Question, QuestionType } from "src/models";
 
-
-import { QuestionsList } from "./subcomponents";
+import { QuestionsList } from "./QuestionsList";
 import styles from "./QuestionsEditor.module.sass";
 
 import type { QuestionsEditorProps } from "./types";

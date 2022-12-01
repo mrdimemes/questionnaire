@@ -1,7 +1,7 @@
 import { SearchBar, SortBar } from "src/components";
 import { SortOption } from "src/models";
 
-import { ViewSwitchButton } from "./subcomponents";
+import { ViewSwitchButton } from "./ViewSwitchButton";
 import styles from "./SettingsBar.module.sass";
 
 import type { SettingsBarProps } from "./types";

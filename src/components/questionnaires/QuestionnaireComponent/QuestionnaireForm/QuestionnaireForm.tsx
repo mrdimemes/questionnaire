@@ -6,7 +6,7 @@ import { QuestionnaireService } from "src/services";
 import { ValidationError } from "src/exceptions";
 import { FetchError } from "src/api/exceptions";
 
-import { Question } from "./subcomponents";
+import { Question } from "./Question";
 import { answersReducer } from "./reducers";
 import { AnswersDispatchContext } from "./contexts";
 import { getAnswerDTO, alertValidationResult } from "./helpers";

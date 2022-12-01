@@ -3,8 +3,8 @@ import { useState, useEffect, useContext } from "react";
 import { TextInput } from "src/components";
 
 import { Field } from "../";
-import { changeTextFieldValue } from "../../../../reducers/actions";
-import { AnswersDispatchContext } from "../../../../contexts";
+import { changeTextFieldValue } from "../../../reducers/actions";
+import { AnswersDispatchContext } from "../../../contexts";
 
 import styles from "./TextField.module.sass";
 

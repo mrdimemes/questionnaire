@@ -3,8 +3,8 @@ import { useState, useRef, useEffect, useContext } from "react";
 import { CheckboxInput } from "src/components";
 
 import { Field } from "../";
-import { changeCheckboxFieldValue } from "../../../../reducers/actions";
-import { AnswersDispatchContext } from "../../../../contexts";
+import { changeCheckboxFieldValue } from "../../../reducers/actions";
+import { AnswersDispatchContext } from "../../../contexts";
 
 import type { CheckboxFieldProps } from "./types";
 

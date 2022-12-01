@@ -3,8 +3,8 @@ import { useState, useRef, useEffect, useContext } from "react";
 import { RadioInput } from "src/components";
 
 import { Field } from "../";
-import { changeRadioFieldValue } from "../../../../reducers/actions";
-import { AnswersDispatchContext } from "../../../../contexts";
+import { changeRadioFieldValue } from "../../../reducers/actions";
+import { AnswersDispatchContext } from "../../../contexts";
 
 import type { RadioFieldProps } from "./types";
 

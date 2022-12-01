@@ -6,7 +6,7 @@ import { QuestionnaireService } from "src/services";
 import { TagBar, Loadable } from "src/components";
 import { withTheme } from "src/HOCs";
 
-import { QuestionnaireForm } from "./subcomponents";
+import { QuestionnaireForm } from "./QuestionnaireForm";
 import styles from "./QuestionnaireComponent.module.sass";
 
 import type { QuestionnaireComponentProps } from "./types";
