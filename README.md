@@ -51,6 +51,10 @@
 - [Front-end](https://github.com/mrdimemes/questionnaire-client)
 - [Back-end](https://github.com/mrdimemes/questionnaire-server)
 
+## Диплой версия
+
+- [Клиент - GitHub Pages](https://mrdimemes.github.io/questionnaire-client/)
+
 # Контакты
 
 - [Почта](mailto:shagurovda@gmail.com)
