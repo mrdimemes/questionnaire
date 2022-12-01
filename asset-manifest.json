@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/questionnaire-client/static/css/main.41ebe827.css",
-    "main.js": "/questionnaire-client/static/js/main.40179863.js",
+    "main.js": "/questionnaire-client/static/js/main.a1580f05.js",
     "static/media/nunito-900.woff": "/questionnaire-client/static/media/nunito-900.37f1740c38600cd3db87.woff",
     "static/media/nunito-600.woff": "/questionnaire-client/static/media/nunito-600.c8ac955628cc7c662b4f.woff",
     "static/media/nunito-800.woff": "/questionnaire-client/static/media/nunito-800.59bc0f530ffcde17afde.woff",
@@ -24,10 +24,10 @@
     "index.html": "/questionnaire-client/index.html",
     "static/media/plus.svg": "/questionnaire-client/static/media/plus.62ae69e7f1c5913c5764.svg",
     "main.41ebe827.css.map": "/questionnaire-client/static/css/main.41ebe827.css.map",
-    "main.40179863.js.map": "/questionnaire-client/static/js/main.40179863.js.map"
+    "main.a1580f05.js.map": "/questionnaire-client/static/js/main.a1580f05.js.map"
   },
   "entrypoints": [
     "static/css/main.41ebe827.css",
-    "static/js/main.40179863.js"
+    "static/js/main.a1580f05.js"
   ]
 }
