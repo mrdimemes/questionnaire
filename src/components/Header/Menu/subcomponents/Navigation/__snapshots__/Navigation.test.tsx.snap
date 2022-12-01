@@ -3,7 +3,7 @@
 exports[`Header/Navigation component Navigation snapshot 1`] = `
 <div>
   <nav
-    class="body"
+    class="Navigation"
   >
     <a
       class="link"

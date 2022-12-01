@@ -3,10 +3,10 @@
 exports[`Header/User component Header/User snapshot 1`] = `
 <div>
   <div
-    class="body"
+    class="UserPanel"
   >
     <button
-      class="body theme_light"
+      class="Button theme_light"
     >
       Войти
     </button>

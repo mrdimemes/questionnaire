@@ -3,13 +3,20 @@
 exports[`Header/Menu component Menu snapshot 1`] = `
 <div>
   <div
-    class="body"
+    class="Menu theme_light"
   >
+    <button
+      class="Button BurgerMenuButton theme_light theme_light"
+    >
+      <div
+        class="icon"
+      />
+    </button>
     <div
-      class="interactive theme_light"
+      class="container"
     >
       <nav
-        class="body"
+        class="Navigation"
       >
         <a
           class="link"
@@ -31,29 +38,22 @@ exports[`Header/Menu component Menu snapshot 1`] = `
         </a>
       </nav>
       <div
-        class="meta"
+        class="bar"
       >
         <button
-          class="body theme_light body theme_light"
+          class="Button body theme_light theme_light"
         />
         <div
-          class="body"
+          class="UserPanel"
         >
           <button
-            class="body theme_light"
+            class="Button theme_light"
           >
             Войти
           </button>
         </div>
       </div>
     </div>
-    <button
-      class="body theme_light body"
-    >
-      <div
-        class="icon theme_light"
-      />
-    </button>
   </div>
 </div>
 `;

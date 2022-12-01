@@ -2,30 +2,56 @@
 
 exports[`TagGallery component TagGallery empty snapshot 1`] = `
 <div>
-  <div
-    class="gallery"
-  >
+  <div>
     <div
-      class="widget addTagWidget"
+      class="TagGallery"
     >
-      <button
-        class="body theme_light focusButton"
+      <div
+        class="SettingsBar settings"
       >
-        +
-      </button>
-    </div>
-    <div
-      class="Bar pagination"
-    >
-       
-       
-       
-      <button
-        class="body theme_light"
+        <input
+          class="Input TextInput search theme_light"
+          maxlength="50"
+          name="search"
+          placeholder="Поиск..."
+          type="text"
+          value=""
+        />
+        <select
+          class="Select theme_light"
+          name="sortby"
+        >
+          <option
+            selected=""
+            value="NO_SORT"
+          >
+            Не сортировать
+          </option>
+          <option
+            value="ALPHABET"
+          >
+            По названию (А-Я)
+          </option>
+          <option
+            value="REVERSE_ALPHABET"
+          >
+            По названию (Я-А)
+          </option>
+          <option
+            value="FREQUENCY"
+          >
+            По частоте
+          </option>
+        </select>
+      </div>
+      <p
+        class="prompt"
       >
-        Вперёд
-      </button>
-       
+        По запросу ничего не найдено.
+      </p>
+      <div
+        class="tags"
+      />
     </div>
   </div>
 </div>

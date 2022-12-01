@@ -1,27 +1,103 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header/Burger component Burger snapshot 1`] = `
+exports[`Question component Question snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <button
-        class="body theme_light body"
+      <div
+        class="Question theme_light"
       >
+        <p
+          class="text"
+        >
+          test
+        </p>
         <div
-          class="icon theme_light"
-        />
-      </button>
+          class="fields"
+        >
+          <div
+            class="Field"
+          >
+            <input
+              class="Input CheckboxInput theme_light theme_light"
+              name="1"
+              type="checkbox"
+              value=""
+            />
+            <label
+              class="label"
+              for="1"
+            >
+              field1
+            </label>
+          </div>
+          <div
+            class="Field"
+          >
+            <input
+              class="Input CheckboxInput theme_light theme_light"
+              name="1"
+              type="checkbox"
+              value=""
+            />
+            <label
+              class="label"
+              for="2"
+            >
+              field2
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <button
-      class="body theme_light body"
+    <div
+      class="Question theme_light"
     >
+      <p
+        class="text"
+      >
+        test
+      </p>
       <div
-        class="icon theme_light"
-      />
-    </button>
+        class="fields"
+      >
+        <div
+          class="Field"
+        >
+          <input
+            class="Input CheckboxInput theme_light theme_light"
+            name="1"
+            type="checkbox"
+            value=""
+          />
+          <label
+            class="label"
+            for="1"
+          >
+            field1
+          </label>
+        </div>
+        <div
+          class="Field"
+        >
+          <input
+            class="Input CheckboxInput theme_light theme_light"
+            name="1"
+            type="checkbox"
+            value=""
+          />
+          <label
+            class="label"
+            for="2"
+          >
+            field2
+          </label>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

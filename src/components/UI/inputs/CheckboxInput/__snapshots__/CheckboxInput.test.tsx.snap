@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <input
-        class="Input theme_light CheckboxInput theme_light"
+        class="Input CheckboxInput theme_light theme_light"
         name="test"
         type="checkbox"
         value=""
@@ -15,7 +15,7 @@ Object {
   </body>,
   "container": <div>
     <input
-      class="Input theme_light CheckboxInput theme_light"
+      class="Input CheckboxInput theme_light theme_light"
       name="test"
       type="checkbox"
       value=""

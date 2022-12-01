@@ -1,87 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Question component Question snapshot 1`] = `
+exports[`Header/Burger component Burger snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div>
-        <p
-          class="text"
-        >
-          test
-        </p>
+      <button
+        class="Button BurgerMenuButton theme_light theme_light"
+      >
         <div
-          class="fields"
-        >
-          <div
-            class="row_field"
-          >
-            <input
-              class="Input theme_light CheckboxInput theme_light"
-              name="1"
-              type="checkbox"
-              value=""
-            />
-            <div>
-              field1
-            </div>
-          </div>
-          <div
-            class="row_field"
-          >
-            <input
-              class="Input theme_light CheckboxInput theme_light"
-              name="1"
-              type="checkbox"
-              value=""
-            />
-            <div>
-              field2
-            </div>
-          </div>
-        </div>
-      </div>
+          class="icon"
+        />
+      </button>
     </div>
   </body>,
   "container": <div>
-    <div>
-      <p
-        class="text"
-      >
-        test
-      </p>
+    <button
+      class="Button BurgerMenuButton theme_light theme_light"
+    >
       <div
-        class="fields"
-      >
-        <div
-          class="row_field"
-        >
-          <input
-            class="Input theme_light CheckboxInput theme_light"
-            name="1"
-            type="checkbox"
-            value=""
-          />
-          <div>
-            field1
-          </div>
-        </div>
-        <div
-          class="row_field"
-        >
-          <input
-            class="Input theme_light CheckboxInput theme_light"
-            name="1"
-            type="checkbox"
-            value=""
-          />
-          <div>
-            field2
-          </div>
-        </div>
-      </div>
-    </div>
+        class="icon"
+      />
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

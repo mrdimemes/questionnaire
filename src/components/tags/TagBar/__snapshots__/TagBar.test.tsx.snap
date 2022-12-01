@@ -3,31 +3,44 @@
 exports[`TagBar component TagBar snapshot 1`] = `
 <div>
   <div
-    class="body"
+    class="TagBar"
   >
-     
     <div
-      class="body theme_light"
+      class="Tag theme_light"
     >
       <div>
         TestTag1
       </div>
+      <div
+        class="frequency"
+      >
+        7
+      </div>
     </div>
     <div
-      class="body theme_light"
+      class="Tag theme_light"
     >
       <div>
         TestTag2
       </div>
+      <div
+        class="frequency"
+      >
+        7
+      </div>
     </div>
     <div
-      class="body theme_light"
+      class="Tag theme_light"
     >
       <div>
         TestTag3
       </div>
+      <div
+        class="frequency"
+      >
+        7
+      </div>
     </div>
-     
   </div>
 </div>
 `;
